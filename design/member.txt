@@ -1,0 +1,21 @@
+이메일 email S
+비밀번호 pw S
+이름 first_name S
+성 last_name S
+메일체크 mail_certificate B d:f
+신원확인 is_certificate B d:f
+신분증 pic_certificate S
+전화번호 cellphone S
+판매자 seller_check B d:f
+네이버 naver{id S, name S,validation B d:f}
+구글 google{id S}
+메일링 mailing B d:f
+메세지 message B d:f
+가입일 submit_date D d:moment().format()
+최근로그인 last_login D
+로그인아이피 last_login_ip S
+프로필사진 [{image_name S,image_url S,image_size S}]
+
+
+자기소개
+배송지관리 추가해야함

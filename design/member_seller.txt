@@ -1,0 +1,13 @@
+판매자등록일 submit_date D d:moment(),format()
+주소 address{우편번호 post S, 도로명or동주소 add1 S, 상세주소 add2 S, x좌표 x N, y좌표 y N (여기서 x,y는 WGS84좌표계 좌표)}
+매장이름 shopName S
+설명 explain S
+운영시간 시작 openTime S
+운영시간 끝 closeTime S
+수용인원 capacity N
+옵션:방문 option_visit B d:f
+옵션:포장 option_takeout B d:f
+옵션:배달 option_delivery B d:f
+사진 shop_image [{사진이름 image_name S, 사진주소 image_url S, 사진크기 image_size S}]
+최소주문금액 min_order_value N
+최소주문일 min_order_date N

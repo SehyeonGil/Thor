@@ -1,0 +1,9 @@
+mongoose
+passport
+body-parser
+crypto-browserify
+nodemailer
+socket.io
+pug
+moment
+bcrypt
