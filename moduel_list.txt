@@ -7,3 +7,6 @@ socket.io
 pug
 moment
 bcrypt
+passport-local
+express-session
+randomstring 1.1.5

@@ -2,13 +2,20 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+//var bodyParser = require('body-parser');
 var logger = require('morgan');
+var session=require('express-session');
+var passport = require('passport');
 var mongoose=require('mongoose');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var index = require('./routes/index');
+var sellerRouter = require('./routes/seller/index');
+var memberRouter = require('./routes/member/index');
 
 var app = express();
+
+mongoose.connect('mongodb://localhost/Thor');
+mongoose.Promise = global.Promise;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,8 +27,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(session({
+    secret: '123456789!@#$',
+    resave: false,
+    saveUninitialized: true
+}));
+
+app.use('/', index);
+app.use('/member', memberRouter);
+app.use('/seller', sellerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

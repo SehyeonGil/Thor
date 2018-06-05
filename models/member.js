@@ -25,6 +25,7 @@ var MemberSchema = new Schema({
     google: {
         id: String
     },
+    provider:String,
     mailing:{type:Boolean,default:false},
     message:{type:Boolean,default:false},
     submit_date:{type: Date, default: moment().format()},
@@ -37,7 +38,7 @@ var MemberSchema = new Schema({
     }]
 });
 
-const saltRounds = 10;
+var saltRounds = 10;
 
 //password를 암호화
 MemberSchema.methods.generateHash =function(password){
