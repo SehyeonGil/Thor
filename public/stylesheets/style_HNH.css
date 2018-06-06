@@ -2730,7 +2730,24 @@ article.single-post p {
 .comment button {
   margin: 10px 0;
 }
-
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.one {
+  grid-column: 1;
+  grid-row: 1;
+}
+.two {
+  grid-column: 2;
+  grid-row: 1;
+}
+.three {
+  grid-column: 3;
+  grid-row: 1;
+}
 .logIn .panel .panel-heading {
   background-color: #f95669;
   padding: 0 15px;
