@@ -39,7 +39,58 @@
     <![endif]-->
 
 </head>
+<script>
 
+    function checkValue(){
+        var passwordExp=/^(?=.*[a-zA-Z])(?=.*[~!@#$%][.*[0~9]).{6,15}$/;
+        if(!document.myform.password.value.match(passwordExp)){
+            alert("영문 대소문자, 숫자, ~!@#$%로 6~15글자 사이로 입력하세요.");
+            return false;
+        }
+        var firstnameExp=/^[가-힣A-Za-z]{2,30}$/;
+        if(!document.myform.firstname.value.match(firstnameExp)){
+            alert("정확한 이름을 입력하세요.");
+            return false;
+        }
+        var lastnameExp=/^[가-힣A-Za-z]{2,30}$/;
+        if(!document.myform.lastname.value.match(lastnameExp)){
+            alert("정확한 성을 입력하세요.");
+            return false;
+        }
+        var emailExp=/^[a-zA-Z0-9.!#$%&'+\/=?^_'{|}+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if(!document.myform.email.value.match(emailExp)){
+            alert("이메일 형식에 맞게 입력하세요.");
+            return false;
+        }
+        if(document.myform.lastname.value ==""){
+            alert("성을 입력하세요.");
+            document.myform.lastname.focus();
+            return false;
+        }else if(document.myform.firstname.value==""){
+            alert("이름을 입력하세요.");
+            document.myform.firstname.focus();
+            return false;
+        }else if(document.myform.email.value==""){
+            alert("이메일을 입력하세요.");
+            document.myform.email.focus();
+            return false;
+        }else if(document.myform.password.value ==""){
+            alert("비밀번호를 입력하세요.");
+            document.myform.password.focus();
+            return false;
+        }else if(document.myform.pw_confirm.value ==""){
+            alert("비밀번호 확인을 입력하세요.");
+            document.myform.password.focus();
+            return false;
+        }else if(document.myform.password.value !=document.myform.pw_confirm.value){
+            alert("비밀번호가 다릅니다.");
+            document.myform.pw_confirm.focus();
+            return false;
+        }
+        return true;
+    }
+
+</script>
 <body class="body-wrapper">
 
 
@@ -187,14 +238,14 @@
                 <div class="panel">
                     <div class="panel-heading"><h3>Join</h3></div>
                     <div class="panel-body">
-                        <form action="" method="POST" role="form">
+                        <form action="" method="POST" role="form" name="myform" onsubmit="return checkValue();">
                             <div class="form-group">
                                 <label for="">Lastname</label>
-                                <input type="email" class="form-control" id="lastname" name="lastname">
+                                <input type="text" class="form-control" id="lastname" name="lastname">
                             </div>
                             <div class="form-group">
                                 <label for="">Firstname</label>
-                                <input type="email" class="form-control" id="firstname" name="firstname">
+                                <input type="text" class="form-control" id="firstname" name="firstname">
                             </div>
                             <div class="form-group">
                                 <label for="">Enter Email</label>
@@ -202,7 +253,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="a~z / 0~9 / ~!@#$%   Max 15 digits!">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="A~Z / a~z / 0~9 / ~!@#$%   Max 15 digits!">
                             </div>
                             <div class="form-group">
                                 <label for="">Password confirm</label>
