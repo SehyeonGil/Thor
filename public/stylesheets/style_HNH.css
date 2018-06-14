@@ -741,7 +741,10 @@ input {
 }
 
 .bg-1 {
-  background: url(../img/home/hero.png);
+  background: url(../img/home/main1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .bg-2 {
