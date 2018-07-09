@@ -761,6 +761,12 @@ input {
   background: #f95669;
 }
 
+.bg-5 {
+  background: url(../img/register_chef/chef2.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 .border-bottom {
   border-bottom: 1px solid #ebe9e9;
 }
@@ -1152,10 +1158,38 @@ ul.pagination .active a {
   fill: #f95669;
 }
 
+._1po460c {
+  background-color: rgba(247,247,247,1.00) !important;
+  min-height: 275px !important;
+}
+
 .hero-area .content-block h1, .hero-area-2 .content-block h1 {
   color: #fff;
   font-size: 65px;
   font-weight: bold;
+  letter-spacing: 0.05em;
+  margin-bottom: 15px;
+}
+
+.hero-area .content-block h2, .hero-area-2 .content-block h2 {
+  color: #fff;
+  font-size: 45px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  margin-bottom: 15px;
+}
+
+.hero-area .content-block h3 {
+  color: #444444;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  margin-bottom: 15px;
+}
+
+.hero-area .content-block h6 {
+  color: #444444;
+  font-size: 16px;
   letter-spacing: 0.05em;
   margin-bottom: 15px;
 }
@@ -1180,7 +1214,7 @@ ul.pagination .active a {
 }
 
 .hero-area {
-  padding: 100px 0 0;
+  padding: 200px 0 0;
 }
 
 .hero-area .content-block {
