@@ -92,7 +92,7 @@ exports.reconfirm=function (req,res,next) {
 exports.kakaoLogin=function(req,res,next){
        passport.authenticate('kakao',{failureRedirect:'#!/login'
        })(req,res,next);
-}
+};
 exports.kakaoLoginCallback=function(req,res,next){
        console.log('jap');
        passport.authenticate('kakao',function(err,user,info){
@@ -103,7 +103,7 @@ exports.kakaoLoginCallback=function(req,res,next){
 exports.naverLogin=function(req,res,next){
                 passport.authenticate('naver',{failureRedirect:'#!/login'
         })(req,res,next);
-}
+};
 exports.naverLoginCallback=function(req,res,next){
         console.log('jap');
         passport.authenticate('naver',function(err,user,info){
@@ -114,6 +114,6 @@ exports.naverLoginCallback=function(req,res,next){
     
 exports.googleLogin=function(req,res,next){
     passport.authenticate('')
-}
+};
 
-exports.googleLoginCallback=function(){}
+exports.googleLoginCallback=function(){};
