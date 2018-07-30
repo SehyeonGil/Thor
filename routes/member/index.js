@@ -41,6 +41,11 @@ router.get('/Find_Password', function(req, res, next) {
     res.render('find_pw_KSW');
 });
 
+/* GET email_complete page. */
+router.get('/email_complete', function(req, res, next) {
+    res.render('email_complete_KSW');
+});
+
 router.post('/SignUp',controller.normalSignup);
 router.post('/Login', controller.loginAttemp);
 router.post('/reconfirm',controller.reconfirm);

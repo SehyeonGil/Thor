@@ -112,36 +112,31 @@ html(lang='en')
                                     .form-group
                                         label(for='') Password confirm
                                         input#pw_confirm.form-control(type='password', name='pw_confirm')
-                                    button.btn.btn-primary.btn-block(type='submit') join
+                                    button.btn.btn-primary.btn-block(type='submit', data-toggle='modal', data-target='#email_auth') join
+
         //
           ============================
           =            Footer            =
           =============================
         include components/footer_KSW
 
-        // CUPON MODAL
-        #cupon.modal.fade.cupon-modal(tabindex='-1', role='dialog')
+        // 이메일 발송 페이지 and 인증 안하고 로그인시 인증요청 페이지
+        #email_auth.modal.fade.cupon-modal(tabindex='-1', role='dialog')
             .modal-dialog(role='document')
                 .modal-content
                     .modal-header
-                        img(src='img/popular-offer/popular-offer-1.png', alt='Store Icon')
-                        h4 Free Shipping on orders over $100
-                        button.close(type='button', data-dismiss='modal', aria-label='Close')
-                            span(aria-hidden='true') ×
+                        img(src='../img/home/thorLogo.png', alt='Store Icon', style='margin: auto; display: block;')
                     .modal-body
-                        h6 Copy this promo code and paste when you checkout
-                        p.coupon-code eats-s79y5eqyueMHZ
-                        form(action='#')
-                            .form-group
-                                label(for='') Did it work?
-                                .btn-group
-                                    .btn.btn-transparent
-                                        i.fa.fa-smile-o
-                                    .btn.btn-transparent
-                                        i.fa.fa-frown-o
-                                    .btn.btn-transparent
-                                        i.fa.fa-star
-                                a.btn.btn-transparent(href='#') Back to store
+                        //img(src='../img/home/thorLogo.png', alt='Store Icon', style='margin: auto; display: block;')
+                        h6(style='text-align: center;')
+                            strong artbit2012@gmail.com
+                            |  로 인증 메일을 발송하였습니다.
+                        br
+                        p.coupon-code
+                            u 30분 내로 메일 인증을 하시면 최종 회원 가입이 완료됩니다.
+                        a.btn.btn-transparent(href='#', style='float: left;') 메일 재발송
+                        a.btn.btn-transparent(href='/', style='float: right;') 메인으로 돌아가기
+
         // JAVASCRIPTS
         script(src='../plugins/jquery/jquery.min.js')
         script(src='../plugins/jquery-ui/jquery-ui.min.js')
