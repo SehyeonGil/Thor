@@ -26,6 +26,26 @@ router.get('/', function(req, res, next) {
     res.send('respond with a resource');
 });
 
+/* GET join page. */
+router.get('/Join', function(req, res, next) {
+    res.render('join_KSW');
+});
+
+/* GET login page. */
+router.get('/Login', function(req, res, next) {
+    res.render('login_KSW');
+});
+
+/* GET find_password page. */
+router.get('/Find_Password', function(req, res, next) {
+    res.render('find_pw_KSW');
+});
+
+/* GET email_complete page. */
+router.get('/email_complete', function(req, res, next) {
+    res.render('email_complete_KSW');
+});
+
 router.post('/SignUp',controller.normalSignup);
 router.post('/Login', controller.loginAttemp);
 router.post('/reconfirm',controller.reconfirm);

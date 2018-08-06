@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- PLUGINS CSS STYLE -->
+    <link href="../../public/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="../../public/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../../public/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+
+<a href="#cupon" class="btn btn-dual" data-toggle="modal"></a>
+
+ <!--인증 메일 발송 인증 안하고 로그인시 요청 페이지-->
+<div class="modal fade cupon-modal" id="cupon" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="../../public/img/home/thorLogo.png" alt="Store Icon">
+                <h4>인증 메일 발송</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h6><strong>artbit2012@gmail.com</strong> 로 인증 메일을 발송하였습니다.</h6><br>
+                <!--이 부분에 사용자가 회원 가입시 입력한 메일 주소 불러와야함-->
+                <p class="coupon-code"><u>30분 내로 메일 인증을 하시면 최종 회원 가입이 완료됩니다.</u></p>
+                <a href="#" class="btn btn-transparent" style="float: left;">메일 재발송</a>
+                <a href="#" class="btn btn-transparent" style="float: right;">메인으로 돌아가기</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--이메일 인증번호 눌렀을때 페이지-->
+<div class="modal cupon-modal" id="cupon" tabindex="-1" role="dialog" style="display: block;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="../../public/img/home/thorLogo.png" alt="Store Icon">
+                <h4>회원가입 완료!!</h4>
+            </div>
+            <div class="modal-body">
+                <!--<a href="#" class="btn btn-transparent" style="float: left;">로그인</a>-->
+                <!--<a href="#" class="btn btn-transparent" style="float: right;">메인으로 돌아가기</a>-->
+                <button class="btn btn-primary" style="float: left; cursor: pointer;">로그인</button>
+                <button class="btn btn-primary" style="float: right; cursor: pointer;">메인으로 돌아가기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../public/plugins/jquery/jquery.min.js"></script>
+<script src="../../public/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="../../public/plugins/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

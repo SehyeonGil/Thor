@@ -45,18 +45,25 @@ app.use('/seller', sellerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+    next(createError(404));
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
+});
+
+var httpServer = http.createServer(app);
+
+app.set('port', process.env.PORT || 3000);
+httpServer.listen(app.get('port'), function () {
+    console.log('https 서버가 시작되었습니다. 포트 : ' + app.get('port'));
 });
 
 module.exports = app;

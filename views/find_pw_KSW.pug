@@ -1,3 +1,6 @@
+//
+   Created by SW on 2018-07-26.
+
 doctype html
 html(lang='en')
     head
@@ -5,7 +8,7 @@ html(lang='en')
         meta(charset='utf-8')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1')
-        title Join-Thor
+        title Find_Password
         // PLUGINS CSS STYLE
         link(href='../plugins/jquery-ui/jquery-ui.min.css', rel='stylesheet')
         // Bootstrap
@@ -45,31 +48,14 @@ html(lang='en')
                     .col-md-7.col-lg-8.col-xl-7.col-12
                         .panel
                             .panel-heading
-                                h3 log in
+                                h3 Find Password
                             .panel-body
                                 form(action='', method='POST', role='form')
                                     .form-group
                                         label(for='') Enter Email
-                                        input#email.form-control(type='email', name='email')
-                                    .form-group
-                                        label(for='') Password
-                                        input#password.form-control(type='password', name='password')
-                                    .form-check
-                                        input#checkbox-1.checkbox-custom.form-check-input(name='checkbox-1', type='checkbox')
-                                        label.checkbox-custom-label.form-check-label(for='checkbox-1') Remember me
-                                    button.btn.btn-primary.btn-block(type='submit') log in
-                                    .wrapper
-                                        .d-block.social-login.text-center.one
-                                            button.btn.btn-social.titled.naver
-                                                | login naver
-                                        .d-block.social-login.text-center.two
-                                            button.btn.btn-social.titled.kakao
-                                                | login kakao
-                                        .d-block.social-login.text-center.three
-                                            button.btn.btn-social.titled.google
-                                                | login google
-                                    button.btn.btn-link.btn-block(type='button', onclick="location.href='../member/Join'") join
-                                    button.btn.btn-link.btn-block(type='button', onclick="location.href='../member/Find_Password'") Forgot Password?
+                                        input.form-control(type='email', id='')
+                                    button.btn.btn-primary.btn-block(type='submit') Find
+                                    button.btn.btn-link.btn-block(type='button') join
         //
           ============================
           =            Footer            =
