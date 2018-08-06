@@ -202,17 +202,19 @@
                     <p>우리집 주방에서 요리하고 수익을 창출할 수 있는 기회! <br> 지금 지원하세요!</p>
                 </div>
 
-                    <form action="#">
-                        <div class="row">
-                            <!-- Store Search -->
-                            <div class="col-lg-12 col-md-12">
-                                <div class="block d-flex align-items-end flex-column">
-                                    <!-- Search Button -->
-                                    <button class="btn btn-secondary">START</button>
+                <form action="#">
+                    <div class="row">
+                        <!-- Store Search -->
+                        <div class="col-lg-12 col-md-12">
+                            <div class="block d-flex align-items-end flex-column">
+                                <!-- Start Button -->
+                                <div class="scrollbtn">
+                                    <button class="btn btn-secondary" onclick="scrolling('.scroll   ')">START</button>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -247,47 +249,18 @@
         <div class="row">
             <div class="col-12">
                 <!-- Section title -->
-                <div class="section-title">
-                    <h2>모든 음식 카테고리</h2>
+                <div class="section-title scroll">
+                    <h2>신분증 인증하기!</h2>
                 </div>
-                <div class="row border-bottom">
-                    <!-- Category list -->
-                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
-                        <ul class="category-list" >
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>한식</a></li>
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>분식</a></li>
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>백반</a></li>
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>찌개</a></li>
-                        </ul>
-                    </div> <!-- /Category List -->
-                    <!-- Category list -->
-                    <div class="col-lg-3 col-md-5 col-sm-6 col-6">
-                        <ul class="category-list" >
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>중식</a></li>
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>보쌈/족발</a></li>
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>해산물</a></li>
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>해장국</a></li>
-                        </ul>
-                    </div> <!-- /Category List -->
-                    <!-- Category list -->
-                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
-                        <ul class="category-list" >
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>일식</a></li>
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>돈까스</a></li>
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>치킨</a></li>
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>피자</a></li>
-                        </ul>
-                    </div> <!-- /Category List -->
-                    <!-- Category list -->
-                    <div class="col-lg-3 col-md-5 col-sm-6 col-6">
-                        <ul class="category-list" >
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>양식</a></li>
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>스테이크</a></li>
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>스파게티</a></li>
-                            <li><a href="category.html"><i class="fa fa-circle-o"></i>필라프</a></li>
-                        </ul>
-                    </div> <!-- /Category List -->
-                </div>
+                <form action="http://localhost/upload.php" method="post" enctype="multipart/form-data">
+                    <div class="row border-bottom">
+                        <div class="form-group choose-file">
+                            <img src="img/user/user-thumb.jpg" alt="" class="user-img">
+                            <input type="file" class="form-control-file d-inline" id="input-file">
+                        </div>
+                    </div>
+                    <button class="btn btn-transparent">UPLOAD!</button>
+                </form>
             </div>
         </div>
     </div>
@@ -303,204 +276,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title">
-                    <h2>오늘의 인기 메뉴</h2>
+                    <h2>핸드폰 인증하기!</h2>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <!-- offer 01 -->
-            <div class="col-sm-12 col-lg-6">
-                <!-- deal card -->
-                <div class="deal-item bg-light">
-                    <div class="media">
-                        <!-- Image Content -->
-                        <div class="img-content align-self-center">
-                            <a href="store-single.html">
-                                <!-- Card Image -->
-                                <img src="img/popular-offer/popular-offer-1.png" alt="store-02">
-                            </a>
-                            <!-- Saving -->
-                            <span>Saving 20%</span>
-                        </div>
-                        <!-- Media Body -->
-                        <div class="media-body">
-                            <!-- Card Title -->
-                            <h5 class="mt-0"><small>20% off</small> on <br>Personal care item</h5>
-                            <!-- Deal list -->
-                            <ul class="list-inline">
-                                <li class="list-inline-item" ><a href="#cupon" class="btn btn-dual" data-toggle="modal" ><span class="upper">Show code</span><span class="lower">AXCH5676</span></a></li>
-                                <li class="list-inline-item"><a href="">Expire in 3 days</a>
-                                    <span class="favorite"><i class="fa fa-star-o"></i></span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
 
-
-
-            </div>
-            <!-- offer 02 -->
-            <div class="col-sm-12 col-lg-6">
-                <!-- deal card -->
-                <div class="deal-item bg-light">
-                    <div class="media">
-                        <!-- Image Content -->
-                        <div class="img-content align-self-center">
-                            <a href="store-single.html">
-                                <!-- Card Image -->
-                                <img src="img/popular-offer/popular-offer-2.png" alt="store-02">
-                            </a>
-                            <!-- Saving -->
-                            <span>Free Shipping</span>
-                        </div>
-                        <!-- Media Body -->
-                        <div class="media-body">
-                            <!-- Card Title -->
-                            <h5 class="mt-0">Free Shipping on orders <br>over <small>$100</small></h5>
-                            <!-- Deal list -->
-                            <ul class="list-inline">
-                                <li class="list-inline-item" ><a href="#cupon" class="btn btn-dual" data-toggle="modal" ><span class="upper">get deal</span><span class="lower">AXCH5676</span></a></li>
-                                <li class="list-inline-item"><a href="">Expire in 3 days</a>
-                                    <span class="favorite"><i class="fa fa-star-o"></i></span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div>
-            <!-- offer 03 -->
-            <div class="col-sm-12 col-lg-6">
-                <!-- deal card -->
-                <div class="deal-item bg-light">
-                    <div class="media">
-                        <!-- Image Content -->
-                        <div class="img-content align-self-center">
-                            <a href="store-single.html">
-                                <!-- Card Image -->
-                                <img src="img/popular-offer/popular-offer-3.png" alt="store-02">
-                            </a>
-                            <!-- Saving -->
-                            <span>Free Shipping</span>
-                        </div>
-                        <!-- Media Body -->
-                        <div class="media-body">
-                            <!-- Card Title -->
-                            <h5 class="mt-0"><small>Get 40% off</small> on all <br>winter collection</h5>
-                            <!-- Deal list -->
-                            <ul class="list-inline">
-                                <li class="list-inline-item" ><a href="#cupon" class="btn btn-dual" data-toggle="modal" ><span class="upper">get coupon</span><span class="lower">AXCH5676</span></a></li>
-                                <li class="list-inline-item"><a href="">Expire in 3 days</a>
-                                    <span class="favorite"><i class="fa fa-star-o"></i></span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div>
-            <!-- offer 04 -->
-            <div class="col-sm-12 col-lg-6">
-                <!-- deal card -->
-                <div class="deal-item bg-light">
-                    <div class="media">
-                        <!-- Image Content -->
-                        <div class="img-content align-self-center">
-                            <a href="store-single.html">
-                                <!-- Card Image -->
-                                <img src="img/popular-offer/popular-offer-4.png" alt="store-02">
-                            </a>
-                            <!-- Saving -->
-                            <span>Saving 20%</span>
-                        </div>
-                        <!-- Media Body -->
-                        <div class="media-body">
-                            <!-- Card Title -->
-                            <h5 class="mt-0"><small>20% off</small> on <br>Personal care item</h5>
-                            <!-- Deal list -->
-                            <ul class="list-inline">
-                                <li class="list-inline-item" ><a href="#cupon" class="btn btn-dual" data-toggle="modal" ><span class="upper">Show code</span><span class="lower">AXCH5676</span></a></li>
-                                <li class="list-inline-item"><a href="">Expire in 3 days</a>
-                                    <span class="favorite"><i class="fa fa-star-o"></i></span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div>
-            <!-- offer 05 -->
-            <div class="col-sm-12 col-lg-6">
-                <!-- deal card -->
-                <div class="deal-item bg-light">
-                    <div class="media">
-                        <!-- Image Content -->
-                        <div class="img-content align-self-center">
-                            <a href="store-single.html">
-                                <!-- Card Image -->
-                                <img src="img/popular-offer/popular-offer-5.png" alt="store-02">
-                            </a>
-                            <!-- Saving -->
-                            <span>Free Shipping</span>
-                        </div>
-                        <!-- Media Body -->
-                        <div class="media-body">
-                            <!-- Card Title -->
-                            <h5 class="mt-0">Free Shipping on orders <br>over <small>$100</small></h5>
-                            <!-- Deal list -->
-                            <ul class="list-inline">
-                                <li class="list-inline-item" ><a href="#cupon" class="btn btn-dual" data-toggle="modal" ><span class="upper">get deal</span><span class="lower">AXCH5676</span></a></li>
-                                <li class="list-inline-item"><a href="">Expire in 3 days</a>
-                                    <span class="favorite"><i class="fa fa-star-o"></i></span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div>
-            <!-- offer 06 -->
-            <div class="col-sm-12 col-lg-6">
-                <!-- deal card -->
-                <div class="deal-item bg-light">
-                    <div class="media">
-                        <!-- Image Content -->
-                        <div class="img-content align-self-center">
-                            <a href="store-single.html">
-                                <!-- Card Image -->
-                                <img src="img/popular-offer/popular-offer-6.png" alt="store-02">
-                            </a>
-                            <!-- Saving -->
-                            <span>Free Shipping</span>
-                        </div>
-                        <!-- Media Body -->
-                        <div class="media-body">
-                            <!-- Card Title -->
-                            <h5 class="mt-0"><small>Get 40% off</small> on all <br>winter collection</h5>
-                            <!-- Deal list -->
-                            <ul class="list-inline">
-                                <li class="list-inline-item" ><a href="#cupon" class="btn btn-dual" data-toggle="modal" ><span class="upper">get coupon</span><span class="lower">AXCH5676</span></a></li>
-                                <li class="list-inline-item"><a href="">Expire in 3 days</a>
-                                    <span class="favorite"><i class="fa fa-star-o"></i></span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div>
         <div class="row text-center">
             <div class="col-12">
                 <a href="store-single.html" class="btn btn-main mt-30">Get More Deals</a>
@@ -509,6 +289,51 @@
     </div>
 </section>
 
+
+<!--===========================================
+=            Popular deals section            =
+============================================-->
+
+<section class="popular-deals section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h2>판매자 정보 입력하기!</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-12">
+                <a href="store-single.html" class="btn btn-main mt-30">Get More Deals</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--===========================================
+=            Popular deals section            =
+============================================-->
+
+<section class="popular-deals section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h2>매장등록 하기!</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-12">
+                <a href="store-single.html" class="btn btn-main mt-30">Get More Deals</a>
+            </div>
+        </div>
+    </div>
+</section>
 <!--============================
 =            Footer            =
 =============================-->
@@ -624,4 +449,3 @@
 </body>
 
 </html>
-
