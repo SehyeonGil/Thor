@@ -6,6 +6,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 var Member = require('../models/member');
 var cert = require('../models/certificate');
+var mailer=require('./mailing');
 var moment = require('moment');
 var bcrypt = require('crypto-browserify');
 var randomstring = require("randomstring");
@@ -30,8 +31,8 @@ module.exports = function(passport,nev) {
                     return done(null, false, {error: '존재하는 이메일입니다.'});
                 } else {
                     var user = new Member();
-                    user.firstname = req.body.firstname;
-                    user.lastname = req.body.lastname;
+                    user.first_name = req.body.firstname;
+                    user.last_name = req.body.lastname;
                     user.email = email;
                     user.provider = 'local';
                     user.pw = user.generateHash(password);
@@ -41,7 +42,8 @@ module.exports = function(passport,nev) {
                     var cipher = bcrypt.createCipher('aes192', key);    // Cipher 객체 생성
                     cipher.update(email, 'utf8', 'hex');             // 인코딩 방식에 따라 암호화
                     usercheck.token = cipher.final('hex');
-                    usercheck.timer = moment.duration().add(10,'m').format();
+                    //usercheck.timer = moment().add(10,'m').format();
+                    usercheck.timer = moment().add(9,'h').format();
                     user.save(function (err) {
                         if (err)
                             throw err;
@@ -71,10 +73,10 @@ module.exports = function(passport,nev) {
                 if (!user)
                     return done(null, false, {error: '이메일 에러'});
                 if (!(user.provider === 'local'))
-                    return done(null, false, {error: '타사연동으로 가입된 회원입니다. 위 버튼을 이용해서 로그인해주세요'});
+                    return done(null, false, {error: '타사연동으로 가입된 회원입니다. 아래 버튼을 이용해서 로그인해주세요'});
                 if (!(user.validPassword(password)))
                     return done(null, false, {error: '패스워드 에러'});
-                if (!user.is_certificate)
+                if (!user.mail_certificate)
                     return done(null, false, {error: user.email});
                 return done(null, user);
             });
