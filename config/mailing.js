@@ -15,26 +15,25 @@ module.exports = function (id,token,name) {
         subject: mailTitle,
         html: html
     };
-    var transporter = nodemailer.createTransport(smtpPool({
-        service: "Gmail",
-        host: "localhost",
+    var transporter = nodemailer.createTransport({
+        service: "gmail",
+        host: "smtp.gmail.com",
         port: "465",
         auth: {
             user: "gil9084@gmail.com",
-            pass: "pp9084pp!@"
+            pass: "pp9084pp"
         },
         tls: {
             rejectUnauthorize: false
         },
         maxConnections: 5,
         maxMessages: 10
-    }));
+    });
     transporter.sendMail(mailOptions, function (err, res) {
         if (err) {
             console.log('failed... => ' + err);
         } else {
             console.log('succeed... => ' + res);
         }
-        transporter.close();
     });
 };

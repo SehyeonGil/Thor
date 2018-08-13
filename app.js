@@ -15,8 +15,8 @@ var memberRouter = require('./routes/member/index');
 
 var app = express();
 
-// mongoose.connect('mongodb://localhost/Thor');
-mongoose.connect('mongodb://localhost:27017/db');
+ mongoose.connect('mongodb://localhost/Thor');
+//mongoose.connect('mongodb://localhost:27017/db');
 mongoose.Promise = global.Promise;
 
 
@@ -45,7 +45,7 @@ app.use('/seller', sellerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+    next(createError(404));
 });
 
 // error handler
