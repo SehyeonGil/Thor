@@ -37,6 +37,50 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#input-file1").on('change', function(){
+                readURL(this);
+            });
+        });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah1   ').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $("#input-file2").on('change', function(){
+                readURL(this);
+            });
+        });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah2').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+    </script>
+
 
 </head>
 
@@ -253,13 +297,12 @@
                     <h2>신분증 인증하기!</h2>
                 </div>
                 <form action="http://localhost/upload.php" method="post" enctype="multipart/form-data">
-                    <div class="row border-bottom">
+                    <div class="row border-bottom justify-content-center">
                         <div class="form-group choose-file">
-                            <img src="img/user/user-thumb.jpg" alt="" class="user-img">
-                            <input type="file" class="form-control-file d-inline" id="input-file">
+                            <input type="file" class="form-control-file d-inline" id="input-file1">
+                            <img id="blah1" src="#" alt="your image" />
                         </div>
                     </div>
-                    <button class="btn btn-transparent">UPLOAD!</button>
                 </form>
             </div>
         </div>
@@ -278,6 +321,7 @@
                 <div class="section-title">
                     <h2>핸드폰 인증하기!</h2>
                 </div>
+
             </div>
         </div>
 
@@ -298,15 +342,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="section-title">
+                <div class="section-title ">
                     <h2>판매자 정보 입력하기!</h2>
                 </div>
-            </div>
-        </div>
-
-        <div class="row text-center">
-            <div class="col-12">
-                <a href="store-single.html" class="btn btn-main mt-30">Get More Deals</a>
+                <form action="http://localhost/upload.php" method="post" enctype="multipart/form-data">
+                    <div class="row border-bottom justify-content-center">
+                        <div class="form-group choose-file">
+                            <input type="file" class="form-control-file d-inline" id="input-file2">
+                            <img id="blah2" src="#" alt="your image" />
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -324,16 +370,73 @@
                 <div class="section-title">
                     <h2>매장등록 하기!</h2>
                 </div>
+                <div class="row justify-content-center">
+                    <h5>판매하실 매장의 정보를 입력해 주세요~!!</h5>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <form action="#">
+                                <!-- Store name -->
+                                <div class="form-group">
+                                    <label for="store-name">매장 이름</label>
+                                    <input type="text" class="form-control" id="store-website" >
+                                </div>
+
+                                <!-- Store address -->
+                                <div class="form-group mb-30 code-input">
+                                    <label for="store-address">매장 주소</label>
+                                    <div class="col-md-8">
+                                        <label for="store-postnum">우편번호</label>
+                                        <input type="text" class="address-input" >
+                                        <button type="submit">주소 검색</button>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label for="store-address">도로명 주소</label>
+                                        <input type="text"  class="address-input"  >
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label for="store-address">상세 주소</label>
+                                        <input type="text"  class="address-input"  >
+                                    </div>
+                                </div>
+                                <!-- Introduce Store -->
+                                <div class="form-group mb-30">
+                                    <label for="">매장 소개</label>
+                                    <textarea rows="5" cols="100" class="form-control" id="aff-url" placeholder=""></textarea>
+                                </div>
+                                <!-- Discount Description -->
+                                <div class="form-group mb-30">
+                                    <label for=""></label>
+                                    <input type="text" class="form-control" id="discount" placeholder="Tell us more about the offer">
+                                </div>
+                                <!-- Expiration Date -->
+                                <div class="form-group mb-30">
+                                    <label for="expire">Expiration Date</label>
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control" id="expire" placeholder="dd/mm/yy">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+
+                            </form>
+                            </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="row text-center">
-            <div class="col-12">
-                <a href="store-single.html" class="btn btn-main mt-30">Get More Deals</a>
-            </div>
+
+    </div>
+    <div class="row text-center">
+        <div class="col-12">
+            <a href="store-single.html" class="btn btn-main mt-30">REGISTER</a>
         </div>
     </div>
 </section>
+
+
+
 <!--============================
 =            Footer            =
 =============================-->
