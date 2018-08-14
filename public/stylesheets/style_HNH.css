@@ -2153,6 +2153,9 @@ ul.pagination .active a {
   }
 }
 
+.mytooltip-content { width: 300px; }
+
+
 .widget.recently-favorited .favorite-store {
   margin-bottom: 10px;
 }
