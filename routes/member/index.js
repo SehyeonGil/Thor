@@ -28,12 +28,15 @@ router.get('/', function(req, res, next) {
 
 /* GET join page. */
 router.get('/Join', function(req, res, next) {
-    res.render('join_KSW');
+    res.render('join');
 });
 
 /* GET login page. */
 router.get('/Login', function(req, res, next) {
-    res.render('login_KSW');
+    res.render('login');
+});
+router.get('/Login', function(req, res, next) {
+    res.render('login');
 });
 
 /* GET find_password page. */
@@ -43,11 +46,11 @@ router.get('/Find_Password', function(req, res, next) {
 
 /* GET email_complete page. */
 router.get('/email_complete', function(req, res, next) {
-    res.render('email_complete_KSW');
+    res.render('email_complete');
 });
 
-router.post('/SignUp',controller.normalSignup);
+router.post('/Join',controller.normalSignup);
 router.post('/Login', controller.loginAttemp);
-router.post('/reconfirm',controller.reconfirm);
+router.post('/reConfirm',controller.reconfirm);
 
 module.exports = router;

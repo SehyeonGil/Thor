@@ -80,7 +80,7 @@ exports.reconfirm=function (req,res,next) {
             cipher.update(email, 'utf8', 'hex');             // 인코딩 방식에 따라 암호화
             usercheck.token = cipher.final('hex');
             usercheck.timer=moment().add(10,'m').format();
-            usercheck.save(function (err) {
+                usercheck.save(function (err) {
                 if (err)
                     throw err;
                 mailer(email,usercheck.token,member.first_name);
