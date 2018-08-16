@@ -321,6 +321,21 @@
                 <div class="section-title">
                     <h2>핸드폰 인증하기!</h2>
                 </div>
+                <div class="row border-bottom justify-content-center">
+                휴대폰 번호:
+                <select id="txtMobile1">
+                    <option value="">::선택::</option>
+                    <option value="011">011</option>
+                    <option value="016">016</option>
+                    <option value="017">017</option>
+                    <option value="019">019</option>
+                    <option value="010">010</option>
+                </select>
+                    -
+                <input type="text" id="txtMobile2" size="4" onkeypress="onlyNumber();" />
+                    -
+                <input type="text" id="txtMobile3" size="4" />
+                </div>
 
             </div>
         </div>
@@ -405,19 +420,25 @@
                                     <label for="">매장 소개</label>
                                     <textarea rows="5" cols="100" class="form-control" id="aff-url" placeholder=""></textarea>
                                 </div>
-                                <!-- Discount Description -->
                                 <div class="form-group mb-30">
-                                    <label for=""></label>
-                                    <input type="text" class="form-control" id="discount" placeholder="Tell us more about the offer">
+                                    <label for="">운영 시간<label>
+
+
+                                    <input type="text" id="txtopertime1" size="2" onkeypress="onlyNumber();" />
+                                    :
+                                    <input type="text" id="txtopertime2" size="2" />
                                 </div>
-                                <!-- Expiration Date -->
-                                <div class="form-group mb-30">
-                                    <label for="expire">Expiration Date</label>
-                                    <div class="input-group date">
-                                        <input type="text" class="form-control" id="expire" placeholder="dd/mm/yy">
-                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <div class="form-group col-xs-12"><label class="control-label requiredField label-title">매장 이미지</label>
+                                    <div class="page" style="margin-top: 10px;">
+                                        <!-- Our File Inputs-->
+                                        <div class="wrap-custom-file"><input id="image1" type="file" name="menu_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image1"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
+                                        <div class="wrap-custom-file"><input id="image2" type="file" name="menu_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image2"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
+                                        <div class="wrap-custom-file"><input id="image3" type="file" name="menu_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image3"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
+                                        <div class="wrap-custom-file"><input id="image4" type="file" name="menu_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image4"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
+                                        <!-- End Page Wrap-->
                                     </div>
                                 </div>
+
 
                             </form>
                             </div>
