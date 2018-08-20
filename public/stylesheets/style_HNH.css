@@ -27,6 +27,7 @@ label {
   color: #848484;
 }
 
+
 .nav-pills .nav-link {
   font-size: 16px;
 }
@@ -223,7 +224,11 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: #222222;
 }
-
+h7{
+  color: #808080;
+  size: 10px;
+  margin:5px;
+}
 p {
   color: #222222;
 }
