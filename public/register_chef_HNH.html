@@ -40,6 +40,24 @@
     <![endif]-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script type="text/javascript">
+
+
+        $(function() {
+            $('a[href*="#"]:not([href="#"])').click(function() {
+                if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                    if (target.length) {
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, 700);
+                        return false;
+                    }
+                }
+            });
+        });
+
+
         $(function() {
             $("#input-file1").on('change', function(){
                 readURL(this);
@@ -254,7 +272,7 @@
                             <div class="block d-flex align-items-end flex-column">
                                 <!-- Start Button -->
                                 <div class="scrollbtn">
-                                    <button class="btn btn-secondary" onclick="scrolling('.scroll   ')">START</button>
+                                    <a href="#scroll1" class="btn btn-secondary" data-target="#scroll1">START</a>
                                 </div>
                             </div>
                         </div>
@@ -288,7 +306,7 @@
 =            All Category Section            =
 ===========================================-->
 
-<section class="deals-categories section">
+<section class="deals-categories section" id="scroll1">
     <!-- Container Start -->
     <div class="container">
         <div class="row">
@@ -462,44 +480,44 @@
                                 <div class="form-group mb-30">
                                     <label for="">운영 시간</label>
                                     <div class="row">
-                                        <div class="btn-group col-md-8" data-toggle="buttons" style="margin-right: 10px">
-                                                <label class="btn btn-primary">
+                                        <div class=" btn-group " data-toggle="buttons" style="margin:auto;">
+                                                <label class="btn-sm btn btn-week " >
                                                     <input type="checkbox" autocomplete="off">월
                                                 </label>
-                                                <label class="btn btn-primary">
+                                                <label class="btn-sm btn btn-week">
                                                     <input type="checkbox" autocomplete="off">화
                                                 </label>
-                                                <label class="btn btn-primary">
+                                                <label class="btn-sm btn btn-week">
                                                     <input type="checkbox" autocomplete="off">수
                                                 </label>
-                                                <label class="btn btn-primary">
+                                                <label class="btn-sm btn btn-week" >
                                                     <input type="checkbox" autocomplete="off">목
                                                 </label>
-                                                <label class="btn btn-primary">
+                                                <label class="btn-sm btn btn-week">
                                                     <input type="checkbox" autocomplete="off">금
                                                 </label>
-                                                <label class="btn btn-primary">
+                                                <label class="btn-sm btn btn-week">
                                                     <input type="checkbox" autocomplete="off">토
                                                 </label>
-                                                <label class="btn btn-primary">
+                                                <label class="btn-sm btn btn-week">
                                                     <input type="checkbox" autocomplete="off">일
                                                 </label>
                                         </div>
-                                        <div class="row col-md-5">
-                                            <input class="form-control col-md-1" type="text" id="txtopertime1"  onkeypress="onlyNumber();" />
+                                        <div class="row col-md-3 justify-content-center">
+                                            <input class="form-control col-md-5" type="text" id="txtopertime1"  onkeypress="onlyNumber();" />
                                          <h5 style="margin-top:10px">:</h5>
-                                            <input class="form-control col-md-1" type="text" id="txtopertime2"  />
+                                            <input class="form-control col-md-5" type="text" id="txtopertime2"  />
                                         </div>
                                     </div>
 
                                 <div class="form-group  row col-md-12 ">
-                                    <label class="control-label requiredField label-title">메뉴 이미지</label>
+                                    <label class="control-label requiredField label-title">매장 이미지</label>
                                     <div class="page justify-content-center" style="margin-top: 10px;">
                                         <!-- Our File Inputs-->
-                                        <div class="wrap-custom-file"><input id="image1" type="file" name="menu_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image1"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
-                                        <div class="wrap-custom-file"><input id="image2" type="file" name="menu_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image2"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
-                                        <div class="wrap-custom-file"><input id="image3" type="file" name="menu_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image3"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
-                                        <div class="wrap-custom-file"><input id="image4" type="file" name="menu_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image4"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
+                                        <div class="wrap-custom-file"><input id="image1" type="file" name="store_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image1"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
+                                        <div class="wrap-custom-file"><input id="image2" type="file" name="store_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image2"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
+                                        <div class="wrap-custom-file"><input id="image3" type="file" name="store_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image3"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
+                                        <div class="wrap-custom-file"><input id="image4" type="file" name="store_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image4"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
                                         <!-- End Page Wrap-->
                                     </div>
                                 </div>

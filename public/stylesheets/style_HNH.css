@@ -668,6 +668,27 @@ button {
   box-shadow: none;
 }
 
+.btn-week{
+  color: #FFFFFF;
+  background-color: #80c269;
+  border-color: #80c269;
+}
+.btn-week:hover {
+  color: #fff;
+  background-color: #22ac38;
+  border-color: #22ac38;
+}
+.btn-week:focus{
+  -webkit-box-shadow: 0 0 0 2px rgba(34, 172, 56, 0.5);
+  box-shadow: 0 0 0 2px rgba(34, 172, 56, 0.5);
+}
+.btn-week:active, .btn-week.active,
+.show > .btn-week.dropdown-toggle {
+  color: #fff;
+  background-color: #22ac38;
+  background-image: none;
+  border-color: #22ac38;
+}
 /**
  *
  * Form Control
