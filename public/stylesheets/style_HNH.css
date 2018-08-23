@@ -546,6 +546,12 @@ button {
   font-weight: bold;
   border-radius: 3px;
 }
+.btn-start{
+    width: 200px;
+    height: 200px;
+    background: #15c;
+    border-radius: 100px;
+}
 
 .btn-main {
   background: #f95669;
@@ -804,7 +810,7 @@ input {
   background-size: cover;
 }
 .bg-6 {
-  background: url(../img/register_chef/chef2.jpg);
+  background: url(../img/register_chef/complete1.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1204,6 +1210,9 @@ ul.pagination .active a {
 ._1po460c {
   background-color: rgba(247,247,247,1.00) !important;
   min-height: 275px !important;
+}
+._1po460b {
+    color:#fff;
 }
 
 .hero-area .content-block h1, .hero-area-2 .content-block h1 {
