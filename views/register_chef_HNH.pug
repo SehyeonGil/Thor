@@ -1,0 +1,365 @@
+doctype html
+html(lang='en')
+    head
+        // SITE TITTLE
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title Register Chef
+        // PLUGINS CSS STYLE
+        link(href='plugins/jquery-ui/jquery-ui.min.css', rel='stylesheet')
+        // Bootstrap
+        link(href='plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+        // Font Awesome
+        link(href='plugins/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+        // Select 2
+        link(href='plugins/selectbox/select_option1.css', rel='stylesheet')
+        // Owl Carousel
+        link(href='plugins/owl-carousel/assets/owl.carousel.min.css', rel='stylesheet', media='screen')
+        // Owl Carousel Theme
+        link(href='plugins/owl-carousel/assets/owl.theme.green.min.css', rel='stylesheet', media='screen')
+        // Fancy Box
+        link(href='plugins/fancybox/jquery.fancybox.pack.css', rel='stylesheet')
+        // Datepicker
+        link(href='plugins/datepicker/datepicker.min.css', rel='stylesheet')
+        // CUSTOM CSS
+        link(href='stylesheets/style_HNH.css', rel='stylesheet')
+        link(href='./stylesheets/uploadFile_KKY.css', rel='stylesheet')
+        // FAVICON
+        link(href='img/favicon.png', rel='shortcut icon')
+        // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+        // WARNING: Respond.js doesn't work if you view the page via file://
+        //if lt IE 9
+          script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+          script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+    body.body-wrapper
+        include components/topHeader_KSW
+        include components/navBar_KSW
+
+        section.hero-area.bg-5.text-center
+            // Container Start
+            .container(style='margin-bottom:160px ')
+                .row
+                    .col-md-12
+                        // Header Contetnt
+                        .content-block
+                            h2 THOR의 Chef가 되어 수입을 올려보세요
+                            p
+                                | 우리집 주방에서 요리하고 수익을 창출할 수 있는 기회!
+                                br
+                                |  지금 지원하세요!
+                        .row
+                            // Store Search
+                            .col-lg-12.col-md-12
+                                .block.align-items-end.flex-column
+                                    // Start Button
+                                    .scrollbtn
+                                        a(href='#scroll1', data-target='#scroll1')
+                                            img(src='./img/register_chef/small_start_button.png', style='width: 180px;height:180px')
+            .(class='._1po460c')
+.row
+    .content-block.col-lg-4(style='padding:50px')
+        h3 Thor chef를 추천하는 이유
+        h6 Thor는 chef가 제공하는 음식의 종류와 관계 없이 간편하고 안전하게 수입을 창출하도록 지원
+    .content-block.col-lg-4(style='padding:50px')
+        h3
+            | 레지스팅에 관한 결정은
+            br
+            |  chef마음대로
+        h6 Thor에서 예약가능일, 가격, 장소 이용규칙, 손님과의 소통방법 등은 모두 chef가 결정합니다.
+    .content-block.col-lg-4(style='padding:50px')
+        h3 운영 전반에 걸친 든든한 지원
+        h6 Thor는 chef가 제공하는 음식의 종류와 관계 없이 간편하고 안전하게 수입을 창출하도록 지원
+// Container End
+//
+  ==========================================
+  =            All Category Section            =
+  ===========================================
+form(action='http://localhost/upload.php', method='post', enctype='multipart/form-data')
+    section#scroll1.deals-categories.section
+        // Container Start
+        .container
+            .row
+                .col-12
+                    // Section title
+                    .section-title.scroll
+                        h2 신분증 인증하기!
+                    .row.border-bottom.justify-content-center
+                        .page(style='margin-top: 10px;')
+                            // Our File Inputs
+                            .wrap-custom-file
+                                input#image1(type='file', name='menu_pic', accept='.gif, .jpg, .png, .jpeg')
+                                label(for='image1')
+                                    span UPLOAD
+                                    i.fa.fa-plus-circle
+                            // End Page Wrap
+                        .col-md-2.justify-content-center
+                            .form-group
+                                label(for='') 판매자 나이
+                                input#store-website.form-control(type='text', width='30px', readonly='')
+                            .form-group
+                                label(for='') 판매자 성별
+                                input#store-website.form-control(type='text', readonly='')
+        // Container End
+    //
+      ===========================================
+      =            Popular deals section            =
+      ============================================
+    section.popular-deals.section.border-bottom
+        .container
+            .row
+                .col-md-12
+                    .section-title
+                        h2 핸드폰 인증하기!
+                    .row.justify-content-center
+                        h7 휴대폰 번호
+                        select#txtMobile1.form-control.col-md-1
+                            option(value='') 선택
+                            option(value='011') 011
+                            option(value='016') 016
+                            option(value='017') 017
+                            option(value='019') 019
+                            option(value='010') 010
+                        h7 -
+                        input#txtMobile2.form-control.col-md-1(type='text', onkeypress='onlyNumber();')
+                        h7 -
+                        input#txtMobile3.form-control.col-md-1(type='text')
+            .row.text-center
+                .col-12
+                    a.btn.btn-main.mt-30(href='store-single.html', style='background-color:#80c269') 인증하기
+    //
+      ===========================================
+      =            Popular deals section            =
+      ============================================
+    section.popular-deals.section.border-bottom
+        .container
+            .row
+                .col-md-12
+                    .section-title
+                        h2 판매자 정보 입력하기!
+                    .row.justify-content-center
+                        h5 얼굴을 확인할 수 있는 사진을 올려주세요~
+                    .row.justify-content-center
+                        .page(style='margin-top: 10px;')
+                            // Our File Inputs
+                            .wrap-custom-file
+                                input#image1(type='file', name='menu_pic', accept='.gif, .jpg, .png, .jpeg')
+                                label(for='image1')
+                                    span Select Image
+                                    i.fa.fa-plus-circle
+                            // End Page Wrap
+                        .col-md-4.justify-content-center
+                            label(for='') 자기 소개
+                            textarea#aff-url.form-control(rows='5', cols='70', placeholder='')
+    //
+      ===========================================
+      =            Popular deals section            =
+      ============================================
+    section.popular-deals.section
+        .container
+            .row
+                .col-md-12
+                    .section-title
+                        h2 매장등록 하기!
+                    .row.justify-content-center
+                        h5 판매하실 매장의 정보를 입력해 주세요~!!
+                    .container
+                        .row
+                            .col-md-8.offset-md-2
+                                // Store name
+                                .form-group
+                                    label(for='') 매장 이름
+                                    input#store-website.form-control(type='text')
+                                // Store address
+                                .form-group
+                                    label(for='') 매장 주소
+                                    .row
+                                        .col-md-9
+                                            input.form-control(type='text', readonly='')
+                                        .col-md-2
+                                            a.btn.btn-main(href='store-single.html') 주소검색
+                                // Introduce Store
+                                .form-group.mb-30
+                                    label(for='') 매장 소개
+                                    textarea#aff-url.form-control(rows='5', cols='100', placeholder='')
+                                .form-group.mb-30.row
+                                    div(style='margin-right:10px;')
+                                        input#checkbox1(type='checkbox', checked='checked', style='margin-left:15px')
+                                        label(for='checkbox1') 배달
+                                    div(style='margin-right:10px;')
+                                        input#checkbox2(type='checkbox')
+                                        label(for='checkbox2') 포장
+                                    div(style='margin-right:10px;')
+                                        input#checkbox3(type='checkbox')
+                                        label(for='checkbox3') 방문
+                                .form-group.mb-30
+                                    label(for='') 운영 시간
+                                    .row
+                                        .btn-group(data-toggle='buttons', style='margin:auto;')
+                                            label.btn-sm.btn.btn-week
+                                                input(type='checkbox', autocomplete='off')
+                                                | 월
+                                            label.btn-sm.btn.btn-week
+                                                input(type='checkbox', autocomplete='off')
+                                                | 화
+                                            label.btn-sm.btn.btn-week
+                                                input(type='checkbox', autocomplete='off')
+                                                | 수
+                                            label.btn-sm.btn.btn-week
+                                                input(type='checkbox', autocomplete='off')
+                                                | 목
+                                            label.btn-sm.btn.btn-week
+                                                input(type='checkbox', autocomplete='off')
+                                                | 금
+                                            label.btn-sm.btn.btn-week
+                                                input(type='checkbox', autocomplete='off')
+                                                | 토
+                                            label.btn-sm.btn.btn-week
+                                                input(type='checkbox', autocomplete='off')
+                                                | 일
+                                        .row.col-md-3.justify-content-center
+                                            input#txtopertime1.form-control.col-md-5(type='text', onkeypress='onlyNumber();')
+                                            h5(style='margin-top:10px') :
+                                            input#txtopertime2.form-control.col-md-5(type='text')
+                                    .form-group.row.col-md-12
+                                        label.control-label.requiredField.label-title 매장 이미지
+                                        .page.justify-content-center(style='margin-top: 10px;')
+                                            // Our File Inputs
+                                            .wrap-custom-file
+                                                input#image1(type='file', name='store_pic', accept='.gif, .jpg, .png, .jpeg')
+                                                label(for='image1')
+                                                    span Select Image
+                                                    i.fa.fa-plus-circle
+                                            .wrap-custom-file
+                                                input#image2(type='file', name='store_pic', accept='.gif, .jpg, .png, .jpeg')
+                                                label(for='image2')
+                                                    span Select Image
+                                                    i.fa.fa-plus-circle
+                                            .wrap-custom-file
+                                                input#image3(type='file', name='store_pic', accept='.gif, .jpg, .png, .jpeg')
+                                                label(for='image3')
+                                                    span Select Image
+                                                    i.fa.fa-plus-circle
+                                            .wrap-custom-file
+                                                input#image4(type='file', name='store_pic', accept='.gif, .jpg, .png, .jpeg')
+                                                label(for='image4')
+                                                    span Select Image
+                                                    i.fa.fa-plus-circle
+                                            // End Page Wrap
+        .row.text-center
+            .col-12
+                a.btn.btn-main.mt-30(href='store-single.html', style='background-color:#22ac38') REGISTER
+//
+  ============================
+  =            Footer            =
+  =============================
+footer.footer.section.section-sm
+    // Container Start
+    .container
+        .row
+            .col-lg-3.col-md-7.offset-md-1.offset-lg-0
+                // About
+                .block.about
+                    // footer logo
+                    a(href='index.html')
+                        img(src='img/logo-footer.png', alt='Logo')
+                    // description
+                    p.alt-color
+                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    // terms list
+                    ul.terms-list.list-inline
+                        li.list-inline-item
+                            a(href='') About
+                        li.list-inline-item
+                            a(href='') Terms of Use
+                        li.list-inline-item
+                            a(href='') Privacy Policy
+            // Link list
+            .col-lg-2.offset-lg-1.col-md-3
+                .block
+                    h4 Site Pages
+                    ul
+                        li
+                            a(href='#') Boston
+                        li
+                            a(href='#') How It works
+                        li
+                            a(href='#') Deals & Coupons
+                        li
+                            a(href='#') Articls & Tips
+                        li
+                            a(href='#') Terms of Services
+            // Link list
+            .col-lg-2.col-md-3.offset-md-1.offset-lg-0
+                .block
+                    h4 Admin Pages
+                    ul
+                        li
+                            a(href='#') Boston
+                        li
+                            a(href='#') How It works
+                        li
+                            a(href='#') Deals & Coupons
+                        li
+                            a(href='#') Articls & Tips
+                        li
+                            a(href='#') Terms of Services
+            // Promotion
+            .col-lg-4.col-md-7
+                // App promotion
+                .block-2.app-promotion
+                    a(href='')
+                        // Icon
+                        img(src='img/footer/phone-icon.png', alt='mobile-icon')
+                    p Get the Dealsy Mobile App and Save more
+                // Dsicount Coupon
+                .block-2.discount-coupon
+                    p
+                        a(href='') Join Dealsy
+                        |  and Submit your Coupon with
+                        a(href='') 124563 user
+                        |  daily
+    // Container End
+// Footer Bottom
+footer.footer-bottom
+    // Container Start
+    .container
+        .row
+            .col-sm-6.col-12
+                // Copyright
+                .copyright
+                    p
+                        | © 2017 Copyright Dealsy Bootstrap Template by
+                        a(target='_blank', href='http://www.iamabdus.com/') Abdus
+                        | .
+            .col-sm-6.col-12
+                // Social Icons
+                ul.social-media-icons.text-right
+                    li
+                        a.fa.fa-facebook(href='')
+                    li
+                        a.fa.fa-twitter(href='')
+                    li
+                        a.fa.fa-pinterest-p(href='')
+                    li
+                        a.fa.fa-vimeo(href='')
+    // Container End
+    // To Top
+    .top-to
+        a#top(href='')
+            i.fa.fa-angle-double-up
+// JAVASCRIPTS
+script(src='plugins/jquery/jquery.min.js')
+script(src='plugins/jquery-ui/jquery-ui.min.js')
+script(src='plugins/tether/js/tether.min.js')
+script(src='plugins/raty/jquery.raty-fa.js')
+script(src='plugins/bootstrap/js/bootstrap.min.js')
+script(src='plugins/selectbox/jquery.selectbox-0.1.3.min.js')
+script(src='plugins/owl-carousel/owl.carousel.min.js')
+script(src='plugins/fancybox/jquery.fancybox.pack.js')
+script(src='plugins/smoothscroll/SmoothScroll.min.js')
+script(src='plugins/datepicker/bootstrap-datepicker.min.js')
+script(src='plugins/bootstrap-notify/bootstrap-notify.min.js')
+script(src='js/custom.js')
+script(type='text/javascript', src='http://code.jquery.com/jquery-2.1.0.min.js')
+script(src='js/register_HNH.js.js')

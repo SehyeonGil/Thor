@@ -19,5 +19,8 @@ router.get('/Message',controller.message);*/
 router.get('/', function(req, res, next) {
     res.send('respond with a resource');
 });
+router.get('/register_seller', function(req, res, next) {
+    res.render('register_chef_HNH');
+});
 
 module.exports = router;
