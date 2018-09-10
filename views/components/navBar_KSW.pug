@@ -14,7 +14,7 @@ nav.navbar.navbar-toggleable-md.main-nav.bg-light
                     i.fa.fa-search
                 .dropdown-menu.dropdown-menu-right
                     .input-group
-                        input#search.form-control(type='text', placeholder='Search...')
+                        input#search-m.form-control(type='text', placeholder='Search...')
                         span.input-group-addon
                             i.fa.fa-search
         #navbarNavDropdown.collapse.navbar-collapse
@@ -26,24 +26,15 @@ nav.navbar.navbar-toggleable-md.main-nav.bg-light
                     a.nav-link(href='#') 이벤트
                 li.nav-item
                     a.nav-link(href='#') 쉐프 신청하기
-                li.nav-item.dropdown.dropdown-slide.active
-                    a.nav-link.dropdown-toggle(href='javascript:void(0)', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                        | 마이페이지
-                        span
-                            i.fa.fa-angle-down
-                    // Dropdown list
-                    .dropdown-menu.dropdown-menu-right
-                        a.dropdown-item(href='#') 내정보
-                        a.dropdown-item(href='#') 프로필수정
-                        a.dropdown-item(href='#') 결제내역
-                        a.dropdown-item(href='#') 로그아웃
+                li.nav-item
+                    a.nav-link(href='/seller/') 마이페이지
                 // Search Icon
                 li.nav-item.dropdown.dropdown-slide.search
                     a.nav-link.pr-0(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
                         i.fa.fa-search
                     .dropdown-menu.dropdown-menu-right
                         .input-group
-                            input#search.form-control(type='text', placeholder='Search...')
+                            input#search-p.form-control(type='text', placeholder='Search...')
                             span.input-group-addon
                                 i.fa.fa-search
     // Container End

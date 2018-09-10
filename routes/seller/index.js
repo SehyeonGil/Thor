@@ -17,10 +17,13 @@ router.get('/Manage_Menu/:id',controller.menuDetailManage);
 router.get('/Manage_Store',controller.storeManage);
 router.get('/Message',controller.message);*/
 router.get('/', function(req, res, next) {
-    res.send('respond with a resource');
+    res.render('seller_profile_KSW');
 });
 router.get('/register_seller', function(req, res, next) {
     res.render('register_chef_HNH');
 });
+// router.get('/aaa', function(req, res, next) {
+//     res.render('seller_profile_KSW');
+// });
 
 module.exports = router;
