@@ -67,7 +67,10 @@ function submitseller(item){
         data: sendData,
         success: function (data) {
             if (data === "clear") {
-                $("#email_auth").modal('show');
+                $("#email_auth").modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
             }
             else {
                 alert(data);

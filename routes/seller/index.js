@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * Created by Sehyeon on 2018-06-03.
  */
@@ -31,7 +32,7 @@ router.get('/Manage_Menu/:id',controller.menuDetailManage);
 router.get('/Manage_Store',controller.storeManage);
 router.get('/Message',controller.message);*/
 router.get('/', function(req, res, next) {
-    res.send('respond with a resource');
+    res.render('seller_profile_KSW');
 });
 router.get('/Register_Chef',controller.sellerRegister);
 router.post('/Register_Chef',uploadSeller.fields([{name:'imageIden'},{name:'imageFace'},{name:'imageStore'}]),controller.sellerRegisterAttemp);
