@@ -51,6 +51,7 @@ router.get('/email_complete', function(req, res, next) {
 
 router.post('/Join',controller.normalSignup);
 router.post('/Login', controller.loginAttemp);
+router.post('/Logout', controller.logoutAttemp);
 router.post('/reConfirm',controller.reconfirm);
 
 module.exports = router;
