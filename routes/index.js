@@ -6,6 +6,4 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' ,passport:req.session.passport});
 });
 
-
-
 module.exports = router;

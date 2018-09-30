@@ -5,7 +5,8 @@
   =====================================
   =            Top Header Menu            =
   ======================================
-section.top-header
+script(src='../../js/logout_GSH.js')
+section.top-header(style='z-index: 100; position: relative;')
     .container
         .row
             .col-12
@@ -18,7 +19,7 @@ section.top-header
                             a.nav-link(href='../member/Join') 회원가입
                     else
                         li.nav-item
-                            a.nav-link(href='../member/Logout') 로그아웃
+                            a.nav-link(href='javascript:void(0);', onclick='logout();') 로그아웃
                         li.nav-item
                             a.nav-link(href='#') 내계정
                     li.nav-item

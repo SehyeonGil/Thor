@@ -69,6 +69,14 @@ exports.loginAttemp= function(req, res, next) {
     })(req, res, next);
 };
 
+exports.logoutAttemp= function(req, res, next) {
+    if(req.session.passport) {
+        req.logOut();
+        req.session.destroy();
+    }
+    res.send("clear");
+};
+
 exports.reconfirm=function (req,res,next) {
     var email=req.body.email;
     Member.findOne({email:email},function (err,member) {
