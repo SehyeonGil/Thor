@@ -49,6 +49,11 @@ router.get('/email_complete', function(req, res, next) {
     res.render('email_complete');
 });
 
+/* GET menu_list page */
+router.get('/menu_list', function(req, res, next) {
+    res.render('menuList_KSW');
+});
+
 router.post('/Join',controller.normalSignup);
 router.post('/Login', controller.loginAttemp);
 router.post('/Logout', controller.logoutAttemp);

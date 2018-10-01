@@ -815,6 +815,12 @@ input {
   background-position: center;
   background-size: cover;
 }
+.bg-7 {
+  background: #FFFFFF;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 .border-bottom {
   border-bottom: 1px solid #ebe9e9;
 }

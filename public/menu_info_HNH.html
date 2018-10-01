@@ -29,6 +29,9 @@
     <link href="stylesheets/style_HNH.css" rel="stylesheet">
     <link href="./stylesheets/uploadFile_KKY.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="./stylesheets/MenuManagement_KSW.css">
+    <link rel="stylesheet" href="./stylesheets/ImgSlider_KSW.css">
+    <link rel="stylesheet" href="./stylesheets/MenuInfo_KSW.css">
     <!-- FAVICON -->
     <link href="img/favicon.png" rel="shortcut icon">
 
@@ -71,7 +74,7 @@
                     <!--&lt;!&ndash; Dropdown list &ndash;&gt;-->
                     <!--<div class="dropdown-menu dropdown-menu-right">-->
                     <!--<a class="dropdown-item" href="dashboard.html">Dashboard</a>-->
-                    <!--<a class="dropdown-item" hrseller_profile_KSW.htmlhtml">User Profile</a>-->
+                    <!--<a class="dropdown-item" href="user-profile.html">User Profile</a>-->
                     <!--<a class="dropdown-item" href="login.html">Logout</a>-->
                     <!--</div>-->
                     <!--</li>-->
@@ -155,7 +158,7 @@
                     <!-- Dropdown list -->
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="dashboard.html">내정보</a>
-                        <a class="dropdown-item" href="../views/html/seller_profile_KSW.html">프로필수정</a>
+                        <a class="dropdown-item" href="user-profile.html">프로필수정</a>
                         <a class="dropdown-item" href="submit-coupon.html">결제내역</a>
                         <a class="dropdown-item" href="login.html">로그아웃</a>
                     </div>
@@ -182,285 +185,195 @@
 =            Hero Area            =
 ================================-->
 
-<section class="hero-area bg-5 text-center">
+<section class="hero-area bg-7 text-center">
     <!-- Container Start -->
-    <div class="container" style="margin-bottom:160px ">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-xs-12">
-                <!-- Header Contetnt -->
-                <div class="content-block">
-                    <h2>THOR의 Chef가 되어 수입을 올려보세요</h2>
-                    <p>우리집 주방에서 요리하고 수익을 창출할 수 있는 기회! <br> 지금 지원하세요!</p>
+    <div class="container col-xs-12 col-sm-12 col-md-offset-3 col-md-6" id="my-carousel">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="./img/menu/bibimbap.jpeg" alt="Los Angeles">
                 </div>
 
-                    <div class="row">
-                        <!-- Store Search -->
-                        <div class="col-lg-12 col-md-12 col-xs-12">
-                            <div class="block  align-items-end flex-column">
-                                <!-- Start Button -->
-                                <div class="scrollbtn">
-                                    <a href="#scroll1" data-target="#scroll1"><img src="./img/register_chef/small_start_button.png" style="width: 180px;height:180px"></a>
-                                </div>
-                            </div>
-                        </div>
+                <div class="item">
+                    <img src="./img/menu/bibimbap.jpeg" alt="Chicago">
+                </div>
+
+                <div class="item">
+                    <img src="./img/menu/bibimbap.jpeg" alt="New york">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <hr>
+        </div>
+
+        <div class="user-profile col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+            <div class="col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-xs-3  col-sm-3 col-md-3 col-lg-3">
+                <img class="avatar" src="./img/menu/sushi.jpg" alt="Ash" />
+            </div>
+
+            <div class="col-xs-offset-2 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 col-xs-7 col-sm-6 col-md-6 col-lg-6" id="profile_info">
+                <div class="menu-container restaurant-name col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    호호식당
+                </div>
+                <div class="menu-container address col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    한국, 충청북도, 청주
+                </div>
+                <div class="menu-container  username col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    규원
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <hr>
+        </div>
+
+        <div class="col-xs-12 res_info">
+            <p><span class="mytitle w3-col s6 m6 l6">메뉴</span> <span class="myinfo w3-rest">전주 비빔밥</span></p>
+            <p><span class="mytitle w3-col s6 m6 l6">가격</span><span class="myinfo w3-rest">8,000원</span></p>
+            <p><span class="mytitle w3-col s6 m6 l6">예약 유형</span> <span class="w3-rest myinfo">자율 예약</span></p>
+            <p><span class="mytitle w3-col s6 m6 l6">판매 시간</span> <span class="w3-rest myinfo">16:00 ~ 18:00</span></p>
+            <div class="mytitle w3-col s12 m12 l12">상세 설명</div>
+            <div class="myinfo w3-col s12 m12 l12">
+                <p>
+                    고향 전주에서 25년동안 살다 온 전주 토박이가 진짜 전주 비빔밥을 만들어드립니다 .
+                </p>
+            </div>
+        </div>
+
+        <div class="mytitle" id="ingredient-description">재료 설명</div>
+        <!-- Slider -->
+        <div class="horiz-scroll scroll-feature">
+            <div class="scroller">
+                <div class="left-scroll invisible">
+                    <p class="fa fa-angle-left"></p>
+                </div>
+                <div class="right-scroll">
+                    <p class="fa fa-angle-right"></p>
+                </div>
+                <div class="scroll-images scrollable-x">
+                    <img src="http://placehold.it/600x400/CCB03A/fff&text=Image+1" alt="Image 1">
+                    <img src="http://placehold.it/600x400/FAEF5D/333&text=Image+2" alt="Image 2">
+                    <img src="http://placehold.it/600x400/97A976/fff&text=Image+3" alt="Image 3">
+                    <img src="http://placehold.it/600x400/675647/fff&text=Image+4" alt="Image 4">
+                    <img src="http://placehold.it/600x400/253E41/fff&text=Image+5" alt="Image 5">
+                    <img src="http://placehold.it/600x400/F1582D/fff&text=Image+6" alt="Image 6">
+                    <img src="http://placehold.it/600x400/C1DAD8/333&text=Image+7" alt="Image 7">
+                    <img src="http://placehold.it/600x400/6CB8C1/fff&text=Image+8" alt="Image 8">
+                    <img src="http://placehold.it/600x400/BF6A28/fff&text=Image+9" alt="Image 9">
+                    <img src="http://placehold.it/600x400/5E4D1E/fff&text=Image+10" alt="Image 10">
+                    <img src="http://placehold.it/600x400/E5DECA/333&text=Image+11" alt="Image 11">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myhr">
+            <hr>
+        </div>
+
+        <div class="col-xs-12" id="res_info">
+            <p><span class="mytitle w3-col s6 m6 l6">매장명</span> <span class="myinfo w3-rest">호호식당</span></p>
+            <p><span class="mytitle w3-col s6 m6 l6">평점</span>
+                <span class="myinfo w3-rest">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span>&nbsp;4.1</span>
+            </span>
+            </p>
+            <p><span class="mytitle w3-col s6 m6 l6">후기</span> <span class="w3-rest myinfo"><a href="" class="">501개 <small>보러 가기</small></a></span></p>
+            <p><span class="mytitle w3-col s6 m6 l6">운영 시간</span> <span class="w3-rest myinfo">12:00 ~ 21:00</span></p>
+            <p><span class="mytitle w3-col s6 m6 l6">휴식 시간</span> <span class="w3-rest myinfo">15:00 ~ 17:00</span></p>
+            <p><span class="mytitle w3-col s6 m6 l6">최소 주문일</span> <span class="w3-rest myinfo">3 일</span></p>
+            <p><span class="mytitle w3-col s6 m6 l6">휴일</span> <span class="w3-rest myinfo"><i class="fa fa-calendar"></i></span></p>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myhr">
+                <hr>
+            </div>
+
+            <h2>식사 장소</h2>
+
+            <!-- Slider -->
+            <div class="horiz-scroll scroll-feature">
+                <div class="scroller">
+                    <div class="left-scroll invisible">
+                        <p class="fa fa-angle-left"></p>
                     </div>
-            </div>
-        </div>
-    </div>
-    <div class="._1po460c">
-        <div class="row">
-            <div class="content-block col-lg-4 col-md-4" style="padding:50px">
-                <h3>Thor chef를 추천하는 이유</h3>
-                <h6>Thor는 chef가 제공하는 음식의 종류와 관계 없이 간편하고 안전하게 수입을 창출하도록 지원</h6>
-            </div>
-            <div class="content-block col-lg-4 col-md-4" style="padding:50px">
-                <h3>레지스팅에 관한 결정은<br> chef마음대로</h3>
-                <h6>Thor에서 예약가능일, 가격, 장소 이용규칙, 손님과의 소통방법 등은 모두 chef가 결정합니다.</h6>
-
-            </div>
-            <div class="content-block col-lg-4 col-md-4" style="padding:50px">
-                <h3>운영 전반에 걸친 든든한 지원</h3>
-                <h6>Thor는 chef가 제공하는 음식의 종류와 관계 없이 간편하고 안전하게 수입을 창출하도록 지원</h6>
-            </div>
-        </div>
-    </div>
-    <!-- Container End -->
-</section>
-
-
-<!--==========================================
-=            All Category Section            =
-===========================================-->
-<form action="http://localhost/upload.php" method="post" enctype="multipart/form-data">
-
-<section class="deals-categories section" id="scroll1">
-    <!-- Container Start -->
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-12 col-md-12">
-                <!-- Section title -->
-                <div class="section-title scroll">
-                    <h2>신분증 인증하기!</h2>
-                </div>
-                    <div class="row border-bottom justify-content-center">
-
-                            <div class="page" style="margin-top: 10px;">
-                                <!-- Our File Inputs-->
-                                <div class="wrap-custom-file"><input id="img_certi" type="file" name="menu_pic" accept=".gif, .jpg, .png, .jpeg"><label for="img_certi"><span>UPLOAD</span><i class="fa fa-plus-circle"></i></label></div>
-                                <!-- End Page Wrap-->
-                            </div>
-                        <div class="col-md-2 col-8 justify-content-center">
-                            <div class="form-group">
-                                <label for="seller_age">판매자 나이</label>
-                                <input type="text" class="form-control" id="seller_age" width="30px" readonly >
-                            </div>
-                            <div class="form-group">
-                                <label for="seller_gen">판매자 성별</label>
-                                <input type="text" class="form-control" id="seller_gen" readonly >
-                            </div>
-                        </div>
+                    <div class="right-scroll">
+                        <p class="fa fa-angle-right"></p>
                     </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- Container End -->
-</section>
-
-<!--===========================================
-=            Popular deals section            =
-============================================-->
-
-<section class="popular-deals section border-bottom">
-    <div class="container ">
-        <div class="row">
-            <div class="col-md-12 col-lg-12 col-12">
-                <div class="section-title">
-                    <h2>핸드폰 인증하기!</h2>
-                </div>
-                <div class="row justify-content-center ">
-                    <h7>휴대폰 번호</h7>
-                <select id="txtMobile1" class="form-control col-md-1 col-3 col-lg-1">
-                    <option value="">선택</option>
-                    <option value="011">011</option>
-                    <option value="016">016</option>
-                    <option value="017">017</option>
-                    <option value="019">019</option>
-                    <option value="010">010</option>
-                </select>
-                    <h7>-</h7>
-                <input type="text" id="txtMobile2" class="form-control col-md-1 col-2 col-lg-1" onkeypress="onlyNumber();" />
-                    <h7>-</h7>
-                <input type="text" id="txtMobile3" class="form-control col-md-1 col-2 col-lg-1" />
-                </div>
-
-            </div>
-        </div>
-
-        <div class="row  text-center">
-            <div class="col-12 col-md-12 col-lg-12">
-                <a href="store-single.html" class="btn btn-main mt-30" style="background-color:#80c269">인증하기</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!--===========================================
-=            Popular deals section            =
-============================================-->
-
-<section class="popular-deals section border-bottom">
-    <div class="container ">
-        <div class="row">
-            <div class="col-md-12 col-lg-12">
-                <div class="section-title ">
-                    <h2>판매자 정보 입력하기!</h2>
-                </div>
-                <div class="row justify-content-center">
-                    <h5>얼굴을 확인할 수 있는 사진을 올려주세요~</h5>
-                </div>
-                        <div class="row justify-content-center">
-                            <div class="page" style="margin-top: 10px;">
-                                <!-- Our File Inputs-->
-                                <div class="wrap-custom-file"><input id="img_idcard" type="file" name="menu_pic" accept=".gif, .jpg, .png, .jpeg"><label for="img_idcard"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
-                                <!-- End Page Wrap-->
-                            </div>
-                            <div class=" col-md-4 col-10 col-lg-4 justify-content-center">
-                                <label for="seller_introduce">자기 소개</label>
-                                <textarea rows="5" cols="70" class="form-control " id="seller_introduce" placeholder=""></textarea>
-                            </div>
-                        </div>
-
-
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!--===========================================
-=            Popular deals section            =
-============================================-->
-
-<section class="popular-deals section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">
-                    <h2>매장등록 하기!</h2>
-                </div>
-                <div class="row justify-content-center">
-                    <h5>판매하실 매장의 정보를 입력해 주세요~!!</h5>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 offset-md-2">
-                                <!-- Store name -->
-                                <div class="form-group">
-                                    <label for="store_name">매장 이름</label>
-                                    <input type="text" class="form-control" id="store_name" >
-                                </div>
-
-                                <!-- Store address -->
-                                    <div class="form-group">
-                                        <label for="store_add">매장 주소</label>
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <input type="text" class="form-control" id="store_add"readonly>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <a href="store-single.html" class="btn btn-main">주소검색</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                <!-- Introduce Store -->
-                                <div class="form-group mb-30">
-                                    <label for="store_intro">매장 소개</label>
-                                    <textarea rows="5" cols="100" class="form-control" id="store_intro" placeholder=""></textarea>
-                                </div>
-
-                                <div class="form-group mb-30 row ">
-                                        <div style="margin-right:10px;">
-                                            <input type="checkbox" id="checkbox1" checked="checked" style="margin-left:15px"/>
-                                            <label for="checkbox1">배달</label>
-                                        </div>
-                                        <div style="margin-right:10px;">
-                                            <input type="checkbox" id="checkbox2" />
-                                            <label for="checkbox2">포장</label>
-                                        </div>
-
-                                        <div style="margin-right:10px;">
-                                            <input type="checkbox" id="checkbox3" />
-                                            <label for="checkbox3">방문</label>
-                                        </div>
-                                </div>
-
-
-
-                                <div class="form-group mb-30">
-                                    <label for="oper_time">운영 시간</label>
-                                    <div class="row">
-                                        <div class=" btn-group " data-toggle="buttons" id="oper_time"style="margin:auto;">
-                                                <label class="btn-sm btn btn-week " >
-                                                    <input type="checkbox" autocomplete="off">월
-                                                </label>
-                                                <label class="btn-sm btn btn-week">
-                                                    <input type="checkbox" autocomplete="off">화
-                                                </label>
-                                                <label class="btn-sm btn btn-week">
-                                                    <input type="checkbox" autocomplete="off">수
-                                                </label>
-                                                <label class="btn-sm btn btn-week" >
-                                                    <input type="checkbox" autocomplete="off">목
-                                                </label>
-                                                <label class="btn-sm btn btn-week">
-                                                    <input type="checkbox" autocomplete="off">금
-                                                </label>
-                                                <label class="btn-sm btn btn-week">
-                                                    <input type="checkbox" autocomplete="off">토
-                                                </label>
-                                                <label class="btn-sm btn btn-week">
-                                                    <input type="checkbox" autocomplete="off">일
-                                                </label>
-                                        </div>
-                                        <div class="row col-md-3 col-2 justify-content-center">
-                                            <input class="form-control col-md-5 col-1" type="text" id="txtopertime1"  onkeypress="onlyNumber();" />
-                                         <h5 style="margin-top:10px">:</h5>
-                                            <input class="form-control col-md-5 col-1" type="text" id="txtopertime2"  />
-                                        </div>
-                                    </div>
-
-                                <div class="form-group  row col-md-12 ">
-                                    <label class="control-label requiredField label-title">매장 이미지</label>
-                                    <div class="page justify-content-center" style="margin-top: 10px;">
-                                        <!-- Our File Inputs-->
-                                        <div class="wrap-custom-file"><input id="image1" type="file" name="store_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image1"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
-                                        <div class="wrap-custom-file"><input id="image2" type="file" name="store_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image2"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
-                                        <div class="wrap-custom-file"><input id="image3" type="file" name="store_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image3"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
-                                        <div class="wrap-custom-file"><input id="image4" type="file" name="store_pic" accept=".gif, .jpg, .png, .jpeg"><label for="image4"><span>Select Image</span><i class="fa fa-plus-circle"></i></label></div>
-                                        <!-- End Page Wrap-->
-                                    </div>
-                                </div>
-
-                            </div>
-                    </div>
+                    <div class="scroll-images scrollable-x">
+                        <img src="http://placehold.it/600x400/CCB03A/fff&text=Image+1" alt="Image 1">
+                        <img src="http://placehold.it/600x400/FAEF5D/333&text=Image+2" alt="Image 2">
+                        <img src="http://placehold.it/600x400/97A976/fff&text=Image+3" alt="Image 3">
+                        <img src="http://placehold.it/600x400/675647/fff&text=Image+4" alt="Image 4">
+                        <img src="http://placehold.it/600x400/253E41/fff&text=Image+5" alt="Image 5">
+                        <img src="http://placehold.it/600x400/F1582D/fff&text=Image+6" alt="Image 6">
+                        <img src="http://placehold.it/600x400/C1DAD8/333&text=Image+7" alt="Image 7">
+                        <img src="http://placehold.it/600x400/6CB8C1/fff&text=Image+8" alt="Image 8">
+                        <img src="http://placehold.it/600x400/BF6A28/fff&text=Image+9" alt="Image 9">
+                        <img src="http://placehold.it/600x400/5E4D1E/fff&text=Image+10" alt="Image 10">
+                        <img src="http://placehold.it/600x400/E5DECA/333&text=Image+11" alt="Image 11">
                     </div>
                 </div>
             </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myhr">
+                <br>
+            </div>
+
+            <h2>매장 설명</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+
+            <h2>위치</h2>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="map" style="height: 300px; width: 100%;"></div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myhr">
+                <br>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 menu-container purchase-btn">
+                <button class="btn btn-warning col-xs-6 col-sm-6 col-md-6 col-lg-6">판매자 즐겨찾기</button>
+                <button class="btn btn-success col-xs-6 col-sm-6 col-md-6 col-lg-6">구매</button>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 myhr">
+                <br>
+            </div>
         </div>
+
     </div>
-
-    <div class="row text-center">
-        <div class="col-md-12 col-lg-12">
-            <a href="store-single.html" class="btn btn-main mt-30" style="background-color:#22ac38">REGISTER</a>
-        </div>
-    </div>
-
-</section>
-</form>
-
 
 
 <!--============================
@@ -578,6 +491,12 @@
 <script src="js/register_HNH.js"></script>
 <script src="./js/UploadFile_KSW.js"></script>
 <script src="./js/MenuSubmit_KSW.js"></script>
+<script src="./js/Map.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9QRgBKIct09-0nMzhZyX5EMldShSzZy4&callback=myMap"></script>
+<script src="./js/TopMenu.js"></script>
+<script src="./js/ImgSlider.js"></script>
 </body>
 
 </html>
