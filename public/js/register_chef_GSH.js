@@ -1,22 +1,18 @@
 function register_chef_value(){
-    var formData = new FormData();
-    formData.append("imageIden",$("input[name=imageIden]").value);
-    formData.append("imageFace",$("input[name=imageFace]").value);
-    if($("input[name=imageStore]")[0].files[0])
-        formData.append("imageStore",$("input[name=imageStore]")[0].files[0]);
-    if($("input[name=imageStore]")[1].files[0])
-        formData.append("imageStore",$("input[name=imageStore]")[1].files[0]);
-    if($("input[name=imageStore]")[2].files[0])
-        formData.append("imageStore",$("input[name=imageStore]")[2].files[0]);
-    if($("input[name=imageStore]")[3].files[0])
-        formData.append("imageStore",$("input[name=imageStore]")[3].files[0]);
-    console.log(formData.values());
+    var form = $('#frm')[0];
+    var formData = new FormData(form);
+    formData.append("fileObj", $("#image1")[0].files[0]);
+
+    console.log(document.frm.img_store[0].value);
+    console.log(formData);
+    return false;
     var sendData={};
     /*$.ajax({
         method: "POST",
         type: "POST",
         url: "/member/Logout",
         data: sendData,
+        enctype: "multipart/form-data",
         success: function (data) {
             if (data === "clear") {
                 location.reload();

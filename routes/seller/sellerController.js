@@ -11,7 +11,7 @@ var Member = require('../../models/member');
 var cert = require('../../models/certificate');
 
 exports.sellerRegister= function(req, res, next) {
-    res.render("register_chef",{passport:req.session.passport});
+    res.render("register_chef_GSH",{passport:req.session.passport});
 };
 
 exports.sellerRegisterAttemp= function(req, res, next) {
