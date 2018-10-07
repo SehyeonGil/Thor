@@ -51,7 +51,7 @@ router.get('/email_complete', function(req, res, next) {
 
 /* GET menu_list page */
 router.get('/menu_list', function(req, res, next) {
-    res.render('menuList_KSW');
+    res.render('menuList');
 });
 
 router.post('/Join',controller.normalSignup);
