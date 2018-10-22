@@ -54,6 +54,11 @@ router.get('/menu_list', function(req, res, next) {
     res.render('menuList');
 });
 
+/* GET menu_list page */
+router.get('/menu_info', function(req, res, next) {
+    res.render('menu_info_KSW');
+});
+
 router.post('/Join',controller.normalSignup);
 router.post('/Login', controller.loginAttemp);
 router.post('/Logout', controller.logoutAttemp);
