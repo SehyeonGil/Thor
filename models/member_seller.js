@@ -7,29 +7,39 @@ var moment = require('moment');
 var Schema = mongoose.Schema;
 
 var Member_SellerSchema = new Schema({
-    submit_date:{type: Date, default: moment().format()},
-    address:{
-        post:String,
-        add1:String,
-        add2:String,
-        x:Number,
-        y:Number
-    },
-    shopName:{type:String},
-    explain:{type:String},
-    openTime:{type:String},
-    closeTime:{type:String},
-    capacity:{type:Number},
-    option_visit:{type:Boolean, default:false},
-    option_takeout:{type:Boolean, default:false},
-    option_delivery:{type:Boolean, default:false},
-    shop_image:[{
+    imageIden:{
         image_name:{type:String},
         image_url:{type:String},
         image_size:{type:String}
-    }],
-    min_order_date:{type:Number},
-    min_order_value:{type:Number}
+    },
+    age:{type:String},
+    gender:{type:String},
+    cellphone:String,
+    imageFace:{
+        image_name:{type:String},
+        image_url:{type:String},
+        image_size:{type:String}
+    },
+    text:{type:String},
+    shopName:{type:String},
+    address: {type:String},
+    shopText:{type:String},
+    optionDelivery:{type:Boolean},
+    optionPacking:{type:Boolean},
+    optionVisit:{type:Boolean},
+    optionMon:{type:Boolean},
+    optionTues:{type:Boolean},
+    optionWen:{type:Boolean},
+    optionThur:{type:Boolean},
+    optionFri:{type:Boolean},
+    optionSat:{type:Boolean},
+    optionSun:{type:Boolean},
+    optionTime:{type:String},
+    imageStore:[{
+        image_name:{type:String},
+        image_url:{type:String},
+        image_size:{type:String}
+    }]
 });
 
 module.exports = mongoose.model('member_seller', Member_SellerSchema);
