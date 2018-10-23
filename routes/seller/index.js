@@ -37,7 +37,7 @@ router.get('/', function(req, res, next) {
 router.get('/manage_order', function(req, res, next) {
     res.render('manage_order_KSW');
 });
-router.get('/Register_Chef',controller.sellerRegister);
+router.get('/Register_Chef',controller.seller_check,controller.sellerRegister);
 router.post('/Register_Chef',uploadSeller.fields([{name:'imageIden'},{name:'imageFace'},{name:'imageStore'}]),controller.sellerRegisterAttemp);
 
 module.exports = router;

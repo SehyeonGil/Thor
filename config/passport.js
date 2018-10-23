@@ -13,7 +13,7 @@ var randomstring = require("randomstring");
 
 module.exports = function(passport,nev) {
     passport.serializeUser(function (user, done) {
-        done(null, {email: user.email, seller: user.sellercheck, mid: user._id});
+        done(null, {email: user.email, seller_check: user.seller_check, mid: user._id});
     });
     passport.deserializeUser(function (user, done) {
         done(null, user);

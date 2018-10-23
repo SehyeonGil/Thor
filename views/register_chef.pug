@@ -33,7 +33,7 @@ html(lang='en')
           =====================================
           =            Top Header Menu            =
           ======================================
-        include components/topHeader_KSW
+        include components/topHeader
         include components/navBar_KSW
         // Container End
         //
@@ -78,7 +78,7 @@ html(lang='en')
           ==========================================
           =            All Category Section            =
           ===========================================
-        form(action='/Register_Chef', method='post', enctype='multipart/form-data')
+        form(action='/seller/Register_Chef', method='post', enctype='multipart/form-data')
             section#scroll1.deals-categories.section
                 // Container Start
                 .container
@@ -248,7 +248,7 @@ html(lang='en')
                                                     // End Page Wrap
             .row.text-center
                 .col-md-12.col-lg-12
-                    a.btn.btn-main.mt-30(href='store-single.html', style='background-color:#22ac38') REGISTER
+                    button.btn.btn-main.mt-30(onclick='submit', style='background-color:#22ac38') REGISTER
 
         include components/footer_KSW
 

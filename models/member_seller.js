@@ -7,6 +7,7 @@ var moment = require('moment');
 var Schema = mongoose.Schema;
 
 var Member_SellerSchema = new Schema({
+    email:{type:String},
     imageIden:{
         image_name:{type:String},
         image_url:{type:String},
@@ -24,16 +25,16 @@ var Member_SellerSchema = new Schema({
     shopName:{type:String},
     address: {type:String},
     shopText:{type:String},
-    optionDelivery:{type:Boolean},
-    optionPacking:{type:Boolean},
-    optionVisit:{type:Boolean},
-    optionMon:{type:Boolean},
-    optionTues:{type:Boolean},
-    optionWen:{type:Boolean},
-    optionThur:{type:Boolean},
-    optionFri:{type:Boolean},
-    optionSat:{type:Boolean},
-    optionSun:{type:Boolean},
+    optionDelivery:{type:String},
+    optionPacking:{type:String},
+    optionVisit:{type:String},
+    optionMon:{type:String},
+    optionTues:{type:String},
+    optionWen:{type:String},
+    optionThur:{type:String},
+    optionFri:{type:String},
+    optionSat:{type:String},
+    optionSun:{type:String},
     optionTime:{type:String},
     imageStore:[{
         image_name:{type:String},

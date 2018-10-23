@@ -25,7 +25,11 @@ nav.navbar.navbar-toggleable-md.main-nav(style='z-index: 100;background-color:#f
                 li.nav-item
                     a.nav-link(href='#') 이벤트
                 li.nav-item
+                if(!passport)
                     a.nav-link(href='/seller/register_chef') 쉐프 신청하기
+                else
+                    if(!passport.user.seller_check)
+                        a.nav-link(href='/seller/register_chef') 쉐프 신청하기
                 li.nav-item
                     a.nav-link(href='/seller/') 마이페이지
 
