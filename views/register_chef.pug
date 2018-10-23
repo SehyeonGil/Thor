@@ -176,8 +176,11 @@ html(lang='en')
                                             .row
                                                 .col-md-9
                                                     input#store_add.form-control(type='text', name='address', readonly='')
+                                                    input#siNm(type='hidden', name='siNm', readonly='')
+                                                    input#entX(type='hidden', name='x', readonly='')
+                                                    input#entY(type='hidden', name='y', readonly='')
                                                 .col-md-2
-                                                    a.btn.btn-main(href='store-single.html') 주소검색
+                                                    button.btn.btn-main(type="button", onclick='goPopup()') 주소검색
                                         // Introduce Store
                                         .form-group.mb-30
                                             label(for='store_intro') 매장 소개
@@ -268,3 +271,5 @@ html(lang='en')
         script(src='../js/register_HNH.js')
         script(src='../js/UploadFile_KSW.js')
         script(src='../js/MenuSubmit_KSW.js')
+        script(src='../js/juso/juso_GSH.js')
+        script(src='../plugins/proj4js/proj4js-combined.js')

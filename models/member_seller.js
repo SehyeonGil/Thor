@@ -24,6 +24,13 @@ var Member_SellerSchema = new Schema({
     text:{type:String},
     shopName:{type:String},
     address: {type:String},
+    location : {
+        type : {
+            type: String,
+            default: 'Point'
+        },
+        coordinates: [{type:Number}]
+    },
     shopText:{type:String},
     optionDelivery:{type:String},
     optionPacking:{type:String},

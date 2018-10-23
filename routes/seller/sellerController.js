@@ -37,6 +37,7 @@ exports.sellerRegisterAttemp= function(req, res, next) {
     var text= req.body.text;
     var shopName=req.body.shopName;
     var address=req.body.address;
+    var location={type:'Point',coordinates:[req.body.x,req.body.y]};
     var shopText=req.body.shopText;
     var optionDelivery=req.body.optionDelivery;
     var optionPacking=req.body.optionPacking;
@@ -98,6 +99,7 @@ exports.sellerRegisterAttemp= function(req, res, next) {
                 newMemberSeller.imageFace.image_name=imageFace_name;
                 newMemberSeller.imageFace.image_size=imageFace_size;
                 newMemberSeller.imageFace.image_url=imageFace;
+                newMemberSeller.location=location;
                 for(i=0;i<imageStore.length;i++) {
                     newMemberSeller.imageStore.push({image_url:imageStore[i],image_size:imageStore_size[i], image_name:imageStore_name[i]});
                 }
