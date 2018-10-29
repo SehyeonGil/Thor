@@ -41,9 +41,9 @@ html(lang='en')
                                 // User Image
                                 .image.d-flex.justify-content-center
                                     a(href='seller_profile_KSW.html')
-                                        img(src='http://file2.instiz.net/data/file/20140928/e/0/f/e0f0a6bb6b16a1a41deb1f7d921bcb25.jpg', alt='Image')
+                                        img(src='../'+seller.imageFace.image_url, alt='Image')
                                 // User Name
-                                h5.text-center #{seller}
+                                h5.text-center= member.first_name+" "+member.last_name
                             // Dashboard Links
                             .widget.dashboard-links.p-0
                                 ul
@@ -70,50 +70,94 @@ html(lang='en')
                             form(action='#')
                                 .form-group
                                     label(for='title') 매장 타이틀
-                                    input#title.form-control(type='text', value='순우네 행복식당')
+                                    input#title.form-control(type='text', value=seller.shopName)
                                 .form-group
                                     label(for='intro') 매장 소개
-                                    textarea#intro.form-control(type='text', rows='10')
+                                    textarea#intro.form-control(rows='10', placeholder=seller.text)
                                 .form-group
                                     label(for='time') 운영 시간
                                     #time.row
                                         .btn-group(data-toggle='buttons', style='margin:auto;')
-                                            label.btn-sm.btn.btn-week
-                                                input(type='checkbox', autocomplete='off')
-                                                | 월
-                                            label.btn-sm.btn.btn-week
-                                                input(type='checkbox', autocomplete='off')
-                                                | 화
-                                            label.btn-sm.btn.btn-week
-                                                input(type='checkbox', autocomplete='off')
-                                                | 수
-                                            label.btn-sm.btn.btn-week
-                                                input(type='checkbox', autocomplete='off')
-                                                | 목
-                                            label.btn-sm.btn.btn-week
-                                                input(type='checkbox', autocomplete='off')
-                                                | 금
-                                            label.btn-sm.btn.btn-week
-                                                input(type='checkbox', autocomplete='off')
-                                                | 토
-                                            label.btn-sm.btn.btn-week
-                                                input(type='checkbox', autocomplete='off')
-                                                | 일
+                                            if(seller.optionMon==='on')
+                                                label.btn-sm.btn.btn-week.focus.active
+                                                    input(type='checkbox', autocomplete='off', checked='checked')
+                                                    | 월
+                                            else
+                                                label.btn-sm.btn.btn-week
+                                                    input(type='checkbox', autocomplete='off')
+                                                    | 월
+                                            if(seller.optionTues === 'on')
+                                                label.btn-sm.btn.btn-week.focus.active
+                                                    input(type='checkbox', autocomplete='off', checked='checked')
+                                                    | 화
+                                            else
+                                                label.btn-sm.btn.btn-week
+                                                    input(type='checkbox', autocomplete='off')
+                                                    | 화
+                                            if(seller.optionWen === 'on')
+                                                label.btn-sm.btn.btn-week.focus.active
+                                                    input(type='checkbox', autocomplete='off', checked='checked')
+                                                    | 수
+                                            else
+                                                label.btn-sm.btn.btn-week
+                                                    input(type='checkbox', autocomplete='off')
+                                                    | 수
+                                            if(seller.optionThur === 'on')
+                                                label.btn-sm.btn.btn-week.focus.active
+                                                    input(type='checkbox', autocomplete='off', checked='checked')
+                                                    | 목
+                                            else
+                                                label.btn-sm.btn.btn-week
+                                                    input(type='checkbox', autocomplete='off')
+                                                    | 목
+                                            if(seller.optionFri === 'on')
+                                                label.btn-sm.btn.btn-week.focus.active
+                                                    input(type='checkbox', autocomplete='off', checked='checked')
+                                                    | 금
+                                            else
+                                                label.btn-sm.btn.btn-week
+                                                    input(type='checkbox', autocomplete='off')
+                                                    | 금
+                                            if(seller.optionSat === 'on')
+                                                label.btn-sm.btn.btn-week.focus.active
+                                                    input(type='checkbox', autocomplete='off', checked='checked')
+                                                    | 토
+                                            else
+                                                label.btn-sm.btn.btn-week
+                                                    input(type='checkbox', autocomplete='off')
+                                                    | 토
+                                            if(seller.optionSun === 'on')
+                                                label.btn-sm.btn.btn-week.focus.active
+                                                    input(type='checkbox', autocomplete='off', checked='checked')
+                                                    | 일
+                                            else
+                                                label.btn-sm.btn.btn-week
+                                                    input(type='checkbox', autocomplete='off')
+                                                    | 일
                                         .row.col-md-3.justify-content-center
-                                            input#txtopertime1.form-control.col-md-5(type='text', onkeypress='onlyNumber();')
+                                            input#txtopertime1.form-control.col-md-5(type='text', onkeypress='onlyNumber();', value=seller.optionTime1)
                                             h5(style='margin-top:10px') :
-                                            input#txtopertime2.form-control.col-md-5(type='text')
+                                            input#txtopertime2.form-control.col-md-5(type='text', value=seller.optionTime2)
                                 label(for='service') 서비스 종류
                                 // Checkbox
                                 #service.form-check
                                     label.form-check-label(for='hide-profile1', style='color: #000; font-weight: 500; font-size: 16px;')
-                                        input#hide-profile1.form-check-input(type='checkbox', value='')
+                                        if(seller.optionDelivery === 'on')
+                                            input#hide-profile1.form-check-input(type='checkbox', value='', checked='checked')
+                                        else
+                                            input#hide-profile1.form-check-input(type='checkbox', value='')
                                         | 							배달 서비스
                                     label.form-check-label(for='hide-profile2', style='color: #000; font-weight: 500; font-size: 16px;')
-                                        input#hide-profile2.form-check-input(type='checkbox', value='')
+                                        if(seller.optionPacking === 'on')
+                                            input#hide-profile2.form-check-input(type='checkbox', value='', checked='checked')
+                                        else
+                                            input#hide-profile2.form-check-input(type='checkbox', value='')
                                         | 							포장 서비스
                                     label.form-check-label(for='hide-profile3', style='color: #000; font-weight: 500; font-size: 16px;')
-                                        input#hide-profile3.form-check-input(type='checkbox', value='')
+                                        if(seller.optionVisit === 'on')
+                                            input#hide-profile3.form-check-input(type='checkbox', value='', checked='checked')
+                                        else
+                                            input#hide-profile3.form-check-input(type='checkbox', value='')
                                         | 							방문 서비스
                                 // Submit button
                                 button.btn.btn-transparent Save My Changes
@@ -122,12 +166,12 @@ html(lang='en')
                             h3.widget-header.user 매장 주소
                             form(action='#')
                                 .row
-                                    label#addresslabel.col-lg-2.col-md-2.col-sm-2(for='address') 주소
-                                    input#address.form-control.col-lg-7.col-md-7.col-sm-7(type='text', name='address', required='', readonly='')
-                                    button.col-lg-2.col-md-2.col-sm-2(type='button', style='border-radius:30px; color:#ffffff; height:40px;margin: 5px 10px 5px 10px;vertical-align: middle;background-color:gray;border-style:none;') 찾기
-                                    input#entX(type='hidden', value='', name='x', required='', readonly='')
-                                    input#entY(type='hidden', name='y', required='', readonly='')
-                                    input#siNm(type='hidden', name='siNm', required='', readonly='')
+                                    label#addresslabel.col-lg-2.col-md-2.col-sm-2(for='store_add') 주소
+                                    input#store_add.form-control.col-lg-7.col-md-7.col-sm-7(type='text', name='address', required='', readonly='', value=seller.address)
+                                    button.col-lg-2.col-md-2.col-sm-2(type='button', onclick='goPopup()', style='border-radius:30px; color:#ffffff; height:40px;margin: 5px 10px 5px 10px;vertical-align: middle;background-color:gray;border-style:none;') 찾기
+                                    input#entX(type='hidden', value=seller.location.coordinates[0], name='x', required='', readonly='')
+                                    input#entY(type='hidden', value=seller.location.coordinates[1], name='y', required='', readonly='')
+                                    input#siNm(type='hidden', name='siNm', required='   ', readonly='')
                                 #map.col-lg-12.block(style='height:400px; margin: 50px auto;')
                                 // Submit Button
                                 button.btn.btn-transparent Change Password
@@ -177,3 +221,5 @@ html(lang='en')
         script(src='../js/custom.js')
         script(src='../js/googleMap_KSW.js')
         script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDXRttJPmU15cheDKyAeKPQ5ZJzGC-0JUg&callback=myMap')
+        script(src='../js/juso/juso_GSH.js')
+        script(src='../plugins/proj4js/proj4js-combined.js')

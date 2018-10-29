@@ -42,9 +42,9 @@ exports.seller_check_no=function(req,res,next) {         //판매자 등록페�
     }
 };
 exports.sellerMain= function(req, res, next) {            //판매자 메인 get
-    MemberSeller.find({email:req.session.passport.user.email},function(err,seller){
-        Member.find({email:req.session.passport.user.email}, function(err,member) {
-            res.render("seller_profile",{passport:req.session.passport,member:json.parse(member),seller:seller});
+    MemberSeller.findOne({email:req.session.passport.user.email},function(err,seller){
+        Member.findOne({email:req.session.passport.user.email}, function(err,member) {
+            res.render("seller_profile",{member:member,passport:req.session.passport,seller:seller});
         });
     });
 };
@@ -75,7 +75,8 @@ exports.sellerRegisterAttemp= function(req, res, next) {      //판매자 등록
     var optionFri=req.body.optionFri;
     var optionSat=req.body.optionSat;
     var optionSun=req.body.optionSun;
-    var optionTime=req.body.optionTime1+":"+req.body.optionTime2;
+    var optionTime1=req.body.optionTime1;
+    var optionTime2=req.body.optionTime2;
     var upFile = req.files;
     var imageIden = "./img/sellerImg/imageIden/" + upFile['imageIden'][0].filename;
     var imageIden_name = upFile['imageIden'][0].filename;
@@ -119,7 +120,8 @@ exports.sellerRegisterAttemp= function(req, res, next) {      //판매자 등록
                 newMemberSeller.optionFri=optionFri;
                 newMemberSeller.optionSat=optionSat;
                 newMemberSeller.optionSun=optionSun;
-                newMemberSeller.optionTime=optionTime;
+                newMemberSeller.optionTime1=optionTime1;
+                newMemberSeller.optionTime2=optionTime2;
                 newMemberSeller.imageIden.image_name=imageIden_name;
                 newMemberSeller.imageIden.image_size=imageIden_size;
                 newMemberSeller.imageIden.image_url=imageIden;

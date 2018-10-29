@@ -42,7 +42,8 @@ var Member_SellerSchema = new Schema({
     optionFri:{type:String},
     optionSat:{type:String},
     optionSun:{type:String},
-    optionTime:{type:String},
+    optionTime1:{type:String},
+    optionTime2:{type:String},
     imageStore:[{
         image_name:{type:String},
         image_url:{type:String},
