@@ -49,17 +49,17 @@ html(lang='en')
                             .panel-body
                                 form(action='', method='POST', role='form', name='myform')
                                     .form-group
-                                        label(for='') Enter Email
+                                        label(for='') 이메일
                                         input#email.form-control(type='email', name='email')
                                         input#emailCheck.form-control(type='hidden', name='emailCheck' value='false')
                                     .form-group
-                                        label(for='') Password
+                                        label(for='') 비밀번호
                                         input#password.form-control(type='password', name='password')
                                         input#passwordCheck.form-control(type='hidden', name='passwordCheck' value='false')
                                     .form-check
                                         input#checkbox-1.checkbox-custom.form-check-input(name='checkbox-1', type='checkbox')
-                                        label.checkbox-custom-label.form-check-label(for='checkbox-1') Remember me
-                                    button.btn.btn-primary.btn-block(type='button', onclick='return login(this.form)') log in
+                                        label.checkbox-custom-label.form-check-label(for='checkbox-1') 아이디 저장
+                                    button.btn.btn-primary.btn-block(type='button', onclick='return login(this.form)') 로그인
                                     .wrapper
                                         .d-block.social-login.text-center.one
                                             button.btn.btn-social.titled.naver
@@ -70,8 +70,8 @@ html(lang='en')
                                         .d-block.social-login.text-center.three
                                             button.btn.btn-social.titled.google
                                                 | login google
-                                    button.btn.btn-link.btn-block(type='button', onclick="location.href='../member/Join'") join
-                                    button.btn.btn-link.btn-block(type='button', onclick="location.href='../member/Find_Password'") Forgot Password?
+                                    button.btn.btn-link.btn-block(type='button', onclick="location.href='../member/Join'") 회원가입
+                                    button.btn.btn-link.btn-block(type='button', onclick="location.href='../member/Find_Password'") 비밀번호 찾기
         //
           ============================
           =            Footer            =
