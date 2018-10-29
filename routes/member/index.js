@@ -58,7 +58,9 @@ router.get('/menu_list', function(req, res, next) {
 router.get('/menu_info', function(req, res, next) {
     res.render('menu_info_KSW');
 });
-
+router.get('/manage_review',function (req,res,next) {
+    res.render('manage_review_HNH');
+})
 router.post('/Join',controller.normalSignup);
 router.post('/Login', controller.loginAttemp);
 router.post('/Logout', controller.logoutAttemp);

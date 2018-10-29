@@ -325,20 +325,20 @@
 
 !function() {
     var data = [
-        { eventName: ' 12:30~1:30 권순우', calendar: '자율예약', color: 'orange' },
-        { eventName: ' 1:30~2:30 권순우', calendar: '자율예약', color: 'orange' },
-        { eventName: ' 6:00~7:00 권순우', calendar: '자율예약', color: 'orange' },
-        { eventName: ' 7:00~8:00 권순우', calendar: '자율예약', color: 'orange' },
+        { eventName: ' 12:30 권순우', calendar: '매장식사', color: 'orange' },
+        { eventName: ' 1:30 권순우', calendar: '매장식사', color: 'orange' },
+        { eventName: ' 18:00 권순우', calendar: '매장식사', color: 'orange' },
+        { eventName: ' 19:00 권순우', calendar: '매장식사', color: 'orange' },
 
-        { eventName: ' 12:00~1:00 홍나현', calendar: '다이닝전체', color: 'blue' },
-        { eventName: ' 2:00~3:00 홍나현', calendar: '다이닝전체', color: 'blue' },
-        { eventName: ' 6:30~7:30 홍나현', calendar: '다이닝전체', color: 'blue' },
-        { eventName: ' 7:30~8:30 홍나현', calendar: '다이닝전체', color: 'blue' },
+        { eventName: ' 12:00 홍나현', calendar: '포장', color: 'blue' },
+        { eventName: ' 2:00 홍나현', calendar: '포장', color: 'blue' },
+        { eventName: ' 18:30 홍나현', calendar: '포장', color: 'blue' },
+        { eventName: ' 19:30 홍나현', calendar: '포장', color: 'blue' },
 
-        { eventName: ' 11:30~12:30 김기영', calendar: 'Shared', color: 'yellow' },
-        { eventName: ' 12:30~1:30 김기영', calendar: 'Shared', color: 'yellow' },
-        { eventName: ' 7:00~8:00 김기영', calendar: 'Shared', color: 'yellow' },
-        { eventName: ' 8:00~9:00 김기영', calendar: 'Shared', color: 'yellow' },
+        { eventName: ' 11:30 김기영', calendar: '배달', color: 'yellow' },
+        { eventName: ' 12:30 김기영', calendar: '배달', color: 'yellow' },
+        { eventName: ' 19:00 김기영', calendar: '배달', color: 'yellow' },
+        { eventName: ' 20:00 김기영', calendar: '배달', color: 'yellow' },
     ];
 
 
