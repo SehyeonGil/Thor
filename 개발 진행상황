@@ -3,9 +3,6 @@
 
 10.02 - menuList pug 추가
 
-<<<<<<< HEAD
 10.22 - menuinfo pug 추가
-=======
-10.22 - menuinfo pug 추가
-      - manage_order pug 추가 (수정 필요)
->>>>>>> 1776eb9e81cba92bb55de90327f508e9fa8a5909
+      - manage_order pug 추가
+
