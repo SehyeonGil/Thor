@@ -100,26 +100,37 @@ html(lang='en')
                             .panel-body
                                 form(action='', method='POST', role='form', name='myform')
                                     .form-group
-                                        label(for='') Lastname
+                                        label(for='') 성
                                         input#lastname.form-control(type='text', name='lastname')
                                         input#lastnameCheck.form-control(type='hidden', name='lastnameCheck' value='false')
                                     .form-group
-                                        label(for='') Firstname
+                                        label(for='') 이름
                                         input#firstname.form-control(type='text', name='firstname')
                                         input#firstnameCheck.form-control(type='hidden', name='firstnameCheck' value='false')
                                     .form-group
-                                        label(for='') Enter Email
+                                        label(for='') 이메일
                                         input#email.form-control(type='email', name='email')
                                         input#emailCheck.form-control(type='hidden', name='emailCheck' value='false')
                                     .form-group
-                                        label(for='') Password
-                                        input#password.form-control(type='password', name='password', placeholder='Please enter between 6 and 15 characters with A~z /0~9/!@#$%')
+                                        label(for='') 비밀번호
+                                        input#password.form-control(type='password', name='password', placeholder='숫자와 특수문자(!@#$%)를 혼합해서 입력해주세요( 6자 이상 15자 이하 )')
                                         input#passwordCheck.form-control(type='hidden', name='passwordCheck' value='false')
                                     .form-group
-                                        label(for='') Password confirm
+                                        label(for='') 비밀번호 확인
                                         input#pw_confirm.form-control(type='password', name='pw_confirm')
                                         input#pw_confirmCheck.form-control(type='hidden', name='pw_confirmCheck' value='false')
-                                    button.btn.btn-primary.btn-block(type='button', onclick='submitseller(this.form)') join
+                                    button.btn.btn-primary.btn-block(type='button', onclick='submitseller(this.form)') 회원가입 완료
+
+                                    .wrapper
+                                        .d-block.social-login.text-center.one
+                                            button.btn.btn-social.titled.naver
+                                                | login naver
+                                        .d-block.social-login.text-center.two
+                                            button.btn.btn-social.titled.kakao
+                                                | login kakao
+                                        .d-block.social-login.text-center.three
+                                            button.btn.btn-social.titled.google
+                                                | login google
 
         //
           ============================

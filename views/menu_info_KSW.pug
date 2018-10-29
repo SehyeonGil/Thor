@@ -200,7 +200,7 @@ html(lang='en')
                     br
                 .col-12.col-sm-12.col-md-12.col-lg-12.menu-container.purchase-btn
                     button.btn.btn-warning.col-6.col-sm-6.col-md-6.col-lg-6 판매자 즐겨찾기
-                    button.btn.btn-success.col-6.col-sm-6.col-md-6.col-lg-6 구매
+                    button.btn.btn-success(type='button', data-toggle='modal', data-target='#purchase').col-6.col-sm-6.col-md-6.col-lg-6 구매
                 .col-12.col-sm-12.col-md-12.col-lg-12.myhr
                     br
                     br
@@ -209,26 +209,29 @@ html(lang='en')
                     br
 
         include components/footer_KSW
-        // <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        // <hr>
-        // </div>
-        // <div class="icon-bar col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        // <div class="w3-col s4 m4 l4">
-        // <a href="#"><i class="fa fa-comments-o"></i>
-        // <p class="icon-description">메시지</p>
-        // </a>
-        // </div>
-        // <div class="w3-col s4 m4 l4">
-        // <a href=""><i class="fa fa-calendar-check-o"></i>
-        // <p class="icon-description">주문</p>
-        // </a>
-        // </div>
-        // <div class="w3-col s4 m4 l4">
-        // <a href=""><i class="material-icons" id="restaurant-menu">restaurant_menu</i>
-        // <p class="icon-description">메뉴</p>
-        // </a>
-        // </div>
-        // </div>
+
+        #purchase.modal.fade.cupon-modal(tabindex='-1', role='dialog')
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        img(src='../img/home/thorLogo.png', alt='Store Icon', style='margin: auto; display: block;')
+                    .modal-body
+                        .col-12.res_info
+                            p
+                                span.mytitle.w3-col.s6.m6.l6 메뉴
+                                span.myinfo.w3-rest 전주 비빔밥
+                            p
+                                span.mytitle.w3-col.s6.m6.l6 가격
+                                span.myinfo.w3-rest 8,000원
+                            p
+                                span.mytitle.w3-col.s6.m6.l6 예약 유형
+                                span.w3-rest.myinfo 자율 예약
+                            p
+                                span.mytitle.w3-col.s6.m6.l6 판매 시간
+                                span.w3-rest.myinfo 16:00 ~ 18:00
+                        a.btn.btn-transparent(href='#', data-dismiss='modal', style='float: left;') 뒤로 가기
+                        a.btn.btn-transparent(href='/', style='float: right;') 결제하기
+
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
         script(src='../js/ImgSlider.js')
