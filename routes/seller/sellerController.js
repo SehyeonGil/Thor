@@ -9,10 +9,11 @@ var bodyParser = require('body-parser');
 
 var Member = require('../../models/member');
 var MemberSeller = require('../../models/member_seller');
+var Menu = require('../../models/menu');
 var cert = require('../../models/certificate');
 var Promise=require('promise');
 
-exports.seller_check=function(req,res,next) {
+exports.seller_check_yes=function(req,res,next) {         //판매자 등록페이지 들어갈 때 검사
     if(!req.session.passport)
     {
         res.redirect('/member/Login');
@@ -26,11 +27,37 @@ exports.seller_check=function(req,res,next) {
         return next();
     }
 };
-exports.sellerRegister= function(req, res, next) {
+exports.seller_check_no=function(req,res,next) {         //판매자 등록페이지 들어갈 때 검사
+    if(!req.session.passport)
+    {
+        res.redirect('/member/Login');
+    }
+    else if(!req.session.passport.user.seller_check)
+    {
+        res.redirect('/seller/register_seller');
+    }
+    else
+    {
+        return next();
+    }
+};
+exports.sellerMain= function(req, res, next) {            //판매자 메인 get
+    MemberSeller.find({email:req.session.passport.user.email},function(err,seller){
+        Member.find({email:req.session.passport.user.email}, function(err,member) {
+            res.render("seller_profile",{passport:req.session.passport,member:json.parse(member),seller:seller});
+        });
+    });
+};
+
+exports.sellerRegister= function(req, res, next) {            //판매자 등록 get
     res.render("register_chef",{passport:req.session.passport});
 };
 
-exports.sellerRegisterAttemp= function(req, res, next) {
+exports.menuRegister= function(req, res, next) {            //메뉴 등록 get
+    res.render("register_menu",{passport:req.session.passport});
+};
+
+exports.sellerRegisterAttemp= function(req, res, next) {      //판매자 등록 post
     var age = req.body.age;
     var gender = req.body.gender;
     var cellphone = req.body.mobile1+req.body.mobile2+req.body.mobile3;
@@ -109,6 +136,51 @@ exports.sellerRegisterAttemp= function(req, res, next) {
                     res.redirect('/');
                 });
             });
+        });
+    }
+    //res.send("clear");
+};
+
+exports.menuRegisterAttemp= function(req, res, next) {      //메뉴 등록 post
+    var title = req.body.title;
+    var price = req.body.price;
+    var expire = req.body.expire;
+    var text= req.body.text;
+    var hashtag=req.body.hashtag;
+    var hashtagCheck=hashtag.split(',');
+    for(i=0;i<hashtagCheck.length;i++) {
+        hashtagCheck[i].trim();
+    }
+    var upFile = req.files;
+    var imageMenu = [];
+    var imageMenu_name = [];
+    var imageMenu_size = [];
+    for(var i=0;i<upFile['imageMenu'].length; i++){
+        imageMenu.push("./img/sellerImg/imageMenu/" + upFile['imageMenu'][i].filename);
+        imageMenu_name.push(upFile['imageMenu'][i].filename);
+        imageMenu_size.push(upFile['imageMenu'][i].size);
+    }
+    if(!req.session.passport)
+    {
+        res.redirect('/');
+    }
+    else{
+        var newMenu=new Menu();
+        newMenu.email=req.session.passport.user.email;
+        newMenu.title=title;
+        newMenu.price=price;
+        newMenu.text=text;
+        newMenu.expire=expire;
+        for(i=0;i<imageMenu.length;i++) {
+            newMenu.imageMenu.push({image_url:imageMenu[i],image_size:imageMenu_size[i], image_name:imageMenu_name[i]});
+        }
+        for(i=0;i<hashtagCheck.length;i++) {
+            newMenu.hashtag.push(hashtagCheck[i]);
+        }
+        newMenu.save(function (err) {
+            if (err)
+                throw err;
+            res.redirect('/seller');
         });
     }
     //res.send("clear");
