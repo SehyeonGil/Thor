@@ -128,7 +128,7 @@ module.exports = function(passport,nev) {
     ));
 
     passport.use('LoginNaver',new NaverStrategy({
-            clientID: config.kakao.clientID,
+            clientID: config.naver.clientID,
             clientSecret: config.naver.clientSecret,
             callbackURL: config.naver.callbackURL
         },
