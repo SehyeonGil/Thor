@@ -1,0 +1,25 @@
+.col-md-10.offset-md-1.col-lg-3.offset-lg-0
+    .sidebar
+        // User Widget
+        .widget.user
+            // User Image
+            .image.d-flex.justify-content-center
+                a(href='seller_profile_KSW.html')
+                    img(src='../' + seller.imageFace.image_url, alt='Image')
+            // User Name
+            h5.text-center= member.first_name + " " + member.last_name
+        // Dashboard Links
+        .widget.dashboard-links.p-0
+            ul
+                li
+                    a(href='#') 판매자 대시보드
+                li
+                    a(href='#')
+                        | 주문 관리
+                        span (5)
+                li
+                    a(href='#')
+                        | 메뉴 관리
+                        span (3)
+                li
+                    a(href='#') 매장 관리
