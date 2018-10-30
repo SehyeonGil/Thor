@@ -11,6 +11,7 @@ var mailer=require('./mailing');
 var moment = require('moment');
 var bcrypt = require('crypto-browserify');
 var randomstring = require("randomstring");
+var config=require('./passport_config.json');
 
 module.exports = function(passport,nev) {
     passport.serializeUser(function (user, done) {
