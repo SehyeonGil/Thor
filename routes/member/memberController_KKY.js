@@ -108,7 +108,7 @@ exports.OauthKakao=function(req, res, next) {
             if (err) { return next(err); }
             // req.session.email=user.email;
             // req.session.seller=user.sellercheck;
-            return res.redirect("/");
+            res.send("clear");
         });
     })(req, res, next);
 };
@@ -122,7 +122,21 @@ exports.OauthNaver=function(req, res, next) {
             if (err) { return next(err); }
             // req.session.email=user.email;
             // req.session.seller=user.sellercheck;
-            return res.redirect("/");
+            res.send("clear");
+        });
+    })(req, res, next);
+};
+
+exports.LoginGoogle=passport.authenticate('LoginGoogle');
+exports.OauthGoogle=function(req, res, next) {
+    passport.authenticate('LoginGoogle', function(err, user, info) {
+        if (err) { return next(err); }
+        if (!user) {res.send(info.error); }
+        req.logIn(user, function(err) {
+            if (err) { return next(err); }
+            // req.session.email=user.email;
+            // req.session.seller=user.sellercheck;
+            res.send("clear");
         });
     })(req, res, next);
 };

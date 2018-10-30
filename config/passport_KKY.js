@@ -3,6 +3,7 @@ var app=express();
 var LocalStrategy = require('passport-local').Strategy;
 var KakaoStrategy = require('passport-kakao').Strategy;
 var NaverStrategy = require('passport-naver').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:false}));
@@ -134,15 +135,15 @@ module.exports = function(passport,nev) {
         },
         function(accessToken, refreshToken, profile, done){
             console.log(profile);
-            Member.findOne({'email': profile._raw.kaccount_email}, function (err, member) {
+            Member.findOne({'email': profile.profile.emails[0]}, function (err, member) {
                 if (err)
                     return done(err);
                 else if (!member){
 
                     var user = new Member();
-                    user.last_name = profile.username;
-                    user.email = profile._raw.kaccount_email;
-                    user.kakao.id=profile.id
+                    user.last_name = profile.displayName;
+                    user.email=profile.emails[0].value;
+                    user.naver.id=profile.id
                     user.provider = "naver";
 
 
@@ -153,19 +154,38 @@ module.exports = function(passport,nev) {
                     });
                 }
                 else{
-                    if (member.provider === "kakao")
+                    if (member.provider === "naver")
                         return done(null, member);
                     if (member.provider === "local")
                         return done(null, false, {error: '저희 사이트를 통해 가입하신분입니다. 정보를 입력하여 로그인해주세요.'});
                     if (member.provider === "google")
                         return done(null, false, {error: '구글로그인서비스를 통하여 가입된 회원입니다. 옆의 구글로그인 버튼으로 로그인해주세요.'});
-                    if (member.provider === "naver")
-                        return done(null, false, {error: '네이버로그인서비스를 통하여 가입된 회원입니다. 옆의 네이버로그인 버튼으로 로그인해주세요.'});
+                    if (member.provider === "kakao")
+                        return done(null, false, {error: '카카오로그인서비스를 통하여 가입된 회원입니다. 옆의 카카오로그인 버튼으로 로그인해주세요.'});
                 }
             });
             console.log(profile);
         }
     ));
 
+
+    passport.use('LoginGoogle', new GoogleStrategy({
+            clientID: config.google.clientID,
+            clientSecret: config.google.clientSecret,
+            callbackURL: config.google.callbackURL
+        },
+        function(accessToken, refreshToken, profile, done) {
+        console.log(profile);
+            // asynchronous verification, for effect...
+            process.nextTick(function () {
+
+                // To keep the example simple, the user's Google profile is returned to
+                // represent the logged-in user.  In a typical application, you would want
+                // to associate the Google account with a user record in your database,
+                // and return that user instead.
+                return done(null, profile);
+            });
+        }
+    ));
 
 };
