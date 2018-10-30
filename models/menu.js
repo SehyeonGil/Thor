@@ -15,7 +15,26 @@ var MenuSchema = new Schema({
     title:{type:String},
     text:{type:String},
     price:{type:String},
-    expire: {type:String},
+    optionDelivery:{type:String},
+    optionPacking:{type:String},
+    optionVisit:{type:String},
+    optionMon:{type:String},
+    optionTues:{type:String},
+    optionWen:{type:String},
+    optionThur:{type:String},
+    optionFri:{type:String},
+    optionSat:{type:String},
+    optionSun:{type:String},
+    optionTime1:{type:String},
+    optionTime2:{type:String},
+    address:{type:String},
+    location : {
+        type : {
+            type: String,
+            default: 'Point'
+        },
+        coordinates: [{type:Number}]
+    },
     hashtag:[{type:String}]
 });
 

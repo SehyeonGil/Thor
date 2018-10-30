@@ -34,31 +34,7 @@ html(lang='en')
         section.user-profile.section
             .container
                 .row
-                    .col-md-10.offset-md-1.col-lg-3.offset-lg-0
-                        .sidebar
-                            // User Widget
-                            .widget.user
-                                // User Image
-                                .image.d-flex.justify-content-center
-                                    a(href='seller_profile_KSW.html')
-                                        img(src='../'+seller.imageFace.image_url, alt='Image')
-                                // User Name
-                                h5.text-center= member.first_name+" "+member.last_name
-                            // Dashboard Links
-                            .widget.dashboard-links.p-0
-                                ul
-                                    li
-                                        a(href='#') 판매자 대시보드
-                                    li
-                                        a(href='#')
-                                            | 주문 관리
-                                            span (5)
-                                    li
-                                        a(href='#')
-                                            | 메뉴 관리
-                                            span (3)
-                                    li
-                                        a(href='#') 매장 관리
+                    include components/sideBarSeller_KKY.pug
                     .col-md-10.offset-md-1.col-lg-9.offset-lg-0
                         // Edit Profile Welcome Text
                         .widget.welcome-message
@@ -79,7 +55,7 @@ html(lang='en')
                                     #time.row
                                         .btn-group(data-toggle='buttons', style='margin:auto;')
                                             if(seller.optionMon==='on')
-                                                label.btn-sm.btn.btn-week.focus.active
+                                                label.btn-sm.btn.btn-week.active
                                                     input(type='checkbox', autocomplete='off', checked='checked')
                                                     | 월
                                             else
@@ -87,7 +63,7 @@ html(lang='en')
                                                     input(type='checkbox', autocomplete='off')
                                                     | 월
                                             if(seller.optionTues === 'on')
-                                                label.btn-sm.btn.btn-week.focus.active
+                                                label.btn-sm.btn.btn-week.active
                                                     input(type='checkbox', autocomplete='off', checked='checked')
                                                     | 화
                                             else
@@ -95,7 +71,7 @@ html(lang='en')
                                                     input(type='checkbox', autocomplete='off')
                                                     | 화
                                             if(seller.optionWen === 'on')
-                                                label.btn-sm.btn.btn-week.focus.active
+                                                label.btn-sm.btn.btn-week.active
                                                     input(type='checkbox', autocomplete='off', checked='checked')
                                                     | 수
                                             else
@@ -103,7 +79,7 @@ html(lang='en')
                                                     input(type='checkbox', autocomplete='off')
                                                     | 수
                                             if(seller.optionThur === 'on')
-                                                label.btn-sm.btn.btn-week.focus.active
+                                                label.btn-sm.btn.btn-week.active
                                                     input(type='checkbox', autocomplete='off', checked='checked')
                                                     | 목
                                             else
@@ -111,7 +87,7 @@ html(lang='en')
                                                     input(type='checkbox', autocomplete='off')
                                                     | 목
                                             if(seller.optionFri === 'on')
-                                                label.btn-sm.btn.btn-week.focus.active
+                                                label.btn-sm.btn.btn-week.active
                                                     input(type='checkbox', autocomplete='off', checked='checked')
                                                     | 금
                                             else
@@ -119,7 +95,7 @@ html(lang='en')
                                                     input(type='checkbox', autocomplete='off')
                                                     | 금
                                             if(seller.optionSat === 'on')
-                                                label.btn-sm.btn.btn-week.focus.active
+                                                label.btn-sm.btn.btn-week.active
                                                     input(type='checkbox', autocomplete='off', checked='checked')
                                                     | 토
                                             else
@@ -127,7 +103,7 @@ html(lang='en')
                                                     input(type='checkbox', autocomplete='off')
                                                     | 토
                                             if(seller.optionSun === 'on')
-                                                label.btn-sm.btn.btn-week.focus.active
+                                                label.btn-sm.btn.btn-week.active
                                                     input(type='checkbox', autocomplete='off', checked='checked')
                                                     | 일
                                             else

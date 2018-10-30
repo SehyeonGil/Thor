@@ -12,6 +12,6 @@ var Promise=require('promise');
 
 exports.menuMain= function(req, res, next) {
     Menu.find({},function (err,menu) {
-        res.render('menuList',{passport:req.session.passport,menu:menu,seller:seller});
+        res.render('menuList',{passport:req.session.passport,menu:menu});
     });
 };

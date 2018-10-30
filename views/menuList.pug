@@ -79,240 +79,34 @@ html(lang='en')
                                             .cnt_text
                                                 h5= menu[i].title
                                                 // 제목
-                                                - var date='';
+                                                - var data=''; if(menu[i].optionMon==='on') data=data+'월 ';
+                                                - if(menu[i].optionTues === 'on') data=data+'화 ';
+                                                - if(menu[i].optionWen === 'on') data=data+'수 ';
+                                                - if(menu[i].optionThur === 'on') {data=data+'목 ';}
+                                                - if(menu[i].optionFri === 'on') {data=data+'금 ';}
+                                                - if(menu[i].optionSat === 'on') {data=data+'토 ';}
+                                                - if(menu[i].optionSun === 'on') {data=data+'일 ';}
+                                                - data=data+'/ ';
+                                                - if(menu[i].optionDelivery==="on") data=data+'배달 ';
+                                                - if(menu[i].optionPacking==="on") data=data+'포장 ';
+                                                - if(menu[i].optionVisit==="on") data=data+'방문 ';
                                                 p
-                                                    | 월,화,수,목,금,토 / 배달,포장
+                                                    = data
                                                     br
                                                     // 메뉴이름/메뉴카테고리
-                                                    | 충북대학교 학연산
+                                                    = menu[i].address
                                                     br
                                                     // 위치
-                                                    | 양식
+                                                    //| 양식
                                                     br
                                                     // 메뉴 카테고리
-                                                    span.fa.fa-star.checked
-                                                    span.fa.fa-star.checked
-                                                    span.fa.fa-star.checked
-                                                    span.fa.fa-star
-                                                    span.fa.fa-star  3.0
+                                                    //span.fa.fa-star.checked
+                                                    //span.fa.fa-star.checked
+                                                    //span.fa.fa-star.checked
+                                                    //span.fa.fa-star
+                                                    //span.fa.fa-star  3.0
                                                 // 별점
-                        .col-12.col-sm-6.col-lg-4
-                            .block-cnt
-                                img(src='https://food.fnr.sndimg.com/content/dam/images/food/fullset/2018/6/0/FN_snapchat_coachella_wingman%20.jpeg.rend.hgtvcom.616.462.suffix/1523633513292.jpeg', width='100%')
-                                // <ul>
-                                // <li>1 : 1</li>
-                                // </ul>
-                                a(href='')
-                                    .cnt
-                                        .cnt_text
-                                            h5 순우네 행복식당
-                                            // 제목
-                                            p
-                                                | 월,화,수,목,금,토 / 배달,포장
-                                                br
-                                                // 메뉴이름/메뉴카테고리
-                                                | 충북대학교 학연산
-                                                br
-                                                // 위치
-                                                | 양식
-                                                br
-                                                // 메뉴 카테고리
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star
-                                                span.fa.fa-star  3.0
-                                            // 별점
-                        .col-12.col-sm-6.col-lg-4
-                            .block-cnt
-                                img(src='https://food.fnr.sndimg.com/content/dam/images/food/fullset/2018/6/0/FN_snapchat_coachella_wingman%20.jpeg.rend.hgtvcom.616.462.suffix/1523633513292.jpeg', width='100%')
-                                // <ul>
-                                // <li>1 : 1</li>
-                                // </ul>
-                                a(href='')
-                                    .cnt
-                                        .cnt_text
-                                            h5 순우네 행복식당
-                                            // 제목
-                                            p
-                                                | 월,화,수,목,금,토 / 배달,포장
-                                                br
-                                                // 메뉴이름/메뉴카테고리
-                                                | 충북대학교 학연산
-                                                br
-                                                // 위치
-                                                | 양식
-                                                br
-                                                // 메뉴 카테고리
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star
-                                                span.fa.fa-star  3.0
-                                            // 별점
-                        .col-12.col-sm-6.col-lg-4
-                            .block-cnt
-                                img(src='https://food.fnr.sndimg.com/content/dam/images/food/fullset/2018/6/0/FN_snapchat_coachella_wingman%20.jpeg.rend.hgtvcom.616.462.suffix/1523633513292.jpeg', width='100%')
-                                // <ul>
-                                // <li>1 : 1</li>
-                                // </ul>
-                                a(href='')
-                                    .cnt
-                                        .cnt_text
-                                            h5 순우네 행복식당
-                                            // 제목
-                                            p
-                                                | 월,화,수,목,금,토 / 배달,포장
-                                                br
-                                                // 메뉴이름/메뉴카테고리
-                                                | 충북대학교 학연산
-                                                br
-                                                // 위치
-                                                | 양식
-                                                br
-                                                // 메뉴 카테고리
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star
-                                                span.fa.fa-star  3.0
-                                            // 별점
-                        .col-12.col-sm-6.col-lg-4
-                            .block-cnt
-                                img(src='https://food.fnr.sndimg.com/content/dam/images/food/fullset/2018/6/0/FN_snapchat_coachella_wingman%20.jpeg.rend.hgtvcom.616.462.suffix/1523633513292.jpeg', width='100%')
-                                // <ul>
-                                // <li>1 : 1</li>
-                                // </ul>
-                                a(href='')
-                                    .cnt
-                                        .cnt_text
-                                            h5 순우네 행복식당
-                                            // 제목
-                                            p
-                                                | 월,화,수,목,금,토 / 배달,포장
-                                                br
-                                                // 메뉴이름/메뉴카테고리
-                                                | 충북대학교 학연산
-                                                br
-                                                // 위치
-                                                | 양식
-                                                br
-                                                // 메뉴 카테고리
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star
-                                                span.fa.fa-star  3.0
-                                            // 별점
-                        .col-12.col-sm-6.col-lg-4
-                            .block-cnt
-                                img(src='https://food.fnr.sndimg.com/content/dam/images/food/fullset/2018/6/0/FN_snapchat_coachella_wingman%20.jpeg.rend.hgtvcom.616.462.suffix/1523633513292.jpeg', width='100%')
-                                // <ul>
-                                // <li>1 : 1</li>
-                                // </ul>
-                                a(href='')
-                                    .cnt
-                                        .cnt_text
-                                            h5 순우네 행복식당
-                                            // 제목
-                                            p
-                                                | 월,화,수,목,금,토 / 배달,포장
-                                                br
-                                                // 메뉴이름/메뉴카테고리
-                                                | 충북대학교 학연산
-                                                br
-                                                // 위치
-                                                | 양식
-                                                br
-                                                // 메뉴 카테고리
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star
-                                                span.fa.fa-star  3.0
-                                            // 별점
-                        .col-12.col-sm-6.col-lg-4
-                            .block-cnt
-                                img(src='https://food.fnr.sndimg.com/content/dam/images/food/fullset/2018/6/0/FN_snapchat_coachella_wingman%20.jpeg.rend.hgtvcom.616.462.suffix/1523633513292.jpeg', width='100%')
-                                // <ul>
-                                // <li>1 : 1</li>
-                                // </ul>
-                                a(href='')
-                                    .cnt
-                                        .cnt_text
-                                            h5 순우네 행복식당
-                                            // 제목
-                                            p
-                                                | 월,화,수,목,금,토 / 배달,포장
-                                                br
-                                                // 메뉴이름/메뉴카테고리
-                                                | 충북대학교 학연산
-                                                br
-                                                // 위치
-                                                | 양식
-                                                br
-                                                // 메뉴 카테고리
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star
-                                                span.fa.fa-star  3.0
-                                            // 별점
-                        .col-12.col-sm-6.col-lg-4
-                            .block-cnt
-                                img(src='https://food.fnr.sndimg.com/content/dam/images/food/fullset/2018/6/0/FN_snapchat_coachella_wingman%20.jpeg.rend.hgtvcom.616.462.suffix/1523633513292.jpeg', width='100%')
-                                // <ul>
-                                // <li>1 : 1</li>
-                                // </ul>
-                                a(href='')
-                                    .cnt
-                                        .cnt_text
-                                            h5 순우네 행복식당
-                                            // 제목
-                                            p
-                                                | 월,화,수,목,금,토 / 배달,포장
-                                                br
-                                                // 메뉴이름/메뉴카테고리
-                                                | 충북대학교 학연산
-                                                br
-                                                // 위치
-                                                | 양식
-                                                br
-                                                // 메뉴 카테고리
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star
-                                                span.fa.fa-star  3.0
-                                            // 별점
-                        .col-12.col-sm-6.col-lg-4
-                            .block-cnt
-                                img(src='https://food.fnr.sndimg.com/content/dam/images/food/fullset/2018/6/0/FN_snapchat_coachella_wingman%20.jpeg.rend.hgtvcom.616.462.suffix/1523633513292.jpeg', width='100%')
-                                // <ul>
-                                // <li>1 : 1</li>
-                                // </ul>
-                                a(href='')
-                                    .cnt
-                                        .cnt_text
-                                            h5 순우네 행복식당
-                                            // 제목
-                                            p
-                                                | 월,화,수,목,금,토 / 배달,포장
-                                                br
-                                                // 메뉴이름/메뉴카테고리
-                                                | 충북대학교 학연산
-                                                br
-                                                // 위치
-                                                | 양식
-                                                br
-                                                // 메뉴 카테고리
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star.checked
-                                                span.fa.fa-star
-                                                span.fa.fa-star  3.0
-                                            // 별점
-                        .w3-center.w3-padding-32
+                        //.w3-center.w3-padding-32
                             .w3-bar
                                 a.w3-bar-item.w3-button.w3-hover-black(href='#') «
                                 a.w3-bar-item.w3-black.w3-button(href='#') 1

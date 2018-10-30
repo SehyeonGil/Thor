@@ -54,7 +54,11 @@ exports.sellerRegister= function(req, res, next) {            //판매자 등록
 };
 
 exports.menuRegister= function(req, res, next) {            //메뉴 등록 get
-    res.render("register_menu",{passport:req.session.passport});
+    MemberSeller.findOne({email:req.session.passport.user.email},function(err,seller){
+        Member.findOne({email:req.session.passport.user.email}, function(err,member) {
+            res.render("register_menu",{member:member,passport:req.session.passport,seller:seller});
+        });
+    });
 };
 
 exports.sellerRegisterAttemp= function(req, res, next) {      //판매자 등록 post
@@ -68,6 +72,7 @@ exports.sellerRegisterAttemp= function(req, res, next) {      //판매자 등록
     var shopText=req.body.shopText;
     var optionDelivery=req.body.optionDelivery;
     var optionPacking=req.body.optionPacking;
+    var optionVisit=req.body.optionVisit;
     var optionMon=req.body.optionMon;
     var optionTues=req.body.optionTues;
     var optionWen=req.body.optionWen;
@@ -113,6 +118,7 @@ exports.sellerRegisterAttemp= function(req, res, next) {      //판매자 등록
                 newMemberSeller.shopText=shopText;
                 newMemberSeller.optionDelivery=optionDelivery;
                 newMemberSeller.optionPacking=optionPacking;
+                newMemberSeller.optionVisit=optionVisit;
                 newMemberSeller.optionMon=optionMon;
                 newMemberSeller.optionTues=optionTues;
                 newMemberSeller.optionWen=optionWen;
@@ -146,8 +152,19 @@ exports.sellerRegisterAttemp= function(req, res, next) {      //판매자 등록
 exports.menuRegisterAttemp= function(req, res, next) {      //메뉴 등록 post
     var title = req.body.title;
     var price = req.body.price;
-    var expire = req.body.expire;
     var text= req.body.text;
+    var optionDelivery=req.body.optionDelivery;
+    var optionPacking=req.body.optionPacking;
+    var optionVisit=req.body.optionVisit;
+    var optionMon=req.body.optionMon;
+    var optionTues=req.body.optionTues;
+    var optionWen=req.body.optionWen;
+    var optionThur=req.body.optionThur;
+    var optionFri=req.body.optionFri;
+    var optionSat=req.body.optionSat;
+    var optionSun=req.body.optionSun;
+    var optionTime1=req.body.optionTime1;
+    var optionTime2=req.body.optionTime2;
     var hashtag=req.body.hashtag;
     var hashtagCheck=hashtag.split(',');
     for(i=0;i<hashtagCheck.length;i++) {
@@ -172,18 +189,34 @@ exports.menuRegisterAttemp= function(req, res, next) {      //메뉴 등록 post
         newMenu.title=title;
         newMenu.price=price;
         newMenu.text=text;
-        newMenu.expire=expire;
+        newMenu.optionDelivery=optionDelivery;
+        newMenu.optionPacking=optionPacking;
+        newMenu.optionVisit=optionVisit;
+        newMenu.optionMon=optionMon;
+        newMenu.optionTues=optionTues;
+        newMenu.optionWen=optionWen;
+        newMenu.optionThur=optionThur;
+        newMenu.optionFri=optionFri;
+        newMenu.optionSat=optionSat;
+        newMenu.optionSun=optionSun;
+        newMenu.optionTime1=optionTime1;
+        newMenu.optionTime2=optionTime2;
         for(i=0;i<imageMenu.length;i++) {
             newMenu.imageMenu.push({image_url:imageMenu[i],image_size:imageMenu_size[i], image_name:imageMenu_name[i]});
         }
         for(i=0;i<hashtagCheck.length;i++) {
             newMenu.hashtag.push(hashtagCheck[i]);
         }
-        newMenu.save(function (err) {
-            if (err)
-                throw err;
-            res.redirect('/seller');
+        MemberSeller.findOne({email:req.session.passport.user.email},function (err,seller) {
+            newMenu.address=seller.address;
+            newMenu.location=seller.location;
+            newMenu.save(function (err) {
+                if (err)
+                    throw err;
+                res.redirect('/seller');
+            });
         });
+
     }
     //res.send("clear");
 };
