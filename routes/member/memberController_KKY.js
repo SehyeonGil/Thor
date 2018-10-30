@@ -115,7 +115,7 @@ exports.OauthKakao=function(req, res, next) {
 
 exports.LoginNaver=passport.authenticate('LoginNaver');
 exports.OauthNaver=function(req, res, next) {
-    passport.authenticate('LoginKakao', function(err, user, info) {
+    passport.authenticate('LoginNaver', function(err, user, info) {
         if (err) { return next(err); }
         if (!user) {res.send(info.error); }
         req.logIn(user, function(err) {
