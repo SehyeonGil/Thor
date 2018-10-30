@@ -17,13 +17,18 @@ var MemberSchema = new Schema({
     pic_certificate:{type:String},
     cellphone:{type:String},
     seller_check:{type:Boolean,default:false},
-    naver:{
+    naver : {
         id:String,
         name:String,
         validation:{type:Boolean,default:false}
     },
     google: {
         id: String
+    },
+    kakao : {
+        id: String,
+        name:String,
+        validation:{type:Boolean,default:false}
     },
     provider:String,
     mailing:{type:Boolean,default:false},

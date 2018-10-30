@@ -3,7 +3,7 @@
  */
 var express = require('express');
 var router = express.Router();
-var controller=require('./memberController');
+var controller=require('./memberController_KKY');
 
 /* GET users listing. */
 router.get('/Mail_Confirm_Complete/:id',controller.mailConfirmComplete);
@@ -25,17 +25,53 @@ router.get('/Message',controller.message);*/
 router.get('/', function(req, res, next) {
     res.send('respond with a resource');
 });
-+/*
-+router.get('/GoogleLogin',controller.googleLogin);
-+router.get('/GoogleLoginCallback',controller.googleLoginCallback);
-+*/
-router.get('/KakaoLogin',controller.kakaoLogin);
-router.get('/KakaoLoginCallback',controller.kakaoLoginCallback);
-router.get('/NaverLogin',controller.naverLogin);
-router.get('/NaverLoginCallback',controller.naverLoginCallback);
 
-router.post('/SignUp',controller.normalSignup);
+/* GET join page. */
+router.get('/Join', function(req, res, next) {
+    res.render('join');
+});
+
+/* GET login page. */
+router.get('/Login', function(req, res, next) {
+    res.render('login');
+});
+router.get('/Login', function(req, res, next) {
+    res.render('login');
+});
+/*GET Oauth Login */
+router.get('/LoginKakao', controller.LoginKakao);
+router.get('/OauthKakao', controller.OauthKakao);
+
+router.get('/LoginNaver', controller.LoginNaver);
+router.get('/OauthNaver', controller.OauthNaver);
+/* GET find_password page. */
+router.get('/Find_Password', function(req, res, next) {
+    res.render('find_pw_KSW');
+});
+
+/* GET email_complete page. */
+router.get('/email_complete', function(req, res, next) {
+    res.render('email_complete');
+});
+
+/* GET menu_list page */
+router.get('/menu_list', function(req, res, next) {
+    res.render('menuList');
+});
+
+/* GET menu_list page */
+router.get('/menu_info', function(req, res, next) {
+    res.render('menu_info_KSW');
+});
+router.get('/manage_review',function (req,res,next) {
+    res.render('manage_review_HNH');
+});
+router.get('/manage_order',function (req,res,next) {
+    res.render('manage_order_HNH');
+});
+router.post('/Join',controller.normalSignup);
 router.post('/Login', controller.loginAttemp);
-router.post('/reconfirm',controller.reconfirm);
+router.post('/Logout', controller.logoutAttemp);
+router.post('/reConfirm',controller.reconfirm);
 
 module.exports = router;

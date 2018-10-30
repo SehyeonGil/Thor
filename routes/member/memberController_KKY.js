@@ -1,19 +1,20 @@
 /**
- * Created by Sehyeon on 2018-06-03.
+ * Created by Sehyeon on 2018-08-06.
  */
 var passport = require('passport');
 var crypto = require('crypto-browserify');
 var randomstring = require("randomstring");
 var moment = require('moment');
+var bodyParser = require('body-parser');
 
 var Member = require('../../models/member');
 var cert = require('../../models/certificate');
 
-require('../../config/passport')(passport);
+require('../../config/passport_KKY')(passport);
 
 exports.normalSignup= function(req, res, next) {
     passport.authenticate('signup', function(err, user, info) {
-        if (err) { return next(err); }
+        if (err) { console.log(err); return next(err); }
         if (!user) {res.send(info.error); }
         else{
             res.send("clear");
@@ -33,21 +34,21 @@ exports.mailConfirmComplete= function (req,res,next) {
         {
             if(member.timer<moment().format())
             {
-                cert.remove({email:member.email},function(err,output){
+                /*cert.remove({email:member.email},function(err,output){
                     if(err){ return next(err);}
-                });
-                res.render('Mail_Confirm',{safe:false,passport:req.session.passport});
+                });*/
+                res.render('email_complete_GSH',{safe:false,passport:req.session.passport,email:member.email});
             }
             else{
                 cert.remove({email:member.email},function(err,output){
                     if(err){ return next(err);}
                 });
                 Member.findOne({email:member.email},function(err,user){
-                    user.is_certificate=true;
+                    user.mail_certificate=true;
                     user.save(function (err) {
                         if (err)
                             throw err;
-                        res.render('Mail_Confirm',{safe:true,passport:req.session.passport});
+                        res.render('email_complete_GSH',{safe:true,passport:req.session.passport});
                     });
                 })
             }
@@ -68,6 +69,14 @@ exports.loginAttemp= function(req, res, next) {
     })(req, res, next);
 };
 
+exports.logoutAttemp= function(req, res, next) {
+    if(req.session.passport) {
+        req.logOut();
+        req.session.destroy();
+    }
+    res.send("clear");
+};
+
 exports.reconfirm=function (req,res,next) {
     var email=req.body.email;
     Member.findOne({email:email},function (err,member) {
@@ -78,42 +87,42 @@ exports.reconfirm=function (req,res,next) {
             var cipher = crypto.createCipher('aes192', key);    // Cipher 객체 생성
             cipher.update(email, 'utf8', 'hex');             // 인코딩 방식에 따라 암호화
             usercheck.token = cipher.final('hex');
-            usercheck.timer=moment.duration().add(10,'m').format();
+            usercheck.timer=moment().add(10,'m').format();
             usercheck.save(function (err) {
                 if (err)
                     throw err;
-                mailer(email,usercheck.token,member.firstname);
-                res.send('clear');
+                mailer(email,usercheck.token,member.first_name);
+                render('reConfirm',{safe:true,passport:req.session.passport});
+                //res.send('clear');
             });
         })
     });
 };
 
-exports.kakaoLogin=function(req,res,next){
-       passport.authenticate('kakao',{failureRedirect:'#!/login'
-       })(req,res,next);
-};
-exports.kakaoLoginCallback=function(req,res,next){
-       console.log('jap');
-       passport.authenticate('kakao',function(err,user,info){
-               console.log(user);
-               console.log(info);
-       })(req,res,next);
-};
-exports.naverLogin=function(req,res,next){
-                passport.authenticate('naver',{failureRedirect:'#!/login'
-        })(req,res,next);
-};
-exports.naverLoginCallback=function(req,res,next){
-        console.log('jap');
-        passport.authenticate('naver',function(err,user,info){
-                console.log(user);
-                console.log(info);
-        })(req,res,next);
-};
-    
-exports.googleLogin=function(req,res,next){
-    passport.authenticate('')
+exports.LoginKakao=passport.authenticate('LoginKakao');
+exports.OauthKakao=function(req, res, next) {
+    passport.authenticate('LoginKakao', function(err, user, info) {
+        if (err) { return next(err); }
+        if (!user) {res.send(info.error); }
+        req.logIn(user, function(err) {
+            if (err) { return next(err); }
+            // req.session.email=user.email;
+            // req.session.seller=user.sellercheck;
+            return res.redirect("/");
+        });
+    })(req, res, next);
 };
 
-exports.googleLoginCallback=function(){};
+exports.LoginNaver=passport.authenticate('LoginNaver');
+exports.OauthNaver=function(req, res, next) {
+    passport.authenticate('LoginKakao', function(err, user, info) {
+        if (err) { return next(err); }
+        if (!user) {res.send(info.error); }
+        req.logIn(user, function(err) {
+            if (err) { return next(err); }
+            // req.session.email=user.email;
+            // req.session.seller=user.sellercheck;
+            return res.redirect("/");
+        });
+    })(req, res, next);
+};
