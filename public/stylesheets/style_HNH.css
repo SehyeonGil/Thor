@@ -546,6 +546,19 @@ button {
   font-weight: bold;
   border-radius: 3px;
 }
+.select-btn{
+  font-size: 15px;
+  height: 30px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 15px 30px;
+  vertical-align: middle;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 3px;
+  line-height: 7px;
+}
 .btn-start{
     width: 200px;
     height: 200px;
