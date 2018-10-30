@@ -32,7 +32,7 @@ router.get('/Manage_Menu/:id',controller.menuDetailManage);
 router.get('/Manage_Store',controller.storeManage);
 router.get('/Message',controller.message);*/
 router.get('/', controller.menuMain);
-//router.get('/:id', controller.seller_check_no,controller.sellerMain);
+router.get('/:id', controller.menuInfo);
 router.get('/manage_order', function(req, res, next) {
     res.render('manage_order_KSW');
 });

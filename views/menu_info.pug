@@ -28,59 +28,63 @@ html(lang='en')
             #myCarousel.carousel.slide(data-ride='carousel')
                 // Indicators
                 ol.carousel-indicators
-                    li.active(data-target='#myCarousel', data-slide-to='0')
-                    li(data-target='#myCarousel', data-slide-to='1')
-                    li(data-target='#myCarousel', data-slide-to='2')
+                    - for(var i=0; i<menu.imageMenu.length; i++)
+                        if(i === 0)
+                            li.active(data-target='#myCarousel', data-slide-to='0')
+                        else
+                            li(data-target='#myCarousel', data-slide-to=i)
                 // Wrapper for slides
                 .carousel-inner
-                    .item.active
-                        img(src='../img/menu/bibimbap.jpeg', alt='Los Angeles')
-                    .item
-                        img(src='../img/menu/bibimbap.jpeg', alt='Chicago')
-                    .item
-                        img(src='../img/menu/bibimbap.jpeg', alt='New york')
+                    - for(var i=0; i<menu.imageMenu.length; i++)
+                        if(i===0)
+                            .item.active
+                                img(src='../' + menu.imageMenu[i].image_url, alt=menu.imageMenu[i].image_name)
+                        else
+                            .item
+                                img(src='../' + menu.imageMenu[i].image_url, alt=menu.imageMenu[i].image_name)
                 // Left and right controls
-                a.left.carousel-control(href='#myCarousel', data-slide='prev')
-                    span.glyphicon.glyphicon-chevron-left
-                    span.sr-only Previous
-                a.right.carousel-control(href='#myCarousel', data-slide='next')
-                    span.glyphicon.glyphicon-chevron-right
-                    span.sr-only Next
+                if(menu.imageMenu.length>1)
+                    a.left.carousel-control(href='#myCarousel', data-slide='prev')
+                        span.glyphicon.glyphicon-chevron-left
+                        span.sr-only Previous
+                    a.right.carousel-control(href='#myCarousel', data-slide='next')
+                        span.glyphicon.glyphicon-chevron-right
+                        span.sr-only Next
             .col-12.col-sm-12.col-md-12.col-lg-12
                 hr
             .user-profile.col-12.col-sm-12.col-md-12.col-lg-12
                 .col-sm-offset-2.col-md-offset-2.col-lg-offset-2.col-3.col-sm-3.col-md-3.col-lg-3
-                    img.avatar(src='../img/menu/sushi.jpg', alt='Ash')
+                    img.avatar(src='../' + seller.imageFace.image_url, alt='Ash')
                 #profile_info.col-offset-2.col-sm-offset-1.col-md-offset-1.col-lg-offset-1.col-7.col-sm-6.col-md-6.col-lg-6
                     .menu-container.restaurant-name.col-12.col-sm-12.col-md-12.col-lg-12
-                        | 호호식당
+                        = menu.title
                     .menu-container.address.col-12.col-sm-12.col-md-12.col-lg-12
-                        | 한국, 충청북도, 청주
+                        = menu.address
                     .menu-container.username.col-12.col-sm-12.col-md-12.col-lg-12
-                        | 규원
+                        = sellerMember.first_name+" "+sellerMember.last_name
             .col-12.col-sm-12.col-md-12.col-lg-12
                 br
                 hr
             .col-12.res_info
                 p
                     span.mytitle.w3-col.s6.m6.l6 메뉴
-                    span.myinfo.w3-rest 전주 비빔밥
+                    span.myinfo.w3-rest= menu.title
                 p
                     span.mytitle.w3-col.s6.m6.l6 가격
-                    span.myinfo.w3-rest 8,000원
-                p
+                    span.myinfo.w3-rest= menu.price
+                //p
                     span.mytitle.w3-col.s6.m6.l6 예약 유형
                     span.w3-rest.myinfo 자율 예약
                 p
                     span.mytitle.w3-col.s6.m6.l6 판매 시간
-                    span.w3-rest.myinfo 16:00 ~ 18:00
+                    span.w3-rest.myinfo= menu.optionTime1 + '~' + menu.optionTime2
                 .mytitle.w3-col.s12.m12.l12 상세 설명
                 .myinfo.w3-col.s12.m12.l12
                     p
-                        | 고향 전주에서 25년동안 살다 온 전주 토박이가 진짜 전주 비빔밥을 만들어드립니다 .
-            #ingredient-description.mytitle 재료 설명
+                        = menu.text
+            //#ingredient-description.mytitle 재료 설명
             // Slider
-            .horiz-scroll.scroll-feature
+            //.horiz-scroll.scroll-feature
                 .scroller
                     .left-scroll.invisible
                         p.fa.fa-angle-left
@@ -98,13 +102,13 @@ html(lang='en')
                         img(src='http://placehold.it/600x400/BF6A28/fff&text=Image+9', alt='Image 9')
                         img(src='http://placehold.it/600x400/5E4D1E/fff&text=Image+10', alt='Image 10')
                         img(src='http://placehold.it/600x400/E5DECA/333&text=Image+11', alt='Image 11')
-            .col-12.col-sm-12.col-md-12.col-lg-12.myhr
+            //.col-12.col-sm-12.col-md-12.col-lg-12.myhr
                 hr
             #res_info.col-12
-                p
+                //p
                     span.mytitle.w3-col.s6.m6.l6 매장명
                     span.myinfo.w3-rest 호호식당
-                p
+                //p
                     span.mytitle.w3-col.s6.m6.l6 평점
                     span.myinfo.w3-rest
                         span.fa.fa-star.checked
@@ -113,26 +117,26 @@ html(lang='en')
                         span.fa.fa-star
                         span.fa.fa-star
                         span  4.1
-                p
+                //p
                     span.mytitle.w3-col.s6.m6.l6 후기
                     span.w3-rest.myinfo
                         a(href='')
                             | 501개
                             small 보러 가기
-                p
+                //p
                     span.mytitle.w3-col.s6.m6.l6 운영 시간
                     span.w3-rest.myinfo 12:00 ~ 21:00
-                p
+                //p
                     span.mytitle.w3-col.s6.m6.l6 휴식 시간
                     span.w3-rest.myinfo 15:00 ~ 17:00
-                p
+                //p
                     span.mytitle.w3-col.s6.m6.l6 최소 주문일
                     span.w3-rest.myinfo 3 일
-                p
+                //p
                     span.mytitle.w3-col.s6.m6.l6 휴일
                     span.w3-rest.myinfo
                         i.fa.fa-calendar
-                .col-12.col-sm-12.col-md-12.col-lg-12.myhr
+                //.col-12.col-sm-12.col-md-12.col-lg-12.myhr
                     hr
                 h2 식사 장소
                 // Slider
@@ -143,21 +147,13 @@ html(lang='en')
                         .right-scroll
                             p.fa.fa-angle-right
                         .scroll-images.scrollable-x
-                            img(src='http://placehold.it/600x400/CCB03A/fff&text=Image+1', alt='Image 1')
-                            img(src='http://placehold.it/600x400/FAEF5D/333&text=Image+2', alt='Image 2')
-                            img(src='http://placehold.it/600x400/97A976/fff&text=Image+3', alt='Image 3')
-                            img(src='http://placehold.it/600x400/675647/fff&text=Image+4', alt='Image 4')
-                            img(src='http://placehold.it/600x400/253E41/fff&text=Image+5', alt='Image 5')
-                            img(src='http://placehold.it/600x400/F1582D/fff&text=Image+6', alt='Image 6')
-                            img(src='http://placehold.it/600x400/C1DAD8/333&text=Image+7', alt='Image 7')
-                            img(src='http://placehold.it/600x400/6CB8C1/fff&text=Image+8', alt='Image 8')
-                            img(src='http://placehold.it/600x400/BF6A28/fff&text=Image+9', alt='Image 9')
-                            img(src='http://placehold.it/600x400/5E4D1E/fff&text=Image+10', alt='Image 10')
-                            img(src='http://placehold.it/600x400/E5DECA/333&text=Image+11', alt='Image 11')
+                            - for(var i=0;i<seller.imageStore.length;i++)
+                                img(src='../' + seller.imageStore[i].image_url,, alt='Image 1')
+
                 .col-12.col-sm-12.col-md-12.col-lg-12.myhr
                     br
-                h2 매장 설명
-                p
+                //h2 매장 설명
+                //p
                     | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                     | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                     | quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
