@@ -83,22 +83,23 @@ module.exports = function(passport,nev) {
             });
         })
     );
-    passport.use(new KakaoStrategy({
+    passport.use('LoginKakao',new KakaoStrategy({
         clientID : config.kakao.clientID,
         callbackURL : config.kakao.callbackURL
       },
       function(accessToken, refreshToken, profile, done){
-        Member.findOne({'naver.id': profile.id}, function (err, user) {
-            if (err)
-                return done(err);
-            else if (!user){
-                
-            }
-            else{
-                return done(null, user);
-            }
-        });
-          console.log(profile);
+        console.log(profile);
+        // Member.findOne({'naver.id': profile.id}, function (err, user) {
+        //     if (err)
+        //         return done(err);
+        //     else if (!user){
+        //
+        //     }
+        //     else{
+        //         return done(null, user);
+        //     }
+        // });
+        //   console.log(profile);
       }
     ));
     passport.use(new NaverStrategy({

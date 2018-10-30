@@ -38,7 +38,12 @@ router.get('/Login', function(req, res, next) {
 router.get('/Login', function(req, res, next) {
     res.render('login');
 });
-
+/*GET Oauth Login */
+router.get('/LoginKakao', passport.authenticate('LoginKakao'));
+router.get('/OauthKakao', passport.authenticate('login-kakao', {
+    successRedirect: '/',
+    failureRedirect: '/'
+}));
 /* GET find_password page. */
 router.get('/Find_Password', function(req, res, next) {
     res.render('find_pw_KSW');
