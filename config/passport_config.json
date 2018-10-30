@@ -2,8 +2,8 @@
 "clientSecret":"pwd",
 "callbackURL":"callBackURL"},
 "kakao":{"clientID":"e97bdc427234b6ba5e43e267af9f83bc",
-    "callbackURL":"http://www.ezcoook.com/member/OauthKakao"},
+    "callbackURL":"http://ezcoook.com/member/OauthKakao"},
 "naver":{"clientID":"h_2lLJKUaqh6as1FYrpL",
     "clientSecret":"7_PtqJ3R4o",
-    "callbackURL":"http://www.ezcoook.com/member/OauthNaver"}
+    "callbackURL":"http://ezcoook.com/member/OauthNaver"}
 }
