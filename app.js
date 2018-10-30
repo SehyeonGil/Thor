@@ -13,6 +13,7 @@ var index = require('./routes/index');
 var jusoRouter = require('./routes/juso_GSH');
 var sellerRouter = require('./routes/seller/index');
 var memberRouter = require('./routes/member/index');
+var menuRouter = require('./routes/menu/index');
 
 var app = express();
 
@@ -42,6 +43,7 @@ app.use(session({
 
 app.use('/', index);
 app.use('/', jusoRouter);
+app.use('/menu', menuRouter);
 app.use('/member', memberRouter);
 app.use('/seller', sellerRouter);
 

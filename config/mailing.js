@@ -21,7 +21,7 @@ module.exports = function (id,token,name) {
         port: "465",
         auth: {
             user: "gil9084@gmail.com",
-            pass: "pp9084pp"
+            pass: "pp9084pp!@"
         },
         tls: {
             rejectUnauthorize: false
