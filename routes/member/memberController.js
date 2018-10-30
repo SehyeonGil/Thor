@@ -98,3 +98,9 @@ exports.reconfirm=function (req,res,next) {
         })
     });
 };
+
+exports.LoginKakao=passport.authenticate('LoginKakao');
+exports.OauthKakao=passport.authenticate('LoginKakao', {
+    successRedirect: '/',
+    failureRedirect: '/'
+});
