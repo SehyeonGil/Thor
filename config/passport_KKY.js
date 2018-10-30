@@ -134,35 +134,35 @@ module.exports = function(passport,nev) {
         },
         function(accessToken, refreshToken, profile, done){
             console.log(profile);
-            // Member.findOne({'email': profile._raw.kaccount_email}, function (err, member) {
-            //     if (err)
-            //         return done(err);
-            //     else if (!member){
-            //
-            //         var user = new Member();
-            //         user.last_name = profile.username;
-            //         user.email = profile._raw.kaccount_email;
-            //         user.kakao.id=profile.id
-            //         user.provider = "naver";
-            //
-            //
-            //         user.save(function (err) {
-            //             if (err)
-            //                 throw err;
-            //             return done(null,user);
-            //         });
-            //     }
-            //     else{
-            //         if (member.provider === "kakao")
-            //             return done(null, member);
-            //         if (member.provider === "local")
-            //             return done(null, false, {error: '저희 사이트를 통해 가입하신분입니다. 정보를 입력하여 로그인해주세요.'});
-            //         if (member.provider === "google")
-            //             return done(null, false, {error: '구글로그인서비스를 통하여 가입된 회원입니다. 옆의 구글로그인 버튼으로 로그인해주세요.'});
-            //         if (member.provider === "naver")
-            //             return done(null, false, {error: '네이버로그인서비스를 통하여 가입된 회원입니다. 옆의 네이버로그인 버튼으로 로그인해주세요.'});
-            //     }
-            // });
+            Member.findOne({'email': profile._raw.kaccount_email}, function (err, member) {
+                if (err)
+                    return done(err);
+                else if (!member){
+
+                    var user = new Member();
+                    user.last_name = profile.username;
+                    user.email = profile._raw.kaccount_email;
+                    user.kakao.id=profile.id
+                    user.provider = "naver";
+
+
+                    user.save(function (err) {
+                        if (err)
+                            throw err;
+                        return done(null,user);
+                    });
+                }
+                else{
+                    if (member.provider === "kakao")
+                        return done(null, member);
+                    if (member.provider === "local")
+                        return done(null, false, {error: '저희 사이트를 통해 가입하신분입니다. 정보를 입력하여 로그인해주세요.'});
+                    if (member.provider === "google")
+                        return done(null, false, {error: '구글로그인서비스를 통하여 가입된 회원입니다. 옆의 구글로그인 버튼으로 로그인해주세요.'});
+                    if (member.provider === "naver")
+                        return done(null, false, {error: '네이버로그인서비스를 통하여 가입된 회원입니다. 옆의 네이버로그인 버튼으로 로그인해주세요.'});
+                }
+            });
             console.log(profile);
         }
     ));
