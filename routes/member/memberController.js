@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 var Member = require('../../models/member');
 var cert = require('../../models/certificate');
 
-require('../../config/passport')(passport);
+require('../../config/passport2_KKY')(passport);
 
 exports.normalSignup= function(req, res, next) {
     passport.authenticate('signup', function(err, user, info) {
