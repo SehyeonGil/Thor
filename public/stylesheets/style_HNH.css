@@ -3124,7 +3124,7 @@ article.single-post p {
 }
 
 .footer {
-  padding-top: 120px;
+  padding: 50px 0 30px 0;
   background: #3C3E40;
 }
 
@@ -3242,6 +3242,11 @@ article.single-post p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.footer .block ul .nav-content:hover {
+  color: #c7c7c7;
+  text-decoration: none;
 }
 
 .footer-bottom .top-to a {
