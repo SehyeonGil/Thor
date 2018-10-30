@@ -2,5 +2,5 @@
 "clientSecret":"pwd",
 "callbackURL":"callBackURL"},
 "kakao":{"clientID":"e97bdc427234b6ba5e43e267af9f83bc",
-    "callbackURL":"http://35.200.40.50:3000/member/KakaoLoginCallback"}
+    "callbackURL":"http://ezcoook.com/member/OauthKakao"}
 }
