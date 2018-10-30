@@ -34,7 +34,7 @@ exports.seller_check_no=function(req,res,next) {         //판매자 등록페�
     }
     else if(!req.session.passport.user.seller_check)
     {
-        res.redirect('/seller/register_seller');
+        res.redirect('/seller/register_chef');
     }
     else
     {
