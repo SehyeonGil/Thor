@@ -3,6 +3,7 @@ var app=express();
 var LocalStrategy = require('passport-local').Strategy;
 var KakaoStrategy = require('passport-kakao').Strategy;
 var NaverStrategy = require('passport-naver').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:false}));
