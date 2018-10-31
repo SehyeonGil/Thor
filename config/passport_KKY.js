@@ -99,11 +99,10 @@ module.exports = function(passport,nev) {
                 if (err)
                     return done(err);
                 else if (!member){
-
                     var user = new Member();
                     user.last_name = profile.username;
                     user.email = profile._raw.kaccount_email;
-                    user.kakao.id=profile.id
+                    user.kakao.id=profile.id;
                     user.provider = "kakao";
 
 
