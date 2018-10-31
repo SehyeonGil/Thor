@@ -94,17 +94,18 @@ module.exports = function(passport,nev) {
             callbackURL : config.kakao.callbackURL
         },
         function(accessToken, refreshToken, profile, done){
-            Member.findOne({'email': profile._raw.kaccount_email}, function (err, member) {
+            var email = JSON.parse(profile._raw);
+            Member.findOne({'email': email}, function (err, member) {
                 if (err)
                     return done(err);
                 else if (!member){
                     var user = new Member();
-                    console.log(profile);
-                    console.log(profile._raw);
-                    console.log(typeof(profile._raw));
-                    console.log(profile._raw['account_email']);
+                    // console.log(profile);
+                    // console.log(profile._raw);
+                    // console.log(typeof(profile._raw));
+                    // console.log(profile._raw['account_email']);
                     user.last_name = profile.username;
-                    user.email = profile._raw[0];
+                    user.email = email;
                     user.kakao.id=profile.id;
                     user.provider = "kakao";
 
@@ -178,14 +179,39 @@ module.exports = function(passport,nev) {
         function(accessToken, refreshToken, profile, done) {
         console.log(profile);
             // asynchronous verification, for effect...
-            process.nextTick(function () {
+            Member.findOne({'email': profile.emails[0].value}, function (err, member) {
+                if (err)
+                    return done(err);
+                else if (!member){
 
-                // To keep the example simple, the user's Google profile is returned to
-                // represent the logged-in user.  In a typical application, you would want
-                // to associate the Google account with a user record in your database,
-                // and return that user instead.
-                return done(null, profile);
+                    var user = new Member();
+                    user.first_name = profile.name.familyName;
+                    user.last_name = profile.name.givenName;
+                    user.email=profile.emails[0].value;
+                    user.google.id=profile.id;
+                    user.provider = "google";
+
+
+                    user.save(function (err) {
+                        if (err)
+                            throw err;
+                        return done(null,user);
+                    });
+                }
+                else{
+                    if (member.provider === "google")
+                        return done(null, member);
+                    if (member.provider === "local")
+                        return done(null, false, {error: '저희 사이트를 통해 가입하신분입니다. 정보를 입력하여 로그인해주세요.'});
+                    if (member.provider === "naver")
+                        return done(null, false, {error: '네이버로그인서비스를 통하여 가입된 회원입니다. 옆의 네이버로그인 버튼으로 로그인해주세요.'});
+                    if (member.provider === "kakao")
+                        return done(null, false, {error: '카카오로그인서비스를 통하여 가입된 회원입니다. 옆의 카카오로그인 버튼으로 로그인해주세요.'});
+                }
             });
+            console.log(profile);
+
+
         }
     ));
 
