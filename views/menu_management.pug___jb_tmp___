@@ -53,7 +53,10 @@ html(lang='en')
                                                             .col-md-10.offset-md-1.col-lg-6.offset-lg-0
                                                                 // deal card
                                                                 label.switch
-                                                                    input(type='checkbox')
+                                                                    if(menu[i].onoff===false)
+                                                                        input(type='checkbox')
+                                                                    else
+                                                                        input(type='checkbox', checked='checked')
                                                                     span.slider.round
                                                                 // 버튼 클릭 메뉴상세정보로
                                                                 .deal-item.bg-light(onclick="location.href='#'", style='cursor:pointer;')

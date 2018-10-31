@@ -35,7 +35,8 @@ var MenuSchema = new Schema({
         },
         coordinates: [{type:Number}]
     },
-    hashtag:[{type:String}]
+    hashtag:[{type:String}],
+    onoff:{type:Boolean, default:false}
 });
 
 module.exports = mongoose.model('menu', MenuSchema);
