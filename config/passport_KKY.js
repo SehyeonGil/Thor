@@ -193,7 +193,7 @@ module.exports = function(passport,nev) {
                     user.google.id=profile.id;
                     user.provider = "google";
 
-
+                    console.log('ff');
                     user.save(function (err) {
                         if (err)
                             throw err;
