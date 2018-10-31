@@ -95,7 +95,9 @@ module.exports = function(passport,nev) {
         },
         function(accessToken, refreshToken, profile, done){
             var email = JSON.parse(profile._raw);
-            Member.findOne({'email': email}, function (err, member) {
+            console.log(email)
+            console.log(typeof(email))
+            Member.findOne({'email': email.kaccount_email}, function (err, member) {
                 if (err)
                     return done(err);
                 else if (!member){
@@ -105,7 +107,7 @@ module.exports = function(passport,nev) {
                     // console.log(typeof(profile._raw));
                     // console.log(profile._raw['account_email']);
                     user.last_name = profile.username;
-                    user.email = email;
+                    user.email = email.kaccount_email;
                     user.kakao.id=profile.id;
                     user.provider = "kakao";
 
