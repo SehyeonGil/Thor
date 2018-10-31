@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 var Member = require('../../models/member');
 var cert = require('../../models/certificate');
 
-require('../../config/passport_KKY')(passport);
+require('../../config/passport')(passport);
 
 exports.normalSignup= function(req, res, next) {
     passport.authenticate('signup', function(err, user, info) {
@@ -100,7 +100,46 @@ exports.reconfirm=function (req,res,next) {
 };
 
 exports.LoginKakao=passport.authenticate('LoginKakao');
-exports.OauthKakao=passport.authenticate('LoginKakao', {
-    successRedirect: '/',
-    failureRedirect: '/'
-});
+exports.OauthKakao=function(req, res, next) {
+    passport.authenticate('LoginKakao', function(err, user, info) {
+        if (err) { return next(err); }
+        if (!user) {res.render('login',{error:info.error}); }
+        req.logIn(user, function(err) {
+            if (err) { return next(err); }
+            // req.session.email=user.email;
+            // req.session.seller=user.sellercheck;
+            // res.send("clear");
+            res.redirect("/");
+        });
+    })(req, res, next);
+};
+
+exports.LoginNaver=passport.authenticate('LoginNaver');
+exports.OauthNaver=function(req, res, next) {
+    passport.authenticate('LoginNaver', function(err, user, info) {
+        if (err) { return next(err); }
+        if (!user) {res.render('login',{error:info.error}); }
+        req.logIn(user, function(err) {
+            if (err) { return next(err); }
+            // req.session.email=user.email;
+            // req.session.seller=user.sellercheck;
+            // res.send("clear");
+            res.redirect("/");
+        });
+    })(req, res, next);
+};
+
+exports.LoginGoogle=passport.authenticate('LoginGoogle',{ scope: ['profile', 'email'] });
+exports.OauthGoogle=function(req, res, next) {
+    passport.authenticate('LoginGoogle', function(err, user, info) {
+        if (err) { return next(err); }
+        if (!user) {res.render('login',{error:info.error}); }
+        req.logIn(user, function(err) {
+            if (err) { return next(err); }
+            // req.session.email=user.email;
+            // req.session.seller=user.sellercheck;
+            // res.send("clear");
+            res.redirect("/");
+        });
+    })(req, res, next);
+};

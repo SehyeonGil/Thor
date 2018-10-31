@@ -12,7 +12,7 @@ var http = require('http');
 var index = require('./routes/index');
 var jusoRouter = require('./routes/juso_GSH');
 var sellerRouter = require('./routes/seller/index');
-var memberRouter = require('./routes/member/index_KKY');
+var memberRouter = require('./routes/member/index');
 var menuRouter = require('./routes/menu/index');
 
 var app = express();
