@@ -101,7 +101,7 @@ module.exports = function(passport,nev) {
                     var user = new Member();
                     console.log(profile._raw);
                     console.log(profile._raw[0]);
-                    console.log(profile._raw[kaccount_email]);
+                    console.log(profile._raw["kaccount_email"]);
                     user.last_name = profile.username;
                     user.email = profile._raw[0];
                     user.kakao.id=profile.id;
