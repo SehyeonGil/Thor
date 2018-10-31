@@ -129,7 +129,7 @@ exports.OauthNaver=function(req, res, next) {
     })(req, res, next);
 };
 
-exports.LoginGoogle=passport.authenticate('LoginGoogle');
+exports.LoginGoogle=passport.authenticate('LoginGoogle',{ scope: ['openid', 'email'] });
 exports.OauthGoogle=function(req, res, next) {
     passport.authenticate('LoginGoogle', function(err, user, info) {
         if (err) { return next(err); }

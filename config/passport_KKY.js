@@ -94,12 +94,13 @@ module.exports = function(passport,nev) {
             callbackURL : config.kakao.callbackURL
         },
         function(accessToken, refreshToken, profile, done){
-            console.log(profile);
             Member.findOne({'email': profile._raw.kaccount_email}, function (err, member) {
                 if (err)
                     return done(err);
                 else if (!member){
                     var user = new Member();
+                    console.log(profile._raw);
+                    console.log(profile._raw.kaccount_email);
                     user.last_name = profile.username;
                     user.email = profile._raw.kaccount_email;
                     user.kakao.id=profile.id;
@@ -123,7 +124,6 @@ module.exports = function(passport,nev) {
                         return done(null, false, {error: '네이버로그인서비스를 통하여 가입된 회원입니다. 옆의 네이버로그인 버튼으로 로그인해주세요.'});
                 }
             });
-              console.log(profile);
         }
     ));
 
