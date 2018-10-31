@@ -38,6 +38,7 @@ router.get('/manage_order', function(req, res, next) {
 router.get('/menu_management',controller.seller_check_no,controller.menuManagement);
 router.get('/Register_Chef',controller.seller_check_yes,controller.sellerRegister);
 router.get('/register_menu',controller.seller_check_no,controller.menuRegister);
+router.post('/menu_management',controller.menuManagementChangeOnOff);
 router.post('/Register_Chef',uploadSeller.fields([{name:'imageIden'},{name:'imageFace'},{name:'imageStore'}]),controller.sellerRegisterAttemp);
 router.post('/Register_Menu',uploadSeller.fields([{name:'imageMenu'}]),controller.menuRegisterAttemp);
 module.exports = router;
