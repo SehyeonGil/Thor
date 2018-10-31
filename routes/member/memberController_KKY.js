@@ -108,7 +108,8 @@ exports.OauthKakao=function(req, res, next) {
             if (err) { return next(err); }
             // req.session.email=user.email;
             // req.session.seller=user.sellercheck;
-            res.send("clear");
+            // res.send("clear");
+            res.redirect("/");
         });
     })(req, res, next);
 };
@@ -122,7 +123,8 @@ exports.OauthNaver=function(req, res, next) {
             if (err) { return next(err); }
             // req.session.email=user.email;
             // req.session.seller=user.sellercheck;
-            res.send("clear");
+            // res.send("clear");
+            res.redirect("/");
         });
     })(req, res, next);
 };
@@ -136,7 +138,8 @@ exports.OauthGoogle=function(req, res, next) {
             if (err) { return next(err); }
             // req.session.email=user.email;
             // req.session.seller=user.sellercheck;
-            res.send("clear");
+            // res.send("clear");
+            res.redirect("/");
         });
     })(req, res, next);
 };

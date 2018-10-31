@@ -135,7 +135,7 @@ module.exports = function(passport,nev) {
         },
         function(accessToken, refreshToken, profile, done){
             console.log(profile);
-            Member.findOne({'email': profile.emails[0]}, function (err, member) {
+            Member.findOne({'email': profile.emails[0].value}, function (err, member) {
                 if (err)
                     return done(err);
                 else if (!member){
