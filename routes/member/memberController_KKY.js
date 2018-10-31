@@ -103,7 +103,7 @@ exports.LoginKakao=passport.authenticate('LoginKakao');
 exports.OauthKakao=function(req, res, next) {
     passport.authenticate('LoginKakao', function(err, user, info) {
         if (err) { return next(err); }
-        if (!user) {res.send(info.error); }
+        if (!user) {res.render(login,{error:info.error}); }
         req.logIn(user, function(err) {
             if (err) { return next(err); }
             // req.session.email=user.email;
@@ -117,7 +117,7 @@ exports.LoginNaver=passport.authenticate('LoginNaver');
 exports.OauthNaver=function(req, res, next) {
     passport.authenticate('LoginNaver', function(err, user, info) {
         if (err) { return next(err); }
-        if (!user) {res.send(info.error); }
+        if (!user) {res.render(login,{error:info.error}); }
         req.logIn(user, function(err) {
             if (err) { return next(err); }
             // req.session.email=user.email;
@@ -131,7 +131,7 @@ exports.LoginGoogle=passport.authenticate('LoginGoogle');
 exports.OauthGoogle=function(req, res, next) {
     passport.authenticate('LoginGoogle', function(err, user, info) {
         if (err) { return next(err); }
-        if (!user) {res.send(info.error); }
+        if (!user) {res.render(login,{error:info.error}); }
         req.logIn(user, function(err) {
             if (err) { return next(err); }
             // req.session.email=user.email;

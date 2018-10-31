@@ -44,6 +44,10 @@ router.get('/OauthKakao', controller.OauthKakao);
 
 router.get('/LoginNaver', controller.LoginNaver);
 router.get('/OauthNaver', controller.OauthNaver);
+
+router.get('/LoginNaver', controller.LoginGoogle);
+router.get('/OauthNaver', controller.OauthGoogle);
+
 /* GET find_password page. */
 router.get('/Find_Password', function(req, res, next) {
     res.render('find_pw_KSW');
