@@ -60,7 +60,7 @@ html(lang='en')
               ==========================================
               =            All Category Section            =
               ===========================================
-            form(action='http://localhost/upload.php', method='post', enctype='multipart/form-data')
+            form(action='/member/register_member', method='post', enctype='multipart/form-data')
                 section#scroll1.deals-categories.section
                     // Container Start
                     .container
@@ -73,7 +73,7 @@ html(lang='en')
                                     .page(style='margin-top: 10px;')
                                         // Our File Inputs
                                         .wrap-custom-file
-                                            input#img_certi(type='file', name='menu_pic', accept='.gif, .jpg, .png, .jpeg')
+                                            input#img_certi(type='file', name='imageIden', accept='.gif, .jpg, .png, .jpeg')
                                             label(for='img_certi')
                                                 span UPLOAD
                                                 i.fa.fa-plus-circle
@@ -81,10 +81,10 @@ html(lang='en')
                                     .col-md-2.col-8.justify-content-center
                                         .form-group
                                             label(for='seller_age') 구매자 나이
-                                            input#seller_age.form-control(type='text', width='30px', readonly='')
+                                            input#seller_age.form-control(type='text', name='age', width='30px', readonly='')
                                         .form-group
                                             label(for='seller_gen') 구매자 성별
-                                            input#seller_gen.form-control(type='text', readonly='')
+                                            input#seller_gen.form-control(type='text', name='gender', readonly='')
                     // Container End
                     //
                       ===========================================
@@ -98,7 +98,7 @@ html(lang='en')
                                         h2 핸드폰 인증하기!
                                     .row.justify-content-center
                                         h7 휴대폰 번호
-                                        select#txtMobile1.form-control.col-md-1.col-3.col-lg-1
+                                        select#txtMobile1.form-control.col-md-1.col-3.col-lg-1(name='mobile1')
                                             option(value='') 선택
                                             option(value='011') 011
                                             option(value='016') 016
@@ -106,12 +106,12 @@ html(lang='en')
                                             option(value='019') 019
                                             option(value='010') 010
                                         h7 -
-                                        input#txtMobile2.form-control.col-md-1.col-2.col-lg-1(type='text', onkeypress='onlyNumber();')
+                                        input#txtMobile2.form-control.col-md-1.col-2.col-lg-1(type='text', name='mobile2', onkeypress='onlyNumber();')
                                         h7 -
-                                        input#txtMobile3.form-control.col-md-1.col-2.col-lg-1(type='text')
+                                        input#txtMobile3.form-control.col-md-1.col-2.col-lg-1(type='text', name='mobile3')
                             .row.text-center
                                 .col-12.col-md-12.col-lg-12
-                                    a.btn.btn-main.mt-30(href='store-single.html', style='background-color:#80c269') 인증하기
+                                    a.btn.btn-main.mt-30(href='#', style='background-color:#80c269') 인증하기
                     //
                       ===========================================
                       =            Popular deals section            =
@@ -128,14 +128,14 @@ html(lang='en')
                                         .page(style='margin-top: 10px;')
                                             // Our File Inputs
                                             .wrap-custom-file
-                                                input#img_idcard(type='file', name='menu_pic', accept='.gif, .jpg, .png, .jpeg')
+                                                input#img_idcard(type='file', name='imageFace', accept='.gif, .jpg, .png, .jpeg')
                                                 label(for='img_idcard')
                                                     span Select Image
                                                     i.fa.fa-plus-circle
                                             // End Page Wrap
                                         .col-md-4.col-10.col-lg-4.justify-content-center
                                             label(for='seller_introduce') 자기 소개
-                                            textarea#seller_introduce.form-control(rows='5', cols='70', placeholder='')
+                                            textarea#seller_introduce.form-control(rows='5', name='text', cols='70', placeholder='')
                     //
                       ===========================================
                       =            Popular deals section            =
@@ -156,9 +156,12 @@ html(lang='en')
                                                 .form-group
                                                     .row
                                                         .col-md-9
-                                                            input#store_add.form-control(type='text', readonly='')
+                                                            input#store_add.form-control(type='text', name='address', readonly='')
+                                                            input#siNm(type='hidden', name='siNm', readonly='')
+                                                            input#entX(type='hidden', name='x', readonly='')
+                                                            input#entY(type='hidden', name='y', readonly='')
                                                         .col-md-2
-                                                            a.btn.btn-main(href='store-single.html') 주소검색
+                                                            button.btn.btn-main(type="button", onclick='goPopup()') 주소검색
                     section.popular-deals.section
                         .row.text-center
                             .col-md-12.col-lg-12
@@ -182,3 +185,5 @@ html(lang='en')
                 script(src='../js/register_HNH.js')
                 script(src='../js/UploadFile_KSW.js')
                 script(src='../js/MenuSubmit_KSW.js')
+                script(src='../js/juso/juso_GSH.js')
+                script(src='../plugins/proj4js/proj4js-combined.js')
