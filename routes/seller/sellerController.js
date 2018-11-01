@@ -225,7 +225,7 @@ exports.menuRegisterAttemp= function(req, res, next) {      //메뉴 등록 post
         imageMenu_size.push(upFile['imageMenu'][i].size);
         gm("public/img/sellerImg/imageMenu/" + upFile['imageMenu'][i].filename)
             .resize(1000, 500)
-            .write("public/img/sellerImg/imageMenuReszie/" + upFile['imageMenu'][i].filename, function (err) {
+            .write("public/img/sellerImg/imageMenuResize/" + upFile['imageMenu'][i].filename, function (err) {
                 if (err) console.error(err);
                 else console.log('done')
             });
