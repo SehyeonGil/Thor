@@ -58,6 +58,14 @@ router.get('/email_complete', function(req, res, next) {
     res.render('email_complete');
 });
 
+router.get('/store_info', function(req, res, next) {
+    res.render('storeInfo_KSW');
+});
+
+router.get('/menu_order', function(req, res, next) {
+    res.render('menu_order_KSW');
+});
+
 /* GET menu_list page */
 router.get('/menu_list', function(req, res, next) {
     res.render('menuList');
