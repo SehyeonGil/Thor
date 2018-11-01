@@ -1,0 +1,161 @@
+//
+   Created by SW on 2018-11-02.
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title Title
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Karma')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        link(href='../plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
+        link(rel='stylesheet', href='../stylesheets/storeInfo_KSW.css')
+        link(href='../stylesheets/noConflict_nav_KSW.css', rel='stylesheet')
+
+    body.body-wrapper
+        include components/topHeader
+        include components/navBar_KSW
+
+        .col-xs-12.col-sm-offset-2.col-sm-8.col-md-offset-4.col-md-4
+            .widget
+                .cover
+                    img.img-responsive(src='../img/steak.jpg')
+                img.photo(src='../img/chicken.jpg')
+                h1 호호식당
+                h2 한국, 충청북도, 청주
+                h3 순우
+            .col-xs-12.res_info
+                p
+                    span.mytitle.w3-col.s6.m6.l6 매장명
+                    span.myinfo.w3-rest 호호식당
+                p
+                    span.mytitle.w3-col.s6.m6.l6 평점
+                    span.myinfo.w3-rest
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                        span.fa.fa-star.checked
+                        span.fa.fa-star
+                        span.fa.fa-star
+                        span  4.1
+                p
+                    span.mytitle.w3-col.s6.m6.l6 후기
+                    span.w3-rest.myinfo
+                        a(href='')
+                            | 501개
+                            small 보러 가기
+                p
+                    span.mytitle.w3-col.s6.m6.l6 영업일
+                    span.w3-rest.myinfo 월화수목금
+                p
+                    span.mytitle.w3-col.s6.m6.l6 영업 시간
+                    span.w3-rest.myinfo 11:00 ~ 21:00
+                .col-xs-12.col-sm-12.col-md-12.col-lg-12
+                    hr
+                p
+                    span.mytitle.w3-col.s12.m12.l12 판매 메뉴
+                .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
+                    .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container1
+                        label.switch
+                            input(type='checkbox')
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container1.img-container
+                        img.menu-img(src='../img/pasta.jpg', alt='')
+                        .first-span
+                            span 판매중지
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container1
+                        h4 이태리 파스타
+                        h4 5000원
+                        h4
+                            span.myinfo.w3-rest
+                                span.fa.fa-star.checked
+                                span.fa.fa-star.checked
+                                span.fa.fa-star.checked
+                                span.fa.fa-star
+                                span.fa.fa-star
+                                span 4.1
+                            br
+                        a(href='')
+                            | 후기 50개
+                            small 보러 가기
+                .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
+                    .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
+                        label.switch.second-switch
+                            input(type='checkbox')
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container2.img-container
+                        img.menu-img(src='../img/bibimbap.jpeg', alt='')
+                        .second-span
+                            span 판매중
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container2
+                        h4 전주 비빔밥
+                        h4 25000원
+                        h4
+                            span.myinfo.w3-rest
+                                span.fa.fa-star.checked
+                                span.fa.fa-star.checked
+                                span.fa.fa-star.checked
+                                span.fa.fa-star
+                                span.fa.fa-star
+                                span 4.1
+                            br
+                        a(href='')
+                            | 후기 501개
+                            small 보러 가기
+                .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
+                    .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container1
+                        label.switch
+                            input(type='checkbox')
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container1.img-container
+                        img.menu-img(src='../img/pasta.jpg', alt='')
+                        .first-span
+                            span 판매중지
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container1
+                        h4 이태리 파스타
+                        h4 5000원
+                        h4
+                            span.myinfo.w3-rest
+                                span.fa.fa-star.checked
+                                span.fa.fa-star.checked
+                                span.fa.fa-star.checked
+                                span.fa.fa-star
+                                span.fa.fa-star
+                                span 4.1
+                            br
+                        a(href='')
+                            | 후기 50개
+                            small 보러 가기
+                .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
+                    .col-xs-6.col-sm-6.col-md-6.col-lg-6.menu-container
+                        label.switch.second-switch
+                            input(type='checkbox')
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container2.img-container
+                        img.menu-img(src='../img/bibimbap.jpeg', alt='')
+                        .second-span
+                            span 판매중
+                    .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container2
+                        h4 전주 비빔밥
+                        h4 25000원
+                        h4
+                            span.myinfo.w3-rest
+                                span.fa.fa-star.checked
+                                span.fa.fa-star.checked
+                                span.fa.fa-star.checked
+                                span.fa.fa-star
+                                span.fa.fa-star
+                                span 4.1
+                            br
+                        a(href='')
+                            | 후기 501개
+                            small 보러 가기
+                .col-xs-12.col-sm-12.col-md-12.col-lg-12
+                    hr
+                h3 위치
+                #map.col-xs-12.col-sm-12.col-md-12.col-lg-12(style='height: 300px; width: 100%; margin-bottom: 100px;')
+        include components/footer_KSW
+
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(src='../js/googleMap_KSW.js')
+        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDXRttJPmU15cheDKyAeKPQ5ZJzGC-0JUg&callback=myMap')
