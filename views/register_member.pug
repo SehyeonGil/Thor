@@ -34,156 +34,156 @@ html(lang='en')
         script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
     body.body-wrapper
 
-            include components/topHeader
-            include components/navBar_KSW
-            section.hero-area.bg-9.text-center
+        include components/topHeader
+        include components/navBar_KSW
+        section.hero-area.bg-9.text-center
+            // Container Start
+            .container(style='margin-bottom:160px ')
+                .row
+                    .col-lg-12.col-md-12.col-xs-12
+                        // Header Contetnt
+                        .content-block
+                            h2 EZCOOOK의 Member가 되어 다양한 식사를 경험하세요!
+                            p
+                                | 우리집 근처에서 근사한 요리를 즐길 수 있는 기회!
+                                br
+                                |  지금 등록하세요!
+                        .row
+                            // Store Search
+                            .col-lg-12.col-md-12.col-xs-12
+                                .block.align-items-end.flex-column
+                                    // Start Button
+                                    .scrollbtn
+                                        a(href='#scroll1', data-target='#scroll1')
+                                            img(src='../img/register_chef/small_start_button.png', style='width: 180px;height:180px')
+        //
+          ==========================================
+          =            All Category Section            =
+          ===========================================
+        form(action='/member/register_member', method='post', enctype='multipart/form-data')
+            section#scroll1.deals-categories.section
                 // Container Start
-                .container(style='margin-bottom:160px ')
+                .container
                     .row
-                        .col-lg-12.col-md-12.col-xs-12
-                            // Header Contetnt
-                            .content-block
-                                h2 EZCOOOK의 Member가 되어 다양한 식사를 경험하세요!
-                                p
-                                    | 우리집 근처에서 근사한 요리를 즐길 수 있는 기회!
-                                    br
-                                    |  지금 등록하세요!
-                            .row
-                                // Store Search
-                                .col-lg-12.col-md-12.col-xs-12
-                                    .block.align-items-end.flex-column
-                                        // Start Button
-                                        .scrollbtn
-                                            a(href='#scroll1', data-target='#scroll1')
-                                                img(src='../img/register_chef/small_start_button.png', style='width: 180px;height:180px')
-            //
-              ==========================================
-              =            All Category Section            =
-              ===========================================
-            form(action='/member/register_member', method='post', enctype='multipart/form-data')
-                section#scroll1.deals-categories.section
-                    // Container Start
+                        .col-12.col-lg-12.col-md-12
+                            // Section title
+                            .section-title.scroll
+                                h2 신분증 인증하기!
+                            .row.border-bottom.justify-content-center
+                                .page(style='margin-top: 10px;')
+                                    // Our File Inputs
+                                    .wrap-custom-file
+                                        input#img_certi(type='file', name='imageIden', accept='.gif, .jpg, .png, .jpeg')
+                                        label(for='img_certi')
+                                            span UPLOAD
+                                            i.fa.fa-plus-circle
+                                    // End Page Wrap
+                                .col-md-2.col-8.justify-content-center
+                                    .form-group
+                                        label(for='seller_age') 구매자 나이
+                                        input#seller_age.form-control(type='text', name='age', width='30px', readonly='')
+                                    .form-group
+                                        label(for='seller_gen') 구매자 성별
+                                        input#seller_gen.form-control(type='text', name='gender', readonly='')
+                // Container End
+                //
+                  ===========================================
+                  =            Popular deals section            =
+                  ============================================
+                section.popular-deals.section.border-bottom
                     .container
                         .row
-                            .col-12.col-lg-12.col-md-12
-                                // Section title
-                                .section-title.scroll
-                                    h2 신분증 인증하기!
-                                .row.border-bottom.justify-content-center
+                            .col-md-12.col-lg-12.col-12
+                                .section-title
+                                    h2 핸드폰 인증하기!
+                                .row.justify-content-center
+                                    h7 휴대폰 번호
+                                    select#txtMobile1.form-control.col-md-1.col-3.col-lg-1(name='mobile1')
+                                        option(value='') 선택
+                                        option(value='011') 011
+                                        option(value='016') 016
+                                        option(value='017') 017
+                                        option(value='019') 019
+                                        option(value='010') 010
+                                    h7 -
+                                    input#txtMobile2.form-control.col-md-1.col-2.col-lg-1(type='text', name='mobile2', onkeypress='onlyNumber();')
+                                    h7 -
+                                    input#txtMobile3.form-control.col-md-1.col-2.col-lg-1(type='text', name='mobile3')
+                        .row.text-center
+                            .col-12.col-md-12.col-lg-12
+                                a.btn.btn-main.mt-30(href='#', style='background-color:#80c269') 인증하기
+                //
+                  ===========================================
+                  =            Popular deals section            =
+                  ============================================
+                section.popular-deals.section.border-bottom
+                    .container
+                        .row
+                            .col-md-12.col-lg-12
+                                .section-title
+                                    h2 구매자 정보 입력하기!
+                                .row.justify-content-center
+                                    h5 얼굴을 확인할 수 있는 사진을 올려주세요~
+                                .row.justify-content-center
                                     .page(style='margin-top: 10px;')
                                         // Our File Inputs
                                         .wrap-custom-file
-                                            input#img_certi(type='file', name='imageIden', accept='.gif, .jpg, .png, .jpeg')
-                                            label(for='img_certi')
-                                                span UPLOAD
+                                            input#img_idcard(type='file', name='imageFace', accept='.gif, .jpg, .png, .jpeg')
+                                            label(for='img_idcard')
+                                                span Select Image
                                                 i.fa.fa-plus-circle
                                         // End Page Wrap
-                                    .col-md-2.col-8.justify-content-center
-                                        .form-group
-                                            label(for='seller_age') 구매자 나이
-                                            input#seller_age.form-control(type='text', name='age', width='30px', readonly='')
-                                        .form-group
-                                            label(for='seller_gen') 구매자 성별
-                                            input#seller_gen.form-control(type='text', name='gender', readonly='')
-                    // Container End
-                    //
-                      ===========================================
-                      =            Popular deals section            =
-                      ============================================
-                    section.popular-deals.section.border-bottom
-                        .container
-                            .row
-                                .col-md-12.col-lg-12.col-12
-                                    .section-title
-                                        h2 핸드폰 인증하기!
-                                    .row.justify-content-center
-                                        h7 휴대폰 번호
-                                        select#txtMobile1.form-control.col-md-1.col-3.col-lg-1(name='mobile1')
-                                            option(value='') 선택
-                                            option(value='011') 011
-                                            option(value='016') 016
-                                            option(value='017') 017
-                                            option(value='019') 019
-                                            option(value='010') 010
-                                        h7 -
-                                        input#txtMobile2.form-control.col-md-1.col-2.col-lg-1(type='text', name='mobile2', onkeypress='onlyNumber();')
-                                        h7 -
-                                        input#txtMobile3.form-control.col-md-1.col-2.col-lg-1(type='text', name='mobile3')
-                            .row.text-center
-                                .col-12.col-md-12.col-lg-12
-                                    a.btn.btn-main.mt-30(href='#', style='background-color:#80c269') 인증하기
-                    //
-                      ===========================================
-                      =            Popular deals section            =
-                      ============================================
-                    section.popular-deals.section.border-bottom
-                        .container
-                            .row
-                                .col-md-12.col-lg-12
-                                    .section-title
-                                        h2 구매자 정보 입력하기!
-                                    .row.justify-content-center
-                                        h5 얼굴을 확인할 수 있는 사진을 올려주세요~
-                                    .row.justify-content-center
-                                        .page(style='margin-top: 10px;')
-                                            // Our File Inputs
-                                            .wrap-custom-file
-                                                input#img_idcard(type='file', name='imageFace', accept='.gif, .jpg, .png, .jpeg')
-                                                label(for='img_idcard')
-                                                    span Select Image
-                                                    i.fa.fa-plus-circle
-                                            // End Page Wrap
-                                        .col-md-4.col-10.col-lg-4.justify-content-center
-                                            label(for='seller_introduce') 자기 소개
-                                            textarea#seller_introduce.form-control(rows='5', name='text', cols='70', placeholder='')
-                    //
-                      ===========================================
-                      =            Popular deals section            =
-                      ============================================
-                    section.popular-deals.section
-                        .container
-                            .row
-                                .col-md-12
-                                    .section-title
-                                        h2 주소등록 하기!
-                                    .row.justify-content-center(style='margin-bottom:30px;')
-                                        h5 본인의 주소를 등록해 주세요~!!
-                                    .container
-                                        .row
-                                            .col-md-8.offset-md-2
-                                                // Store name
-                                                // Store address
-                                                .form-group
-                                                    .row
-                                                        .col-md-9
-                                                            input#store_add.form-control(type='text', name='address', readonly='')
-                                                            input#siNm(type='hidden', name='siNm', readonly='')
-                                                            input#entX(type='hidden', name='x', readonly='')
-                                                            input#entY(type='hidden', name='y', readonly='')
-                                                        .col-md-2
-                                                            button.btn.btn-main(type="button", onclick='goPopup()') 주소검색
-                    section.popular-deals.section
-                        .row.text-center
-                            .col-md-12.col-lg-12
-                                a.btn.btn-main.mt-30(href='store-single.html', style='background-color:#22ac38') REGISTER
+                                    .col-md-4.col-10.col-lg-4.justify-content-center
+                                        label(for='seller_introduce') 자기 소개
+                                        textarea#seller_introduce.form-control(rows='5', name='text', cols='70', placeholder='')
+                //
+                  ===========================================
+                  =            Popular deals section            =
+                  ============================================
+                section.popular-deals.section
+                    .container
+                        .row
+                            .col-md-12
+                                .section-title
+                                    h2 주소등록 하기!
+                                .row.justify-content-center(style='margin-bottom:30px;')
+                                    h5 본인의 주소를 등록해 주세요~!!
+                                .container
+                                    .row
+                                        .col-md-8.offset-md-2
+                                            // Store name
+                                            // Store address
+                                            .form-group
+                                                .row
+                                                    .col-md-9
+                                                        input#store_add.form-control(type='text', name='address', readonly='')
+                                                        input#siNm(type='hidden', name='siNm', readonly='')
+                                                        input#entX(type='hidden', name='x', readonly='')
+                                                        input#entY(type='hidden', name='y', readonly='')
+                                                    .col-md-2
+                                                        button.btn.btn-main(type="button", onclick='goPopup()') 주소검색
+                section.popular-deals.section
+                    .row.text-center
+                        .col-md-12.col-lg-12
+                            button.btn.btn-main.mt-30(onclick='submit', style='background-color:#22ac38') REGISTER
 
-                include components/footer_KSW
-                // JAVASCRIPTS
-                script(src='../plugins/jquery/jquery.min.js')
-                script(src='../plugins/jquery-ui/jquery-ui.min.js')
-                script(src='../plugins/tether/js/tether.min.js')
-                script(src='../plugins/raty/jquery.raty-fa.js')
-                script(src='../plugins/bootstrap/js/bootstrap.min.js')
-                script(src='../plugins/selectbox/jquery.selectbox-0.1.3.min.js')
-                script(src='../plugins/owl-carousel/owl.carousel.min.js')
-                script(src='../plugins/fancybox/jquery.fancybox.pack.js')
-                script(src='../plugins/smoothscroll/SmoothScroll.min.js')
-                script(src='../plugins/datepicker/bootstrap-datepicker.min.js')
-                script(src='../plugins/bootstrap-notify/bootstrap-notify.min.js')
-                script(src='../js/custom.js')
-                script(type='text/javascript', src='http://code.jquery.com/jquery-2.1.0.min.js')
-                script(src='../js/register_HNH.js')
-                script(src='../js/UploadFile_KSW.js')
-                script(src='../js/MenuSubmit_KSW.js')
-                script(src='../js/juso/juso_GSH.js')
-                script(src='../plugins/proj4js/proj4js-combined.js')
+            include components/footer_KSW
+            // JAVASCRIPTS
+            script(src='../plugins/jquery/jquery.min.js')
+            script(src='../plugins/jquery-ui/jquery-ui.min.js')
+            script(src='../plugins/tether/js/tether.min.js')
+            script(src='../plugins/raty/jquery.raty-fa.js')
+            script(src='../plugins/bootstrap/js/bootstrap.min.js')
+            script(src='../plugins/selectbox/jquery.selectbox-0.1.3.min.js')
+            script(src='../plugins/owl-carousel/owl.carousel.min.js')
+            script(src='../plugins/fancybox/jquery.fancybox.pack.js')
+            script(src='../plugins/smoothscroll/SmoothScroll.min.js')
+            script(src='../plugins/datepicker/bootstrap-datepicker.min.js')
+            script(src='../plugins/bootstrap-notify/bootstrap-notify.min.js')
+            script(src='../js/custom.js')
+            script(type='text/javascript', src='http://code.jquery.com/jquery-2.1.0.min.js')
+            script(src='../js/register_HNH.js')
+            script(src='../js/UploadFile_KSW.js')
+            script(src='../js/MenuSubmit_KSW.js')
+            script(src='../js/juso/juso_GSH.js')
+            script(src='../plugins/proj4js/proj4js-combined.js')

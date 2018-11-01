@@ -11,6 +11,7 @@ var Member = require('../../models/member');
 var MemberSeller = require('../../models/member_seller');
 
 var cert = require('../../models/certificate');
+var gm = require('gm');
 
 require('../../config/passport')(passport);
 
@@ -174,10 +175,8 @@ exports.OauthGoogle=function(req, res, next) {
     })(req, res, next);
 };
 exports.MemberMain= function(req, res, next) {            //판매자 메인 get
-    MemberSeller.findOne({email:req.session.passport.user.email},function(err,seller){
-        Member.findOne({email:req.session.passport.user.email}, function(err,member) {
-            res.render("member_profile_HNH",{member:member,passport:req.session.passport,seller:seller});
-        });
+    Member.findOne({email:req.session.passport.user.email}, function(err,member) {
+        res.render("member_profile",{member:member,passport:req.session.passport});
     });
 };
 
@@ -186,5 +185,57 @@ exports.registerMember= function(req, res, next) {            //판매자 메인
 };
 
 exports.registerMemberAttemp= function(req, res, next) {            //판매자 메인 get
+    var age = req.body.age;
+    var gender = req.body.gender;
+    var cellphone = req.body.mobile1+req.body.mobile2+req.body.mobile3;
+    var text= req.body.text;
+    var address=req.body.address;
+    var location={type:'Point',coordinates:[req.body.x,req.body.y]};
+    var upFile = req.files;
+    var imageIden = "./img/memberImg/imageIdenResize/" + upFile['imageIden'][0].filename;
+    var imageIden_name = upFile['imageIden'][0].filename;
+    var imageIden_size = upFile['imageIden'][0].size;
+    gm("./img/memberImg/imageIden/" + upFile['imageIden'][0].filename)
+        .resize(400, 200)
+        .write(imageIden, function (err) {
+            if (err) console.error(err);
+            else console.log('done')
+        });
 
+    var imageFace = "./img/memberImg/imageFaceResize/" + upFile['imageFace'][0].filename;
+    var imageFace_name = upFile['imageFace'][0].filename;
+    var imageFace_size = upFile['imageFace'][0].size;
+    gm("./img/memberImg/imageFace/" + upFile['imageFace'][0].filename)
+        .resize(300, 300)
+        .write(imageFace, function (err) {
+            if (err) console.error(err);
+            else console.log('done')
+        });
+
+    if(!req.session.passport)
+    {
+        res.redirect('/');
+    }
+    else{
+        Member.findOne({email:req.session.passport.user.email},function (err,member) {
+            member.is_certificate=true;
+            member.age=age;
+            member.gender=gender;
+            member.cellphone=cellphone;
+            member.text=text;
+            member.address=address;
+            member.location=location;
+            member.imageIden.image_name=imageIden_name;
+            member.imageIden.image_size=imageIden_size;
+            member.imageIden.image_url=imageIden;
+            member.imageFace.image_name=imageFace_name;
+            member.imageFace.image_size=imageFace_size;
+            member.imageFace.image_url=imageFace;
+            member.save(function (err) {
+                if (err)
+                    throw err;
+                res.redirect('/member');
+            });
+        });
+    }
 };
