@@ -137,7 +137,7 @@ exports.sellerRegisterAttemp= function(req, res, next) {      //판매자 등록
         imageStore_size.push(upFile['imageStore'][i].size);
         gm("public/img/sellerImg/imageStore/" + upFile['imageStore'][i].filename)
             .resize(400, 200,"!")
-            .write("public/img/sellerImg/imageStoreResize/" + upFile['imageStore'][0].filename, function (err) {
+            .write("public/img/sellerImg/imageStoreResize/" + upFile['imageStore'][i].filename, function (err) {
                 if (err) console.error(err);
                 else console.log('done')
             });
@@ -224,7 +224,7 @@ exports.menuRegisterAttemp= function(req, res, next) {      //메뉴 등록 post
         imageMenu_name.push(upFile['imageMenu'][i].filename);
         imageMenu_size.push(upFile['imageMenu'][i].size);
         gm("public/img/sellerImg/imageMenu/" + upFile['imageMenu'][i].filename)
-            .resize(1000, 500)
+            .resize(1000, 500,"!")
             .write("public/img/sellerImg/imageMenuResize/" + upFile['imageMenu'][i].filename, function (err) {
                 if (err) console.error(err);
                 else console.log('done')
