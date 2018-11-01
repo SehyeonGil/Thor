@@ -59,16 +59,18 @@ html(lang='en')
                                     .form-check
                                         input#checkbox-1.checkbox-custom.form-check-input(name='checkbox-1', type='checkbox')
                                         label.checkbox-custom-label.form-check-label(for='checkbox-1') 아이디 저장
+                                    if(error)
+                                        #alertBox.alert.alert-danger(role='alert')=error
                                     button.btn.btn-primary.btn-block(type='button', onclick='return login(this.form)') 로그인
                                     .wrapper
                                         .d-block.social-login.text-center.one
-                                            button.btn.btn-social.titled.naver
+                                            button.btn.btn-social.titled.naver(type='button', onclick="location.href='/member/LoginNaver'")
                                                 | login naver
                                         .d-block.social-login.text-center.two
-                                            button.btn.btn-social.titled.kakao
+                                            button.btn.btn-social.titled.kakao(type='button', onclick="location.href='/member/LoginKakao'")
                                                 | login kakao
                                         .d-block.social-login.text-center.three
-                                            button.btn.btn-social.titled.google
+                                            button.btn.btn-social.titled.google(type='button', onclick="location.href='/member/LoginGoogle'")
                                                 | login google
                                     button.btn.btn-link.btn-block(type='button', onclick="location.href='../member/Join'") 회원가입
                                     button.btn.btn-link.btn-block(type='button', onclick="location.href='../member/Find_Password'") 비밀번호 찾기

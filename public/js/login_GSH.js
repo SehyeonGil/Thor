@@ -22,7 +22,7 @@ function login(item){
     var sendData = {email: item.email.value, password: item.password.value};
     if(!document.myform.passwordCheck.value.match("true")||!document.myform.emailCheck.value.match("true"))
     {
-        alert("양식채워주세요");
+        alert("양식을 채워주세요");
         return false;
     }
 

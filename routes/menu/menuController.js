@@ -15,3 +15,14 @@ exports.menuMain= function(req, res, next) {
         res.render('menuList',{passport:req.session.passport,menu:menu});
     });
 };
+
+exports.menuInfo= function(req, res, next) {
+    Menu.findOne({_id:req.params.id},function (err,menu) {
+        console.log(menu);
+        MemberSeller.findOne({email:menu.email},function (err,seller) {
+            Member.findOne({email:menu.email},function(err,sellerMember){
+                res.render('menu_info',{passport:req.session.passport,menu:menu,seller:seller,sellerMember:sellerMember});
+            });
+        });
+    });
+};
