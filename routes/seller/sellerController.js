@@ -135,7 +135,7 @@ exports.sellerRegisterAttemp= function(req, res, next) {      //판매자 등록
         imageStore.push("./img/sellerImg/imageStoreResize/" + upFile['imageStore'][i].filename);
         imageStore_name.push(upFile['imageStore'][i].filename);
         imageStore_size.push(upFile['imageStore'][i].size);
-        gm("public/img/sellerImg/imageStoreResize/" + upFile['imageStore'][i].filename)
+        gm("public/img/sellerImg/imageStore/" + upFile['imageStore'][i].filename)
             .resize(400, 200,"!")
             .write("public/img/sellerImg/imageStoreResize/" + upFile['imageStore'][0].filename, function (err) {
                 if (err) console.error(err);
