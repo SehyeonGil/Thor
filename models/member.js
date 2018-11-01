@@ -15,7 +15,6 @@ var MemberSchema = new Schema({
     mail_certificate:{type:Boolean,default:false},
     is_certificate:{type:Boolean,default:false},
     pic_certificate:{type:String},
-    cellphone:{type:String},
     seller_check:{type:Boolean,default:false},
     naver : {
         id:String,
@@ -36,11 +35,28 @@ var MemberSchema = new Schema({
     submit_date:{type: Date, default: moment().format()},
     last_login:Date,
     last_login_ip:String,
-    thumbnail_image:[{
+    imageIden:{
         image_name:{type:String},
         image_url:{type:String},
         image_size:{type:String}
-    }]
+    },
+    imageFace:{
+        image_name:{type:String},
+        image_url:{type:String},
+        image_size:{type:String}
+    },
+    age:{type:String},
+    gender:{type:String},
+    cellphone:String,
+    text:{type:String},
+    address: {type:String},
+    location : {
+        type : {
+            type: String,
+            default: 'Point'
+        },
+        coordinates: [{type:Number}]
+    }
 });
 
 var saltRounds = 10;
