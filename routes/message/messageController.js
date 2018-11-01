@@ -118,7 +118,7 @@ exports.viewMessage=function (req, res, next) {
                     //내 썸네일도 보내줘야함.
 
                     //현재 메세지 전부 보내줄필요없음, 여기에서 썸네일 이미지 객체로 묶어서 보내주는것도 괜찮을듯.
-                    res.render('MessageView', {passport: req.session.passport, member: member, message: message, connum: connum});
+                    res.render('messageView', {passport: req.session.passport, member: member, message: message, connum: connum});
                 });
                 // Message.find({conver_id: connum}, {
                 //         /*skip:0, // Starting Row
