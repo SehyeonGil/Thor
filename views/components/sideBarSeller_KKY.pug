@@ -4,7 +4,7 @@
         .widget.user
             // User Image
             .image.d-flex.justify-content-center
-                a(href='seller_profile_KSW.html')
+                a(href='#')
                     img(src='../' + seller.imageFace.image_url, alt='Image')
             // User Name
             h5.text-center= member.first_name + " " + member.last_name
@@ -18,7 +18,7 @@
                         | 메시지
                         span (10)
                 li
-                    a(href='#')
+                    a(href='/seller/manage_order')
                         | 주문 관리
                         span (5)
                 li
