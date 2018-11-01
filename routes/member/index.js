@@ -58,6 +58,14 @@ router.get('/email_complete', function(req, res, next) {
     res.render('email_complete');
 });
 
+router.get('/store_info', function(req, res, next) {
+    res.render('storeInfo_KSW');
+});
+
+router.get('/menu_order', function(req, res, next) {
+    res.render('menu_order_KSW');
+});
+
 /* GET menu_list page */
 router.get('/menu_list', function(req, res, next) {
     res.render('menuList');
@@ -73,9 +81,7 @@ router.get('/manage_review',function (req,res,next) {
 router.get('/manage_order',function (req,res,next) {
     res.render('manage_order_HNH');
 });
-router.get('/register_member',function (req,res,next) {
-    res.render('register_member_HNH');
-});
+router.get('/register_member',controller.login_check_yes,controller.registerMember);
 router.get('/member_profile',controller.MemberMain);
 router.post('/Join',controller.normalSignup);
 router.post('/Login', controller.loginAttemp);

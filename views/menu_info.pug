@@ -168,6 +168,8 @@ html(lang='en')
                     | cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                     | proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 h2 위치
+                input#entX(type='hidden', value=menu.location.coordinates[0], name='x', required='', readonly='')
+                input#entY(type='hidden', value=menu.location.coordinates[1], name='y', required='', readonly='')
                 #map.col-xs-12.col-sm-12.col-md-12.col-lg-12(style='height: 300px; width: 100%;')
                 .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
                     br
@@ -213,4 +215,7 @@ html(lang='en')
         script(src='../js/ImgSlider.js')
         script(src='../js/googleMap_KSW.js')
         script(src='../js/MenuInfo.js')
-        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDXRttJPmU15cheDKyAeKPQ5ZJzGC-0JUg&callback=myMap')
+        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC6QD2MCH_LI-ZttQNP3sKFklynSotGA3E&callback=myMap')
+        script(src='../js/juso/seller_profile_map_GSH.js')
+        script(type='text/javascript').
+            changeMap();

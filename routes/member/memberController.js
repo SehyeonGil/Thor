@@ -14,6 +14,34 @@ var cert = require('../../models/certificate');
 
 require('../../config/passport')(passport);
 
+exports.login_check_yes=function(req,res,next) {         //구매자 등록페이지 들어갈 때 검사
+    if(!req.session.passport)
+    {
+        res.redirect('/member/Login');
+    }
+    else if(req.session.passport.user.is_certificate)
+    {
+        res.redirect('/member');
+    }
+    else
+    {
+        return next();
+    }
+};
+exports.login_check_no=function(req,res,next) {         //구매자 등록페이지 들어갈 때 검사
+    if(!req.session.passport)
+    {
+        res.redirect('/member/Login');
+    }
+    else if(!req.session.passport.user.is_certificate)
+    {
+        res.redirect('/member/register_member');
+    }
+    else
+    {
+        return next();
+    }
+};
 exports.normalSignup= function(req, res, next) {
     passport.authenticate('signup', function(err, user, info) {
         if (err) { console.log(err); return next(err); }
@@ -151,4 +179,12 @@ exports.MemberMain= function(req, res, next) {            //판매자 메인 get
             res.render("member_profile_HNH",{member:member,passport:req.session.passport,seller:seller});
         });
     });
+};
+
+exports.registerMember= function(req, res, next) {            //판매자 메인 get
+    res.render("register_member",{passport:req.session.passport});
+};
+
+exports.registerMemberAttemp= function(req, res, next) {            //판매자 메인 get
+
 };
