@@ -73,6 +73,10 @@ router.get('/manage_review',function (req,res,next) {
 router.get('/manage_order',function (req,res,next) {
     res.render('manage_order_HNH');
 });
+router.get('/register_member',function (req,res,next) {
+    res.render('register_member_HNH');
+});
+router.get('/member_profile',controller.MemberMain);
 router.post('/Join',controller.normalSignup);
 router.post('/Login', controller.loginAttemp);
 router.post('/Logout', controller.logoutAttemp);

@@ -1,0 +1,113 @@
+doctype html
+html(lang='en')
+    head
+        // SITE TITTLE
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title Member Profile
+        // PLUGINS CSS STYLE
+        link(href='../plugins/jquery-ui/jquery-ui.min.css', rel='stylesheet')
+        // Bootstrap
+        link(href='../plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+        // Font Awesome
+        link(href='../plugins/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+        // Select 2
+        link(href='../plugins/selectbox/select_option1.css', rel='stylesheet')
+        // CUSTOM CSS
+        link(href='../stylesheets/style_HNH.css', rel='stylesheet')
+        link(href='../stylesheets/uploadFile_KKY.css', rel='stylesheet')
+        // FAVICON
+        link(href='../img/favicon.png', rel='shortcut icon')
+    body.body-wrapper
+        include components/topHeader
+        include components/navBar_KSW
+        //
+          ==================================
+          =            User Profile            =
+          ===================================
+        section.user-profile.section
+            .container
+                .row
+                    include components/sidebarMember_HNH.pug
+                    .col-md-10.offset-md-1.col-lg-9.offset-lg-0
+                        // Edit Profile Welcome Text
+                        .widget.welcome-message
+                            h2 내정보 관리
+                            p 등록한 신분증, 핸드폰번호, 이미지, 주소를 관리할 수 있습니다.
+                        // Edit Personal Info
+                        .widget.personal-info
+                            h3.widget-header.user 신분증 / 핸드폰 번호 / 이미지 / 내주소
+                            form(action='#')
+                                .form-group
+                                    label(for='member_certi') 신분증
+                                    #member_certi.row.justify-content-center
+                                        .page(style='margin-top: 10px;')
+                                            // Our File Inputs
+                                            .wrap-custom-file
+                                                input#img_certi(type='file', name='menu_pic', accept='.gif, .jpg, .png, .jpeg')
+                                                label(for='img_certi')
+                                                    span UPLOAD
+                                                    i.fa.fa-plus-circle
+                                            // End Page Wrap
+                                        .col-md-2.col-8.justify-content-center
+                                            .form-group
+                                                label(for='seller_age') 판매자 나이
+                                                input#seller_age.form-control(type='text', width='30px', readonly='')
+                                            .form-group
+                                                label(for='seller_gen') 판매자 성별
+                                                input#seller_gen.form-control(type='text', readonly='')
+                                .form-group
+                                    #member_phonenum.row.justify-content-center(style='margin-left:3px;')
+                                        label(for='member_phonenum', style='margin-right: 10px; margin-top: 10px;') 핸드폰 번호
+                                        select#txtMobile1.form-control(style='width: 100px;')
+                                            option(value='') 선택
+                                            option(value='011') 011
+                                            option(value='016') 016
+                                            option(value='017') 017
+                                            option(value='019') 019
+                                            option(value='010') 010
+                                        h7 -
+                                        input#txtMobile2.form-control.col-md-1.col-2.col-lg-1(type='text', onkeypress='onlyNumber();')
+                                        h7 -
+                                        input#txtMobile3.form-control.col-md-1.col-2.col-lg-1(type='text')
+                                .form-group
+                                    label(for='member_image') 내이미지
+                                    #member_image.row.justify-content-center
+                                        .page(style='margin-top: 10px;')
+                                            // Our File Inputs
+                                            .wrap-custom-file
+                                                input#img_idcard(type='file', name='menu_pic', accept='.gif, .jpg, .png, .jpeg')
+                                                label(for='img_idcard')
+                                                    span Select Image
+                                                    i.fa.fa-plus-circle
+                                            // End Page Wrap
+                                        .col-md-4.col-10.col-lg-4.justify-content-center
+                                            label(for='seller_introduce') 자기 소개
+                                            textarea#seller_introduce.form-control(rows='5', cols='70', placeholder='')
+                                .form-group
+                                    label(for='member_address') 내주소
+                                    #member_address.form-group
+                                        .row
+                                            .col-md-9
+                                                input#store_add.form-control(type='text', readonly='')
+                                            .col-md-2
+                                                a.btn.btn-main(href='store-single.html') 주소검색
+                                // Submit button
+                                button.btn.btn-transparent Save My Changes
+        // JAVASCRIPTS
+        script(src='../plugins/jquery/jquery.min.js')
+        script(src='../plugins/jquery-ui/jquery-ui.min.js')
+        script(src='../plugins/tether/js/tether.min.js')
+        script(src='../plugins/raty/jquery.raty-fa.js')
+        script(src='../plugins/bootstrap/js/bootstrap.min.js')
+        script(src='../plugins/selectbox/jquery.selectbox-0.1.3.min.js')
+        script(src='../plugins/owl-carousel/owl.carousel.min.js')
+        script(src='../plugins/fancybox/jquery.fancybox.pack.js')
+        script(src='../plugins/smoothscroll/SmoothScroll.min.js')
+        script(src='../plugins/datepicker/bootstrap-datepicker.min.js')
+        script(src='../plugins/bootstrap-notify/bootstrap-notify.min.js')
+        script(src='../js/custom.js')
+        script(src='../js/googleMap_KSW.js')
+        script(src='../js/UploadFile_KSW.js')
+        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDXRttJPmU15cheDKyAeKPQ5ZJzGC-0JUg&callback=myMap')
