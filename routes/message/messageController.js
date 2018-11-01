@@ -143,6 +143,8 @@ exports.viewMessageList=function(req,res,next){
     Conversation.find({$or:[{to:req.session.passport.user.email},{from:req.session.passport.user.email}]},function (err, conver) {
         var temp_arr = [];
         var i=0;
+        if(!conver)
+            res.render('message', {passport: req.session.passport});
         //나에대한 모든 대화를 긁어온다음에 내가 판매자로써보낸건지 구매자로써보낸건지 체크함.
         make_Marray(req.session.passport.user.email,conver,i,temp_arr,function(temp_arr){
             if(req.session.passport.user.seller_check) {

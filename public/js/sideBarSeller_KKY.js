@@ -6,7 +6,7 @@ $(document).ready(function(){
         success: function (data) {
             if(data.message){
                 $('#newMessage').text(data.message);
-                $('#tabNewMessage').text(data.message);
+                $('#tabNewMessage').text("("+data.message+")");
             }
         }
     });

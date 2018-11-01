@@ -102,6 +102,7 @@ module.exports = function(passport,nev) {
                     return done(err);
                 else if (!member){
                     var user = new Member();
+                    user.first_name = null;
                     // console.log(profile);
                     // console.log(profile._raw);
                     // console.log(typeof(profile._raw));
@@ -145,6 +146,7 @@ module.exports = function(passport,nev) {
                 else if (!member){
 
                     var user = new Member();
+                    user.first_name = null;
                     user.last_name = profile.displayName;
                     user.email=profile.emails[0].value;
                     user.naver.id=profile.id;

@@ -111,9 +111,9 @@ exports.sellerRegisterAttemp= function(req, res, next) {      //판매자 등록
     var imageIden = "./img/sellerImg/imageIdenReszie/" + upFile['imageIden'][0].filename;
     var imageIden_name = upFile['imageIden'][0].filename;
     var imageIden_size = upFile['imageIden'][0].size;
-    gm("./img/sellerImg/imageIden/" + upFile['imageIden'][0].filename)
-        .resize(400, 200)
-        .write(imageIden, function (err) {
+    gm("public/img/sellerImg/imageIden/" + upFile['imageIden'][0].filename)
+        .resize(400, 200,"!")
+        .write("public/img/sellerImg/imageIdenResize/" + upFile['imageIden'][0].filename, function (err) {
             if (err) console.error(err);
             else console.log('done')
         });
@@ -121,9 +121,9 @@ exports.sellerRegisterAttemp= function(req, res, next) {      //판매자 등록
     var imageFace = "./img/sellerImg/imageFaceResize/" + upFile['imageFace'][0].filename;
     var imageFace_name = upFile['imageFace'][0].filename;
     var imageFace_size = upFile['imageFace'][0].size;
-    gm("./img/sellerImg/imageFace/" + upFile['imageFace'][0].filename)
-        .resize(300, 300)
-        .write(imageFace, function (err) {
+    gm("public/img/sellerImg/imageFace/" + upFile['imageFace'][0].filename)
+        .resize(300, 300,"!")
+        .write("public/img/sellerImg/imageFaceResize/" + upFile['imageFace'][0].filename, function (err) {
             if (err) console.error(err);
             else console.log('done')
         });
@@ -132,12 +132,12 @@ exports.sellerRegisterAttemp= function(req, res, next) {      //판매자 등록
     var imageStore_name = [];
     var imageStore_size = [];
     for(var i=0;i<upFile['imageStore'].length; i++){
-        imageStore.push("./img/sellerImg/imageStoreResize/" + upFile['imageStore'][i].filename);
+        imageStore.push("./img/sellerImg/imageStoreResize/" + upFilenode['imageStore'][i].filename);
         imageStore_name.push(upFile['imageStore'][i].filename);
         imageStore_size.push(upFile['imageStore'][i].size);
-        gm("./img/sellerImg/imageStore/" + upFile['imageStore'][0].filename)
-            .resize(400, 200)
-            .write(imageFace, function (err) {
+        gm("public/img/sellerImg/imageStoreResize/" + upFile['imageStore'][i].filename)
+            .resize(400, 200,"!")
+            .write("public/img/sellerImg/imageStoreResize/" + upFile['imageStore'][0].filename, function (err) {
                 if (err) console.error(err);
                 else console.log('done')
             });
@@ -223,10 +223,9 @@ exports.menuRegisterAttemp= function(req, res, next) {      //메뉴 등록 post
         imageMenu.push("./img/sellerImg/imageMenuResize/" + upFile['imageMenu'][i].filename);
         imageMenu_name.push(upFile['imageMenu'][i].filename);
         imageMenu_size.push(upFile['imageMenu'][i].size);
-        gm("./img/sellerImg/imageMenu/" + upFile['imageMenu'][0].filename)
-            .resize(700, 400)
-            .write("./img/sellerImg/imageMenuReszie/" + upFile['imageMenu'][i].filename, function (err) {
-                console.log('ee');
+        gm("public/img/sellerImg/imageMenu/" + upFile['imageMenu'][i].filename)
+            .resize(1000, 500)
+            .write("public/img/sellerImg/imageMenuReszie/" + upFile['imageMenu'][i].filename, function (err) {
                 if (err) console.error(err);
                 else console.log('done')
             });

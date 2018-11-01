@@ -82,50 +82,54 @@ html(lang='en')
             // Client Slider
             .clients-slider.owl-carousel.owl-theme
               // Client 01
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/chicken.gif', alt='store-logo')
-              // Client 02
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/sushi.png', alt='store-logo')
-              // Client 03
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/chicken.gif', alt='store-logo')
-              // Client 04
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/sushi.png', alt='store-logo')
-              // Client 05
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/chicken.gif', alt='store-logo')
-              // Client 06
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/sushi.png', alt='store-logo')
-              // Client 07
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/chicken.gif', alt='store-logo')
-              // Client 08
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/sushi.png', alt='store-logo')
-              // Client 09
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/chicken.gif', alt='store-logo')
+              - for(var i=0; i<menu.length; i++)
+                .item
+                  a(href='/menu/'+menu[i]._id)
+                    // Slider Image
+                    img(src='../'+menu[i].imageMenu[0].image_url, width='100%', height="auto")
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/chicken.gif', alt='store-logo')
+              //// Client 02
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/sushi.png', alt='store-logo')
+              //// Client 03
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/chicken.gif', alt='store-logo')
+              //// Client 04
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/sushi.png', alt='store-logo')
+              //// Client 05
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/chicken.gif', alt='store-logo')
+              //// Client 06
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/sushi.png', alt='store-logo')
+              //// Client 07
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/chicken.gif', alt='store-logo')
+              //// Client 08
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/sushi.png', alt='store-logo')
+              //// Client 09
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/chicken.gif', alt='store-logo')
       // Container End
     //
       ==========================================
