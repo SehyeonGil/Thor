@@ -70,6 +70,8 @@ router.post('/jusoPopup', function(req, res, next) {
             }}).
         exec(function (err,seller){
             if(err) throw err;
+            if(!seller)
+                res.send("nothing");
             res.send(seller);
         });
     });
