@@ -8,6 +8,8 @@ var moment = require('moment');
 var bodyParser = require('body-parser');
 
 var Member = require('../../models/member');
+var MemberSeller = require('../../models/member_seller');
+
 var cert = require('../../models/certificate');
 
 require('../../config/passport')(passport);
@@ -142,4 +144,11 @@ exports.OauthGoogle=function(req, res, next) {
             res.redirect("/");
         });
     })(req, res, next);
+};
+exports.MemberMain= function(req, res, next) {            //판매자 메인 get
+    MemberSeller.findOne({email:req.session.passport.user.email},function(err,seller){
+        Member.findOne({email:req.session.passport.user.email}, function(err,member) {
+            res.render("member_profile_HNH",{member:member,passport:req.session.passport,seller:seller});
+        });
+    });
 };
