@@ -5,6 +5,8 @@ var mongoose = require('mongoose');
 //var UserModel = mongoose.model("users");
 var express = require('express');
 var router = express.Router();
+var Menu = require('../models/menu');
+var MemberSeller = require('../models/member_seller');
 var bodyParser = require('body-parser');
 var multer=require('multer');
 //주소 api 처리 부분
@@ -55,23 +57,31 @@ router.post('/jusoPopup', function(req, res, next) {
             else
                 res.send("nothing");
         });
-    });
+    });*/
     router.post('/map_change2',function (req,res) {
         var smallx=req.body.smallx;
         var smally=req.body.smally;
         var bigx=req.body.bigx;
         var bigy=req.body.bigy;
-        MasterBoardModel.find({location: {
+        MemberSeller.find({location: {
                 $geoWithin : {
                     $box : [[Number(smally), Number(smallx)],[Number(bigy), Number(bigx)]]
                 }
             }}).
-        exec(function (err,boards){
+        exec(function (err,seller){
             if(err) throw err;
-            res.send(boards);
+            res.send(seller);
         });
     });
-    router.post('/address_fix',function (req,res) {
+    router.post('/map_change3',function (req,res) {
+        var email=req.body.email;
+        Menu.find({email:email}).
+        exec(function (err,menu){
+            if(err) throw err;
+            res.send(menu);
+        });
+    });
+    /*router.post('/address_fix',function (req,res) {
         var address=req.body.address;
         var addressShort=req.body.siNm;
         var x=req.body.x;
