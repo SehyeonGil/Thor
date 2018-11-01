@@ -834,6 +834,13 @@ input {
   background-position: center;
   background-size: cover;
 }
+.bg-9 {
+  background: url(../img/register_member/member.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 700px;
+}
 .border-bottom {
   border-bottom: 1px solid #ebe9e9;
 }
