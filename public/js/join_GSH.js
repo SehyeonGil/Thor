@@ -1,3 +1,4 @@
+
 document.getElementById('lastname').onchange = function () {
     var lastnameExp=/^[가-힣]{1,30}|[a-zA-Z]{2,30}$/;
     if(!document.myform.lastname.value.match(lastnameExp)){
@@ -7,6 +8,7 @@ document.getElementById('lastname').onchange = function () {
     {
         document.myform.lastnameCheck.value="true";
     }
+
 };
 document.getElementById('firstname').onchange = function () {
     var firstnameExp=/^[가-힣]{1,30}|[a-zA-Z]{2,30}$/;

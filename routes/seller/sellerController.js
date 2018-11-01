@@ -60,7 +60,30 @@ exports.menuRegister= function(req, res, next) {            //메뉴 등록 get
         });
     });
 };
-
+exports.menuManagement= function(req, res, next) {            //메뉴 등록 get
+    Menu.find({email:req.session.passport.user.email},function (err,menu) {
+        MemberSeller.findOne({email:req.session.passport.user.email},function(err,seller){
+            Member.findOne({email:req.session.passport.user.email}, function(err,member) {
+                res.render("menu_management",{member:member,passport:req.session.passport,seller:seller,menu:menu});
+            });
+        });
+    });
+};
+exports.menuManagementChangeOnOff= function(req, res, next) {            //메뉴 등록 get
+    var id=req.body.id;
+    Menu.findOne({_id:id},function (err,menu) {
+        menu.onoff=req.body.checked;
+        menu.save(function (err) {
+            if(err)
+            {
+                res.send(err);
+                throw err;
+            }
+            else
+                res.send("clear");
+        })
+    })
+};
 exports.sellerRegisterAttemp= function(req, res, next) {      //판매자 등록 post
     var age = req.body.age;
     var gender = req.body.gender;
