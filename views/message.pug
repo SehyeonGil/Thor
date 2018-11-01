@@ -8,31 +8,36 @@ html(lang='en')
         link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Karma')
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        link(href='../plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet')
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
-
+        link(rel='stylesheet', href='../stylesheets/MenuManagement_KKY.css')
+        link(rel='stylesheet', href='../stylesheets/ImgSlider_KSW.css')
+        link(rel='stylesheet', href='../stylesheets/MenuInfo_KSW.css')
+        link(href='../stylesheets/style_HNH.css', rel='stylesheet')
         link(rel='stylesheet', href='../stylesheets/Message_KKY.css')
     body
-        include components/TopMenu_Component
+        include components/topHeader
+        include components/navBar_KSW
         #mainBox.container
-            #commentTitle.col-xs-12
-                h2
-                    | 댓글   
-                    span.label.label-success New
-                    span.badge 2
-            ul.commentList
-                li.comment
-                    span.commentUser 반페르시
-                    span.commentContents 맛있다.맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다
-                li.comment
-                    span.commentUser 반페르시
-                    span.commentContents 맛있다.맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다
-                li.comment
-                    span.commentUser 반페르시
-                    span.commentContents 맛있다.맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다
-            .col-xs-12
-                hr.articleLine
+            //#commentTitle.col-xs-12
+            //    h2
+            //        | 댓글   
+            //        span.label.label-success New
+            //        span.badge 2
+            //ul.commentList
+            //    li.comment
+            //        span.commentUser 반페르시
+            //        span.commentContents 맛있다.맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다
+            //    li.comment
+            //        span.commentUser 반페르시
+            //        span.commentContents 맛있다.맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다
+            //    li.comment
+            //        span.commentUser 반페르시
+            //        span.commentContents 맛있다.맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다맛있다
+            //.col-xs-12
+            //    hr.articleLine
             #buttonHeader.btn-group.btn-group-justified.submit(role='group')
-                if(passport.user.seller)
+                if(passport.user.seller_check)
                     .btn-group(role='group')
                         button#buyerButton.btn.btnStyle(type='button') 구매자
                     .btn-group(role='group')
@@ -54,15 +59,16 @@ html(lang='en')
                                     a(href='#')=item.name
                                 span.pull-right.msgDate=item.fromNow
                             .col-xs-12=item.top_message
-                            .col-xs-12
-                                span.completePayment 결제완료
-                                span.name.placeName
-                                    a(href='#') Guywon's Guest
+                            //.col-xs-12
+                            //    span.completePayment 결제완료
+                            //    span.name.placeName
+                            //        a(href='#')
+        include components/footer_KSW
 
     script(src='../Js/Map.js')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC9QRgBKIct09-0nMzhZyX5EMldShSzZy4&callback=myMap')
-    script(src='../Js/TopMenu.js')
-    script(src='../Js/ImgSlider.js')
-    script(src='../Js/Message.js')
+    script(src='../js/TopMenu.js')
+    script(src='../js/ImgSlider.js')
+    script(src='../js/Message.js')

@@ -24,7 +24,7 @@ html(lang='en')
 
 
 
-        #my-carousel.container.col-12.col-sm-12.col-md-offset-3.col-md-6
+        #my-carousel.container.col-xs-12.col-sm-12.col-md-offset-3.col-md-6
             #myCarousel.carousel.slide(data-ride='carousel')
                 // Indicators
                 ol.carousel-indicators
@@ -50,22 +50,24 @@ html(lang='en')
                     a.right.carousel-control(href='#myCarousel', data-slide='next')
                         span.glyphicon.glyphicon-chevron-right
                         span.sr-only Next
-            .col-12.col-sm-12.col-md-12.col-lg-12
+            .col-xs-12.col-sm-12.col-md-12.col-lg-12
                 hr
-            .user-profile.col-12.col-sm-12.col-md-12.col-lg-12
-                .col-sm-offset-2.col-md-offset-2.col-lg-offset-2.col-3.col-sm-3.col-md-3.col-lg-3
+            .user-profile.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                .col-md-offset-2.col-lg-offset-2.col-xs-3.col-sm-3.col-md-3.col-lg-3
                     img.avatar(src='../' + seller.imageFace.image_url, alt='Ash')
-                #profile_info.col-offset-2.col-sm-offset-1.col-md-offset-1.col-lg-offset-1.col-7.col-sm-6.col-md-6.col-lg-6
-                    .menu-container.restaurant-name.col-12.col-sm-12.col-md-12.col-lg-12
+                #profile_info.col-xs-offset-1.col-sm-offset-2.col-md-offset-1.col-lg-offset-1.col-xs-8.col-sm-7.col-md-6.col-lg-6
+                    .menu-container.restaurant-name.col-xs-12.col-sm-12.col-md-12.col-lg-12
                         = menu.title
-                    .menu-container.address.col-12.col-sm-12.col-md-12.col-lg-12
+                    .menu-container.address.col-xs-12.col-sm-12.col-md-12.col-lg-12
                         = menu.address
-                    .menu-container.username.col-12.col-sm-12.col-md-12.col-lg-12
+                    .menu-container.username.col-xs-12.col-sm-12.col-md-12.col-lg-12
                         = sellerMember.first_name+" "+sellerMember.last_name
-            .col-12.col-sm-12.col-md-12.col-lg-12
+                    .menu-container.username.col-xs-12.col-sm-12.col-md-12.col-lg-12
+                        button.btn-size(type='button', onclick="return sendMessage("+ "\"" +sellerMember.email + "\"" +")") 메세지 보내기
+            .col-xs-12.col-sm-12.col-md-12.col-lg-12
                 br
                 hr
-            .col-12.res_info
+            .col-xs-12.res_info
                 p
                     span.mytitle.w3-col.s6.m6.l6 메뉴
                     span.myinfo.w3-rest= menu.title
@@ -104,7 +106,7 @@ html(lang='en')
                         img(src='http://placehold.it/600x400/E5DECA/333&text=Image+11', alt='Image 11')
             //.col-12.col-sm-12.col-md-12.col-lg-12.myhr
                 hr
-            #res_info.col-12
+            #res_info.col-xs-12
                 //p
                     span.mytitle.w3-col.s6.m6.l6 매장명
                     span.myinfo.w3-rest 호호식당
@@ -150,7 +152,7 @@ html(lang='en')
                             - for(var i=0;i<seller.imageStore.length;i++)
                                 img(src='../' + seller.imageStore[i].image_url,, alt='Image 1')
 
-                .col-12.col-sm-12.col-md-12.col-lg-12.myhr
+                .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
                     br
                 //h2 매장 설명
                 //p
@@ -166,13 +168,13 @@ html(lang='en')
                     | cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                     | proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 h2 위치
-                #map.col-12.col-sm-12.col-md-12.col-lg-12(style='height: 300px; width: 100%;')
-                .col-12.col-sm-12.col-md-12.col-lg-12.myhr
+                #map.col-xs-12.col-sm-12.col-md-12.col-lg-12(style='height: 300px; width: 100%;')
+                .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
                     br
-                .col-12.col-sm-12.col-md-12.col-lg-12.menu-container.purchase-btn
+                .col-xs-12.col-sm-12.col-md-12.col-lg-12.menu-container.purchase-btn
                     button.btn.btn-warning.col-6.col-sm-6.col-md-6.col-lg-6 판매자 즐겨찾기
-                    button.btn.btn-success(type='button', data-toggle='modal', data-target='#purchase').col-6.col-sm-6.col-md-6.col-lg-6 구매
-                .col-12.col-sm-12.col-md-12.col-lg-12.myhr
+                    button.btn.btn-success(type='button', data-toggle='modal', data-target='#purchase').col-xs-6.col-sm-6.col-md-6.col-lg-6 구매
+                .col-xs-12.col-sm-12.col-md-12.col-lg-12.myhr
                     br
                     br
                     br
@@ -187,7 +189,7 @@ html(lang='en')
                     .modal-header
                         img(src='../img/home/thorLogo.png', alt='Store Icon', style='margin: auto; display: block;')
                     .modal-body
-                        .col-12.res_info
+                        .col-xs-12.res_info
                             p
                                 span.mytitle.w3-col.s6.m6.l6 메뉴
                                 span.myinfo.w3-rest 전주 비빔밥
@@ -207,4 +209,5 @@ html(lang='en')
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
         script(src='../js/ImgSlider.js')
         script(src='../js/googleMap_KSW.js')
+        script(src='../js/MenuInfo.js')
         script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDXRttJPmU15cheDKyAeKPQ5ZJzGC-0JUg&callback=myMap')

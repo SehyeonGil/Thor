@@ -10,6 +10,7 @@ var crypto = require('crypto');
 var randomstring = require("randomstring");
 var moment = require('moment');
 var Member = require('../../models/member');
+var MemberSeller = require('../../models/member_seller');
 var Menu = require('../../models/menu');
 var Conversation = require('../../models/conversation');
 var Message = require('../../models/message');
@@ -46,7 +47,7 @@ exports.sendMessage=function (req, res, next) {
     {
         return res.send("1");
     }
-    else if(req.session.passport.user.email==member){ //자기자신에게 메세지를 보내고자 할 때
+    else if(req.session.passport.user.email===member){ //자기자신에게 메세지를 보내고자 할 때
         return res.send("2");
     }
     else{
@@ -57,7 +58,7 @@ exports.sendMessage=function (req, res, next) {
                 newConver.from=req.session.passport.user.email;
                 newConver.to=member;
                 newConver.save(function (err) {
-                    Conversation.findOne({from:req.session.passport.user.email, to:member},function (err, conver) {
+                    Conversation.findOne({from: req.session.passport.user.email, to:member},function (err, conver) {
                         res.send(conver._id);
                     });
                 });
@@ -68,7 +69,7 @@ exports.sendMessage=function (req, res, next) {
             }
         })
     }
-}
+};
 exports.viewMessage=function (req, res, next) {
     var connum=req.params.id;
     var memberemail;
@@ -94,25 +95,25 @@ exports.viewMessage=function (req, res, next) {
         else if(conver.from===req.session.passport.user.email){
             memberemail = conver.to;
             i = 1;
-        }
-        else {
-            return res.render('unusualroute',{error:"잘못된 경로입니다."});
-        }
-        if (i === 1)
-        {
-            Member.findOne({email:memberemail},function(err,member) {
-                Message.find({conver_id: connum},function(err,message){
-                    //나에게 온 메세지중에서 체크가안된 거를 체크해준다, 효율은??
-                    for(var i=0;i<message.length;i++){
-                        message[i].fromNow=moment(message[i].time_created).fromNow(); //언제메세지왔는지 상대적날짜체크
-                        if((message[i].to===req.session.passport.user.email)&&(!message[i].checked)){
-                            message[i].checked=true;
-                            message[i].save(function(err){
-                                if(err)
-                                    return res.send('error');
-                            });
-                        }
-                    };
+                }
+            else {
+                    return res.render('unusualroute',{error:"잘못된 경로입니다."});
+                }
+                if (i === 1)
+                {
+                    Member.findOne({email:memberemail},function(err,member) {
+                        Message.find({conver_id: connum},function(err,message){
+                            //나에게 온 메세지중에서 체크가안된 거를 체크해준다, 효율은??
+                            for(var i=0;i<message.length;i++){
+                                message[i].fromNow=moment(message[i].time_created).fromNow(); //언제메세지왔는지 상대적날짜체크
+                                if((message[i].to===req.session.passport.user.email)&&(!message[i].checked)){
+                                    message[i].checked=true;
+                                    message[i].save(function(err){
+                                        if(err)
+                                            return res.send('error');
+                                    });
+                                }
+                            }
 
                     //내 썸네일도 보내줘야함.
 
@@ -133,22 +134,31 @@ exports.viewMessage=function (req, res, next) {
             });
         }
     });
-}
+};
 
 
 exports.viewMessageList=function(req,res,next){
     //user.sellerchec
     //로그인안되어있을때 처리 필요
     Conversation.find({$or:[{to:req.session.passport.user.email},{from:req.session.passport.user.email}]},function (err, conver) {
-        var temp_arr=new Array();
+        var temp_arr = [];
         var i=0;
         //나에대한 모든 대화를 긁어온다음에 내가 판매자로써보낸건지 구매자로써보낸건지 체크함.
         make_Marray(req.session.passport.user.email,conver,i,temp_arr,function(temp_arr){
-            res.render('Message',{conver:temp_arr,passport:req.session.passport});
+            if(req.session.passport.user.seller_check) {
+                MemberSeller.findOne({email:req.session.passport.user.email},function(err,seller){
+                    Member.findOne({email:req.session.passport.user.email}, function(err,member) {
+                        res.render("sellerMessage",{conver:temp_arr, member:member,passport:req.session.passport, seller:seller});
+                    });
+                });
+            }
+            else{
+                res.render('message', {conver: temp_arr, passport: req.session.passport});
+            }
         });
     });
     // res.render('Message',{passport:req.session.passport})
-}
+};
 
 //대화검색
 //찾은 대화 기반으로 make_Marray 이용해서 가장 최근에 온 메세지를 찾음.
@@ -174,7 +184,7 @@ function make_Marray(email,conver,i,temp_arr,callback){
                     }
                 }
                 if(email===conver[i].from){
-                    Member.findOne({email:conver[i].to},function(err,member){
+                    MemberSeller.findOne({email:conver[i].to},function(err,member){
                         var temp={
                             id:conver[i]._id,
                             to:conver[i].to,
@@ -182,7 +192,7 @@ function make_Marray(email,conver,i,temp_arr,callback){
                             top_message:msg[0].content,
                             msg_priority:msg[0].time_created,
                             fromNow:moment(msg[0].time_created).fromNow(),
-                            name:member.seller.shopName,
+                            name:member.shopName,
                             flag:1,
                             unchecked:unchecked
                         };
@@ -200,7 +210,7 @@ function make_Marray(email,conver,i,temp_arr,callback){
                             top_message:msg[0].content,
                             msg_priority:msg[0].time_created,
                             fromNow:moment(msg[0].time_created).fromNow(),
-                            name:member.lastname+member.firstname,
+                            name:member.last_name+member.first_name,
                             flag:0,
                             unchecked:unchecked
                         };
@@ -227,7 +237,7 @@ exports.loginCheck=function(req,res,next){
         return next();
     }
     else{
-        res.redirect('/Login');
+        res.redirect('member/Login');
     }
 };
 //component/TopMenu_KKY.js와 통신

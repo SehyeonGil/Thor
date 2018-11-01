@@ -95,8 +95,8 @@ module.exports = function(passport,nev) {
         },
         function(accessToken, refreshToken, profile, done){
             var email = JSON.parse(profile._raw);
-            console.log(email)
-            console.log(typeof(email))
+            console.log(email);
+            console.log(typeof(email));
             Member.findOne({'email': email.kaccount_email}, function (err, member) {
                 if (err)
                     return done(err);
@@ -147,7 +147,7 @@ module.exports = function(passport,nev) {
                     var user = new Member();
                     user.last_name = profile.displayName;
                     user.email=profile.emails[0].value;
-                    user.naver.id=profile.id
+                    user.naver.id=profile.id;
                     user.provider = "naver";
 
 

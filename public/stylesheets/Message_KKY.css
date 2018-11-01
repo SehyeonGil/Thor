@@ -188,3 +188,6 @@
 .msgPadding:hover ,.msgPadding:hover span a{
     background: #D8D8D8;
 }
+#mainBox.container{
+    margin-bottom:50px;
+}

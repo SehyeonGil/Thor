@@ -4,7 +4,7 @@
         .widget.user
             // User Image
             .image.d-flex.justify-content-center
-                a(href='seller_profile_KSW.html')
+                a(href='#')
                     img(src='../' + seller.imageFace.image_url, alt='Image')
             // User Name
             h5.text-center= member.first_name + " " + member.last_name
@@ -14,9 +14,10 @@
                 li
                     a(href='#') 판매자 대시보드
                 li
-                    a(href='#')
-                        | 메시지
-                        span (10)
+                    a(href='/message')
+                        | 메시지(
+                        span#tabNewMessage
+                        |)
                 li
                     a(href='#')
                         | 주문 관리
@@ -29,3 +30,6 @@
                     a(href='#') 매장 관리
                 li
                     a(href='#') 결제 관리
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(src='../../js/sideBarSeller_KKY.js')
