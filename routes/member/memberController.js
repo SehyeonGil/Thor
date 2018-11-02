@@ -192,7 +192,7 @@ exports.registerMemberAttemp= function(req, res, next) {            //판매자 
     var address=req.body.address;
     var location={type:'Point',coordinates:[req.body.x,req.body.y]};
     var upFile = req.files;
-    var imageIden = "./img/memberImg/imageIden/" + upFile['imageIden'][0].filename;
+    var imageIden = "./img/memberImg/imageIdenResize/" + upFile['imageIden'][0].filename;
     var imageIden_name = upFile['imageIden'][0].filename;
     var imageIden_size = upFile['imageIden'][0].size;
     gm("public/img/memberImg/imageIden/" + upFile['imageIden'][0].filename)
@@ -202,7 +202,7 @@ exports.registerMemberAttemp= function(req, res, next) {            //판매자 
             else console.log('done')
         });
 
-    var imageFace = "./img/memberImg/imageFace/" + upFile['imageFace'][0].filename;
+    var imageFace = "./img/memberImg/imageFaceResize/" + upFile['imageFace'][0].filename;
     var imageFace_name = upFile['imageFace'][0].filename;
     var imageFace_size = upFile['imageFace'][0].size;
     gm("public/img/memberImg/imageFace/" + upFile['imageFace'][0].filename)

@@ -42,18 +42,18 @@ html(lang='en')
                                 .media-right.align-self-end
                                     a(href='#')
                                         if(from_url)
-                                            img.right(src=from_url, alt='Avatar')
+                                            img#fromImg.right(src=from_url, alt='Avatar')
                                         else
-                                            img.right(src='../img/defaultProfile.png', alt='Avatar')
+                                            img#fromImg.right(src='../img/defaultProfile.png', alt='Avatar')
                         else
                             .media
                                 .media-left.align-self-end
                                     a(href='#')
                                         //member.Thumbnail 이미지 등록법 필요
                                         if(to_url)
-                                            img.right(src=to_url, alt='Avatar')
+                                            img#toImg.right(src=to_url, alt='Avatar')
                                         else
-                                            img.right(src='../img/defaultProfile.png', alt='Avatar')
+                                            img#toImg.right(src='../img/defaultProfile.png', alt='Avatar')
                                 .media-body.leftMessage
                                     .arrow_box
                                         p

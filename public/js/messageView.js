@@ -4,8 +4,10 @@ var connum = $('#connum').val();
 $(document).ready(function()
 {
     $("#chatList").scrollTop($("#chatList")[0].scrollHeight);
-
-
+    var from = $('#fromImg').attr('src');
+    var to = $('#toImg').attr('src');
+    alert(from);
+    alert(to);
     var socket = io.connect(serverURL);
     socket.on('connection', function(data)
     {
@@ -34,7 +36,7 @@ $(document).ready(function()
     {
         //메세지 보낸 시간 실시간변동
         var html =  '<div class="media"><div class="media-left align-self-end"><a href="#">'+
-            '<img src="../img/defaultProfile.png" alt="Avatar" class="right">'+
+            '<img src='+ to + 'alt="Avatar" class="right">'+
             '</a>'+
             '</div>'+
             '<div class="media-body leftMessage">'+
@@ -53,7 +55,7 @@ $(document).ready(function()
                 '</div>'+
                 '<div class="media-right align-self-end">'+
                 '<a href="#">'+
-                '<img src="../img/defaultProfile.png" alt="Avatar" class="right">'+
+                '<img src=' + from + ' alt="Avatar" class="right">'+
                 '</a>'+
                 '</div>'+
                 '</div>';
