@@ -91,7 +91,7 @@
     border:0;
 }
 #messageList .media-body{
-    margin:30px;
+    margin:5px;
 }
 #messageList .media-left .media-right{
     margin-bottom:0px;
@@ -118,6 +118,7 @@
 }
 #sendMessage{
     padding-top:30px;
+    padding-bottom:30px;
 }
 #chatList{
     padding-top:70px;

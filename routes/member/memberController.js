@@ -195,9 +195,9 @@ exports.registerMemberAttemp= function(req, res, next) {            //판매자 
     var imageIden = "./img/memberImg/imageIdenResize/" + upFile['imageIden'][0].filename;
     var imageIden_name = upFile['imageIden'][0].filename;
     var imageIden_size = upFile['imageIden'][0].size;
-    gm("./img/memberImg/imageIden/" + upFile['imageIden'][0].filename)
-        .resize(400, 200)
-        .write(imageIden, function (err) {
+    gm("public/img/memberImg/imageIden/" + upFile['imageIden'][0].filename)
+        .resize(400, 200,"!")
+        .write("public/img/memberImg/imageIdenResize/" + upFile['imageIden'][0].filename, function (err) {
             if (err) console.error(err);
             else console.log('done')
         });
@@ -205,9 +205,9 @@ exports.registerMemberAttemp= function(req, res, next) {            //판매자 
     var imageFace = "./img/memberImg/imageFaceResize/" + upFile['imageFace'][0].filename;
     var imageFace_name = upFile['imageFace'][0].filename;
     var imageFace_size = upFile['imageFace'][0].size;
-    gm("./img/memberImg/imageFace/" + upFile['imageFace'][0].filename)
-        .resize(300, 300)
-        .write(imageFace, function (err) {
+    gm("public/img/memberImg/imageFace/" + upFile['imageFace'][0].filename)
+        .resize(300, 300,"!")
+        .write("public/img/memberImg/imageFaceResize/" + upFile['imageFace'][0].filename, function (err) {
             if (err) console.error(err);
             else console.log('done')
         });

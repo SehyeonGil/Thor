@@ -33,7 +33,7 @@ $(document).ready(function()
     function writeMessage(type, name, message)
     {
         //메세지 보낸 시간 실시간변동
-        var html =  '<div class="media"><div class="media-left media-bottom"><a href="#">'+
+        var html =  '<div class="media"><div class="media-left align-self-end"><a href="#">'+
             '<img src="../img/defaultProfile.png" alt="Avatar" class="right">'+
             '</a>'+
             '</div>'+
@@ -51,7 +51,7 @@ $(document).ready(function()
                 '<p class="date">2분전</p>'+
                 '</div>'+
                 '</div>'+
-                '<div class="media-right media-bottom">'+
+                '<div class="media-right align-self-end">'+
                 '<a href="#">'+
                 '<img src="../img/defaultProfile.png" alt="Avatar" class="right">'+
                 '</a>'+

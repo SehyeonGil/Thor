@@ -8,23 +8,26 @@ html(lang='en')
         link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Karma')
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        link(href='../plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet')
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css')
-        link(rel='stylesheet', href='../stylesheets/MenuManagement_KSW.css')
+        link(rel='stylesheet', href='../stylesheets/MenuManagement_KKY.css')
         link(rel='stylesheet', href='../stylesheets/ImgSlider_KSW.css')
         link(rel='stylesheet', type='text/css', href='../stylesheets/MessageView_KKY.css')
+        link(href='../stylesheets/style_HNH.css', rel='stylesheet')
+
         title 메세지
-    body
+    body.body-wrapper
         include components/topHeader
         include components/navBar_KSW
         #messageList.container
-            .col-xs-12
-                .col-xs-5.col-md-3.setBtnPadding
+            .col-12
+                .col-5.col-md-3.setBtnPadding
                     p
                         | 결제완료
-                .col-xs-5.col-xs-offset-2.col-md-3.col-md-offset-6.setBtnPadding
+                .col-5.col-xs-offset-2.col-md-3.col-md-offset-6.setBtnPadding
                     button.btn-block.paymentButton(type='button', aria-label='Left Align')
                         | 결제세부정보
-            #chatList.col-xs-12.messageDiv
+            #chatList.col-12.messageDiv
                 if(message)
                     each item in message
                         //내가보낸 메세지
@@ -36,22 +39,28 @@ html(lang='en')
                                             =item.content
                                         p.date
                                             =item.fromNow
-                                .media-right.media-bottom
+                                .media-right.align-self-end
                                     a(href='#')
-                                        img.right(src='../img/defaultProfile.png', alt='Avatar')
+                                        if(from_url)
+                                            img.right(src=from_url, alt='Avatar')
+                                        else
+                                            img.right(src='../img/defaultProfile.png', alt='Avatar')
                         else
                             .media
-                                .media-left.media-bottom
+                                .media-left.align-self-end
                                     a(href='#')
                                         //member.Thumbnail 이미지 등록법 필요
-                                        img.right(src='../img/defaultProfile.png', alt='Avatar')
+                                        if(to_url)
+                                            img.right(src=to_url, alt='Avatar')
+                                        else
+                                            img.right(src='../img/defaultProfile.png', alt='Avatar')
                                 .media-body.leftMessage
                                     .arrow_box
                                         p
                                             =item.content
                                         p.date
                                             =item.fromNow
-            #sendMessage.col-xs-12
+            #sendMessage.col-12
                 form
                     .input-group
                         // 포커스될때만 테두리 그어주면 좋겠다고 생각됨

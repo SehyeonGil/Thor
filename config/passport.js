@@ -189,8 +189,8 @@ module.exports = function(passport,nev) {
                 else if (!member){
 
                     var user = new Member();
-                    user.first_name = profile.name.familyName;
-                    user.last_name = profile.name.givenName;
+                    user.first_name = profile.name.givenName;
+                    user.last_name = profile.name.familyName;
                     user.email=profile.emails[0].value;
                     user.google.id=profile.id;
                     user.provider = "google";

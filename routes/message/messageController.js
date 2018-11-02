@@ -57,11 +57,18 @@ exports.sendMessage=function (req, res, next) {
                 var newConver=new Conversation;
                 newConver.from=req.session.passport.user.email;
                 newConver.to=member;
-                newConver.save(function (err) {
-                    Conversation.findOne({from: req.session.passport.user.email, to:member},function (err, conver) {
-                        res.send(conver._id);
+                MemberSeller.findOne({email:member},function(err,seller) {
+                    Member.findOne({email: req.session.passport.user.email}, function (err, fromUser) {
+                        newConver.to_url = seller.imageFace.image_url;
+                        newConver.from_url = fromUser.imageFace.image_url;
+                        newConver.save(function (err) {
+                            Conversation.findOne({from: req.session.passport.user.email, to:member},function (err, conver) {
+                                res.send(conver._id);
+                            });
+                        });
                     });
                 });
+
             }
             else//메세지 존재시 바로 리다이렉트
             {
@@ -74,6 +81,9 @@ exports.viewMessage=function (req, res, next) {
     var connum=req.params.id;
     var memberemail;
     var i=0;
+    var to_url;
+    var from_url;
+
     if(!req.session.passport)
     {
         return res.render('unusualroute',{error:"로그인이 필요합니다."});
@@ -90,10 +100,15 @@ exports.viewMessage=function (req, res, next) {
         //내가 아닌 상대방의 객체에 접근하기 위한 조건문.
         if (conver.to === req.session.passport.user.email) {
             memberemail = conver.from;
+            to_url = conver.from_url;
+            from_url = conver.to_url;
             i = 1;
         }
         else if(conver.from===req.session.passport.user.email){
             memberemail = conver.to;
+            to_url = conver.to_url;
+            from_url = conver.from_url;
+
             i = 1;
                 }
             else {
@@ -118,7 +133,9 @@ exports.viewMessage=function (req, res, next) {
                     //내 썸네일도 보내줘야함.
 
                     //현재 메세지 전부 보내줄필요없음, 여기에서 썸네일 이미지 객체로 묶어서 보내주는것도 괜찮을듯.
-                    res.render('messageView', {passport: req.session.passport, member: member, message: message, connum: connum});
+                            console.log(from_url);
+                            console.log(to_url);
+                    res.render('messageView', {passport: req.session.passport, member: member, message: message, connum: connum, to_url:to_url, from_url:from_url});
                 });
                 // Message.find({conver_id: connum}, {
                 //         /*skip:0, // Starting Row
@@ -196,7 +213,8 @@ function make_Marray(email,conver,i,temp_arr,callback){
                             fromNow:moment(msg[0].time_created).fromNow(),
                             name:member.shopName,
                             flag:1,
-                            unchecked:unchecked
+                            unchecked:unchecked,
+                            url:conver[i].to_url
                         };
                         temp_arr.push(temp);
                         i++;
@@ -212,9 +230,10 @@ function make_Marray(email,conver,i,temp_arr,callback){
                             top_message:msg[0].content,
                             msg_priority:msg[0].time_created,
                             fromNow:moment(msg[0].time_created).fromNow(),
-                            name:member.last_name+member.first_name,
+                            name:member.first_name + member.last_name,
                             flag:0,
-                            unchecked:unchecked
+                            unchecked:unchecked,
+                            url:conver[i].from_url
                         };
                         temp_arr.push(temp);
                         i++;
@@ -239,7 +258,7 @@ exports.loginCheck=function(req,res,next){
         return next();
     }
     else{
-        res.redirect('member/Login');
+        res.redirect('/member/Login');
     }
 };
 //component/TopMenu_KKY.js와 통신
