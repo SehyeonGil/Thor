@@ -50,8 +50,8 @@ html(lang='en')
                     .col-xs-12.msgPadding(name='messageState'+item.flag, onclick="location.href='/message/"+item.id+"'")
                         .col-xs-2.col-md-1.msgPadding
                             a(href='#')
-                                if(conver.url)
-                                    img.right(src=conver.url, alt='Avatar')
+                                if(item.url)
+                                    img.right(src=item.url, alt='Avatar')
                                 else
                                     img.right(src='../img/defaultProfile.png', alt='Avatar')
                                 if(item.unchecked)
