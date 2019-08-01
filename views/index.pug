@@ -82,50 +82,54 @@ html(lang='en')
             // Client Slider
             .clients-slider.owl-carousel.owl-theme
               // Client 01
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/chicken.gif', alt='store-logo')
-              // Client 02
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/sushi.png', alt='store-logo')
-              // Client 03
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/chicken.gif', alt='store-logo')
-              // Client 04
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/sushi.png', alt='store-logo')
-              // Client 05
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/chicken.gif', alt='store-logo')
-              // Client 06
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/sushi.png', alt='store-logo')
-              // Client 07
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/chicken.gif', alt='store-logo')
-              // Client 08
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/sushi.png', alt='store-logo')
-              // Client 09
-              .item
-                a(href='#')
-                  // Slider Image
-                  img(src='../img/category-slider/chicken.gif', alt='store-logo')
+              - for(var i=0; i<menu.length; i++)
+                .item
+                  a(href='/menu/'+menu[i]._id)
+                    // Slider Image
+                    img(src='../'+menu[i].imageMenu[0].image_url, width='100%', height="auto")
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/chicken.gif', alt='store-logo')
+              //// Client 02
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/sushi.png', alt='store-logo')
+              //// Client 03
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/chicken.gif', alt='store-logo')
+              //// Client 04
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/sushi.png', alt='store-logo')
+              //// Client 05
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/chicken.gif', alt='store-logo')
+              //// Client 06
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/sushi.png', alt='store-logo')
+              //// Client 07
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/chicken.gif', alt='store-logo')
+              //// Client 08
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/sushi.png', alt='store-logo')
+              //// Client 09
+              //.item
+              //  a(href='#')
+              //    // Slider Image
+              //    img(src='../img/category-slider/chicken.gif', alt='store-logo')
       // Container End
     //
       ==========================================
@@ -241,25 +245,23 @@ html(lang='en')
                 .img-content.align-self-center
                   a(href='#')
                     // Card Image
-                    img(src='img/popular-offer/popular-offer-1.png', alt='store-02')
+                    img(src='img/bibimbap.jpg', alt='store-02')
                   // Saving
-                  span Saving 20%
+                  span 한식
                 // Media Body
                 .media-body
                   // Card Title
                   h5.mt-0
-                    small 20% off
-                    |  on
                     br
-                    | Personal care item
+                    | 맛있는 비빔밥과 정갈한 반찬들
                   // Deal list
                   ul.list-inline
                     li.list-inline-item
                       a.btn.btn-dual(href='#', data-toggle='modal')
-                        span.upper Show code
-                        span.lower AXCH5676
+                        span.upper 자세히 보기
+                        span.lower(color='white') 123123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     li.list-inline-item
-                      a(href='#') Expire in 3 days
+                      a(href='#') 충북 청주시
                       span.favorite
                         i.fa.fa-star-o
           // offer 02
@@ -271,25 +273,23 @@ html(lang='en')
                 .img-content.align-self-center
                   a(href='#')
                     // Card Image
-                    img(src='img/popular-offer/popular-offer-2.png', alt='store-02')
+                    img(src='img/makchang.jpg', alt='store-02')
                   // Saving
-                  span Free Shipping
+                  span 한식
                 // Media Body
                 .media-body
                   // Card Title
                   h5.mt-0
-                    | Free Shipping on orders
                     br
-                    | over
-                    small $100
+                    | 대구 전봇대 막창 최고예요
                   // Deal list
                   ul.list-inline
                     li.list-inline-item
                       a.btn.btn-dual(href='#', data-toggle='modal')
-                        span.upper get deal
-                        span.lower AXCH5676
+                        span.upper 자세히 보기
+                        span.lower(color='white') 123123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     li.list-inline-item
-                      a(href='#') Expire in 3 days
+                      a(href='#') 대구광역시
                       span.favorite
                         i.fa.fa-star-o
           // offer 03
@@ -301,25 +301,23 @@ html(lang='en')
                 .img-content.align-self-center
                   a(href='#')
                     // Card Image
-                    img(src='img/popular-offer/popular-offer-3.png', alt='store-02')
+                    img(src='img/ganjang.jpg', alt='store-02')
                   // Saving
-                  span Free Shipping
+                  span 한식
                 // Media Body
                 .media-body
                   // Card Title
                   h5.mt-0
-                    small Get 40% off
-                    |  on all
                     br
-                    | winter collection
+                    | 김수미 간장게장
                   // Deal list
                   ul.list-inline
                     li.list-inline-item
                       a.btn.btn-dual(href='#', data-toggle='modal')
-                        span.upper get coupon
-                        span.lower AXCH5676
+                        span.upper 자세히 보기
+                        span.lower(color='white') 123123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     li.list-inline-item
-                      a(href='#') Expire in 3 days
+                      a(href='#') 서울특별시
                       span.favorite
                         i.fa.fa-star-o
           // offer 04
@@ -331,25 +329,23 @@ html(lang='en')
                 .img-content.align-self-center
                   a(href='#')
                     // Card Image
-                    img(src='img/popular-offer/popular-offer-4.png', alt='store-02')
+                    img(src='img/ddug.jpg', alt='store-02')
                   // Saving
-                  span Saving 20%
+                  span 분식
                 // Media Body
                 .media-body
                   // Card Title
                   h5.mt-0
-                    small 20% off
-                    |  on
                     br
-                    | Personal care item
+                    | 마이구미보다 맛있는 구미 떡볶이
                   // Deal list
                   ul.list-inline
                     li.list-inline-item
                       a.btn.btn-dual(href='#', data-toggle='modal')
-                        span.upper Show code
-                        span.lower AXCH5676
+                        span.upper 자세히 보기
+                        span.lower(color='white') 123123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     li.list-inline-item
-                      a(href='#') Expire in 3 days
+                      a(href='#') 경북 구미시
                       span.favorite
                         i.fa.fa-star-o
           // offer 05
@@ -361,25 +357,23 @@ html(lang='en')
                 .img-content.align-self-center
                   a(href='#')
                     // Card Image
-                    img(src='img/popular-offer/popular-offer-5.png', alt='store-02')
+                    img(src='img/bbang.jpg', alt='store-02')
                   // Saving
-                  span Free Shipping
+                  span 베이커리
                 // Media Body
                 .media-body
                   // Card Title
                   h5.mt-0
-                    | Free Shipping on orders
                     br
-                    | over
-                    small $100
+                    | 성심당보다 맛있는 빵
                   // Deal list
                   ul.list-inline
                     li.list-inline-item
                       a.btn.btn-dual(href='#', data-toggle='modal')
-                        span.upper get deal
-                        span.lower AXCH5676
+                        span.upper 자세히 보기
+                        span.lower 123123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     li.list-inline-item
-                      a(href='#') Expire in 3 days
+                      a(href='#') 대전광역시
                       span.favorite
                         i.fa.fa-star-o
           // offer 06
@@ -389,32 +383,30 @@ html(lang='en')
               .media
                 // Image Content
                 .img-content.align-self-center
-                  a(href='store-single.html')
+                  a(href='#')
                     // Card Image
-                    img(src='img/popular-offer/popular-offer-6.png', alt='store-02')
+                    img(src='img/myen.jpg', alt='store-02')
                   // Saving
-                  span Free Shipping
+                  span 분식
                 // Media Body
                 .media-body
                   // Card Title
                   h5.mt-0
-                    small Get 40% off
-                    |  on all
                     br
-                    | winter collection
+                    | 남한에서 제일 맛있는 평양냉면
                   // Deal list
                   ul.list-inline
                     li.list-inline-item
                       a.btn.btn-dual(href='#', data-toggle='modal')
-                        span.upper get coupon
-                        span.lower AXCH5676
+                        span.upper 자세히 보기
+                        span.lower 123123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     li.list-inline-item
-                      a(href='#') Expire in 3 days
+                      a(href='#') 경기 평택
                       span.favorite
                         i.fa.fa-star-o
         .row.text-center
           .col-12
-            a.btn.btn-main.mt-30(href='#') Get More Deals
+            a.btn.btn-main.mt-30(href='#') 인기 메뉴 더 보기
 
 
     include components/footer_KSW

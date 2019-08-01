@@ -59,7 +59,7 @@ html(lang='en')
                                     // Start Button
                                     .scrollbtn
                                         a(href='#scroll1', data-target='#scroll1')
-                                            img(src='./img/register_chef/small_start_button.png', style='width: 180px;height:180px')
+                                            img(src='../img/register_chef/small_start_button.png', style='width: 180px;height:180px')
                 .row
                     .content-block.col-lg-4.col-md-4(style='padding:50px')
                         h3 Thor chef를 추천하는 이유
@@ -169,7 +169,7 @@ html(lang='en')
                                         // Store name
                                         .form-group
                                             label(for='store_name') 매장 이름
-                                            input#store_name.form-control(type='text', name='shopname')
+                                            input#store_name.form-control(type='text', name='shopName')
                                         // Store address
                                         .form-group
                                             label(for='store_add') 매장 주소
@@ -187,38 +187,38 @@ html(lang='en')
                                             textarea#store_intro.form-control(rows='5', name='shopText', cols='100', placeholder='')
                                         .form-group.mb-30.row
                                             div(style='margin-right:10px;')
-                                                input#checkbox1(type='checkbox', name='optionDelivery', checked='checked', style='margin-left:15px')
+                                                input#checkbox1(type='checkbox', name='optionDelivery', checked='checked', style='margin-left:15px', value='on')
                                                 label(for='checkbox1') 배달
                                             div(style='margin-right:10px;')
-                                                input#checkbox2(type='checkbox', name='optionPacking')
+                                                input#checkbox2(type='checkbox', name='optionPacking', value='on')
                                                 label(for='checkbox2') 포장
                                             div(style='margin-right:10px;')
-                                                input#checkbox3(type='checkbox', name='optionVisit')
+                                                input#checkbox3(type='checkbox', name='optionVisit', value='on')
                                                 label(for='checkbox3') 방문
                                         .form-group.mb-30
                                             label(for='oper_time') 운영 시간
                                             .row
                                                 #oper_time.btn-group(data-toggle='buttons', style='margin:auto;')
                                                     label.btn-sm.btn.btn-week
-                                                        input(type='checkbox', autocomplete='off', name='optionMon')
+                                                        input(type='checkbox', autocomplete='off', name='optionMon', value='on')
                                                         | 월
                                                     label.btn-sm.btn.btn-week
-                                                        input(type='checkbox', autocomplete='off', name='optionTues')
+                                                        input(type='checkbox', autocomplete='off', name='optionTues', value='on')
                                                         | 화
                                                     label.btn-sm.btn.btn-week
-                                                        input(type='checkbox', autocomplete='off', name='optionWen')
+                                                        input(type='checkbox', autocomplete='off', name='optionWen', value='on')
                                                         | 수
                                                     label.btn-sm.btn.btn-week
-                                                        input(type='checkbox', autocomplete='off', name='optionThur')
+                                                        input(type='checkbox', autocomplete='off', name='optionThur', value='on')
                                                         | 목
                                                     label.btn-sm.btn.btn-week
-                                                        input(type='checkbox', autocomplete='off', name='optionFri')
+                                                        input(type='checkbox', autocomplete='off', name='optionFri', value='on')
                                                         | 금
                                                     label.btn-sm.btn.btn-week
-                                                        input(type='checkbox', autocomplete='off', name='optionSat')
+                                                        input(type='checkbox', autocomplete='off', name='optionSat', value='on')
                                                         | 토
                                                     label.btn-sm.btn.btn-week
-                                                        input(type='checkbox', autocomplete='off', name='optionSun')
+                                                        input(type='checkbox', autocomplete='off', name='optionSun', value='on')
                                                         | 일
                                                 .row.col-md-3.justify-content-center
                                                     input#txtopertime1.form-control.col-md-5(type='text', onkeypress='onlyNumber();', name='optionTime1')

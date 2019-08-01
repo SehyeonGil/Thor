@@ -56,7 +56,6 @@ html(lang='en')
                         else
                             p.coupon-code 인증 기한을 초과했습니다. 재 인증 받으세요.
                             form(action='/member/reConfirm', method='post')
-                                input(type='input', value=(email))
                                 button.btn.btn-transparent(type='submit', style='float: left;') 인증 메일 재발송
                             //a.btn.btn-transparent(href='#', style='float: left;') 인증 메일 재발송
                             a.btn.btn-transparent(href='/', style='float: right;') 메인으로 돌아가기

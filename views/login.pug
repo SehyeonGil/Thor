@@ -5,7 +5,7 @@ html(lang='en')
         meta(charset='utf-8')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1')
-        title Join-Thor
+        title Login-Thor
         // PLUGINS CSS STYLE
         link(href='../plugins/jquery-ui/jquery-ui.min.css', rel='stylesheet')
         // Bootstrap
@@ -49,29 +49,31 @@ html(lang='en')
                             .panel-body
                                 form(action='', method='POST', role='form', name='myform')
                                     .form-group
-                                        label(for='') Enter Email
+                                        label(for='') 이메일
                                         input#email.form-control(type='email', name='email')
                                         input#emailCheck.form-control(type='hidden', name='emailCheck' value='false')
                                     .form-group
-                                        label(for='') Password
+                                        label(for='') 비밀번호
                                         input#password.form-control(type='password', name='password')
                                         input#passwordCheck.form-control(type='hidden', name='passwordCheck' value='false')
                                     .form-check
                                         input#checkbox-1.checkbox-custom.form-check-input(name='checkbox-1', type='checkbox')
-                                        label.checkbox-custom-label.form-check-label(for='checkbox-1') Remember me
-                                    button.btn.btn-primary.btn-block(type='button', onclick='return login(this.form)') log in
+                                        label.checkbox-custom-label.form-check-label(for='checkbox-1') 아이디 저장
+                                    if(error)
+                                        #alertBox.alert.alert-danger(role='alert')=error
+                                    button.btn.btn-primary.btn-block(type='button', onclick='return login(this.form)') 로그인
                                     .wrapper
                                         .d-block.social-login.text-center.one
-                                            button.btn.btn-social.titled.naver
+                                            button.btn.btn-social.titled.naver(type='button', onclick="location.href='/member/LoginNaver'")
                                                 | login naver
                                         .d-block.social-login.text-center.two
-                                            button.btn.btn-social.titled.kakao
+                                            button.btn.btn-social.titled.kakao(type='button', onclick="location.href='/member/LoginKakao'")
                                                 | login kakao
                                         .d-block.social-login.text-center.three
-                                            button.btn.btn-social.titled.google
+                                            button.btn.btn-social.titled.google(type='button', onclick="location.href='/member/LoginGoogle'")
                                                 | login google
-                                    button.btn.btn-link.btn-block(type='button', onclick="location.href='../member/Join'") join
-                                    button.btn.btn-link.btn-block(type='button', onclick="location.href='../member/Find_Password'") Forgot Password?
+                                    button.btn.btn-link.btn-block(type='button', onclick="location.href='../member/Join'") 회원가입
+                                    button.btn.btn-link.btn-block(type='button', onclick="location.href='../member/Find_Password'") 비밀번호 찾기
         //
           ============================
           =            Footer            =

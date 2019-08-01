@@ -1,10 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var controller=require('./controller');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  console.log(req.session.passport);
-  res.render('index', { title: 'Express' ,passport:req.session.passport});
-});
+router.get('/', controller.loadMain);
 
 module.exports = router;

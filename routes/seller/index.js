@@ -31,13 +31,15 @@ router.get('/Manage_Menu',controller.menuManage);
 router.get('/Manage_Menu/:id',controller.menuDetailManage);
 router.get('/Manage_Store',controller.storeManage);
 router.get('/Message',controller.message);*/
-router.get('/', function(req, res, next) {
-    res.render('seller_profile_KSW');
-});
+router.get('/', controller.seller_check_no,controller.sellerMain);
 router.get('/manage_order', function(req, res, next) {
     res.render('manage_order_KSW');
 });
-router.get('/Register_Chef',controller.seller_check,controller.sellerRegister);
-router.post('/Register_Chef',uploadSeller.fields([{name:'imageIden'},{name:'imageFace'},{name:'imageStore'}]),controller.sellerRegisterAttemp);
 
+router.get('/menu_management',controller.seller_check_no,controller.menuManagement);
+router.get('/Register_Chef',controller.seller_check_yes,controller.sellerRegister);
+router.get('/register_menu',controller.seller_check_no,controller.menuRegister);
+router.post('/menu_management',controller.menuManagementChangeOnOff);
+router.post('/Register_Chef',uploadSeller.fields([{name:'imageIden'},{name:'imageFace'},{name:'imageStore'}]),controller.sellerRegisterAttemp);
+router.post('/Register_Menu',uploadSeller.fields([{name:'imageMenu'}]),controller.menuRegisterAttemp);
 module.exports = router;

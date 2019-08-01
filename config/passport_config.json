@@ -1,6 +1,9 @@
-{"google":{"clientID":"id",
-"clientSecret":"pwd",
-"callbackURL":"callBackURL"},
+{"google":{"clientID":"1080225780592-otc3tjg4fm8vljvpje1vpr5bl89ffb2c.apps.googleusercontent.com",
+"clientSecret":"xr6UQGxBpi-zQpSc3CEHnQ7B",
+"callbackURL":"http://www.ezcoook.com/member/OauthGoogle"},
 "kakao":{"clientID":"e97bdc427234b6ba5e43e267af9f83bc",
-    "callbackURL":"http://35.200.40.50:3000/member/KakaoLoginCallback"}
+    "callbackURL":"http://www.ezcoook.com/member/OauthKakao"},
+"naver":{"clientID":"h_2lLJKUaqh6as1FYrpL",
+    "clientSecret":"7_PtqJ3R4o",
+    "callbackURL":"http://www.ezcoook.com/member/OauthNaver"}
 }

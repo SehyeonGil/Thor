@@ -1,6 +1,10 @@
 var express = require('express');
 var app=express();
 var LocalStrategy = require('passport-local').Strategy;
+var KakaoStrategy = require('passport-kakao').Strategy;
+var NaverStrategy = require('passport-naver').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
@@ -10,12 +14,14 @@ var mailer=require('./mailing');
 var moment = require('moment');
 var bcrypt = require('crypto-browserify');
 var randomstring = require("randomstring");
+var config=require('./passport_config.json');
 
 module.exports = function(passport,nev) {
     passport.serializeUser(function (user, done) {
         done(null, {email: user.email, seller_check: user.seller_check, mid: user._id});
     });
     passport.deserializeUser(function (user, done) {
+
         done(null, user);
     });
 
@@ -82,4 +88,135 @@ module.exports = function(passport,nev) {
             });
         })
     );
+
+    passport.use('LoginKakao',new KakaoStrategy({
+            clientID : config.kakao.clientID,
+            callbackURL : config.kakao.callbackURL
+        },
+        function(accessToken, refreshToken, profile, done){
+            var email = JSON.parse(profile._raw);
+            console.log(email);
+            console.log(typeof(email));
+            Member.findOne({'email': email.kaccount_email}, function (err, member) {
+                if (err)
+                    return done(err);
+                else if (!member){
+                    var user = new Member();
+                    user.first_name = "";
+                    // console.log(profile);
+                    // console.log(profile._raw);
+                    // console.log(typeof(profile._raw));
+                    // console.log(profile._raw['account_email']);
+                    user.last_name = profile.username;
+                    user.email = email.kaccount_email;
+                    user.kakao.id=profile.id;
+                    user.provider = "kakao";
+
+
+                    user.save(function (err) {
+                        if (err)
+                            throw err;
+                        return done(null,user);
+                    });
+                }
+                else{
+                    if (member.provider === "kakao")
+                        return done(null, member);
+                    if (member.provider === "local")
+                        return done(null, false, {error: '저희 사이트를 통해 가입하신분입니다. 정보를 입력하여 로그인해주세요.'});
+                    if (member.provider === "google")
+                        return done(null, false, {error: '구글로그인서비스를 통하여 가입된 회원입니다. 옆의 구글로그인 버튼으로 로그인해주세요.'});
+                    if (member.provider === "naver")
+                        return done(null, false, {error: '네이버로그인서비스를 통하여 가입된 회원입니다. 옆의 네이버로그인 버튼으로 로그인해주세요.'});
+                }
+            });
+        }
+    ));
+
+    passport.use('LoginNaver',new NaverStrategy({
+            clientID: config.naver.clientID,
+            clientSecret: config.naver.clientSecret,
+            callbackURL: config.naver.callbackURL
+        },
+        function(accessToken, refreshToken, profile, done){
+            console.log(profile);
+            Member.findOne({'email': profile.emails[0].value}, function (err, member) {
+                if (err)
+                    return done(err);
+                else if (!member){
+
+                    var user = new Member();
+                    user.first_name = "";
+                    user.last_name = profile.displayName;
+                    user.email=profile.emails[0].value;
+                    user.naver.id=profile.id;
+                    user.provider = "naver";
+
+
+                    user.save(function (err) {
+                        if (err)
+                            throw err;
+                        return done(null,user);
+                    });
+                }
+                else{
+                    if (member.provider === "naver")
+                        return done(null, member);
+                    if (member.provider === "local")
+                        return done(null, false, {error: '저희 사이트를 통해 가입하신분입니다. 정보를 입력하여 로그인해주세요.'});
+                    if (member.provider === "google")
+                        return done(null, false, {error: '구글로그인서비스를 통하여 가입된 회원입니다. 옆의 구글로그인 버튼으로 로그인해주세요.'});
+                    if (member.provider === "kakao")
+                        return done(null, false, {error: '카카오로그인서비스를 통하여 가입된 회원입니다. 옆의 카카오로그인 버튼으로 로그인해주세요.'});
+                }
+            });
+            console.log(profile);
+        }
+    ));
+
+
+    passport.use('LoginGoogle', new GoogleStrategy({
+            clientID: config.google.clientID,
+            clientSecret: config.google.clientSecret,
+            callbackURL: config.google.callbackURL
+        },
+        function(accessToken, refreshToken, profile, done) {
+        console.log(profile);
+            // asynchronous verification, for effect...
+            Member.findOne({'email': profile.emails[0].value}, function (err, member) {
+                if (err)
+                    return done(err);
+                else if (!member){
+
+                    var user = new Member();
+                    user.first_name = profile.name.givenName;
+                    user.last_name = profile.name.familyName;
+                    user.email=profile.emails[0].value;
+                    user.google.id=profile.id;
+                    user.provider = "google";
+
+                    console.log('ff');
+                    user.save(function (err) {
+                        if (err)
+                            throw err;
+                        return done(null,user);
+                    });
+                }
+                else{
+                    if (member.provider === "google")
+                        return done(null, member);
+                    if (member.provider === "local")
+                        return done(null, false, {error: '저희 사이트를 통해 가입하신분입니다. 정보를 입력하여 로그인해주세요.'});
+                    if (member.provider === "naver")
+                        return done(null, false, {error: '네이버로그인서비스를 통하여 가입된 회원입니다. 옆의 네이버로그인 버튼으로 로그인해주세요.'});
+                    if (member.provider === "kakao")
+                        return done(null, false, {error: '카카오로그인서비스를 통하여 가입된 회원입니다. 옆의 카카오로그인 버튼으로 로그인해주세요.'});
+                }
+            });
+            console.log(profile);
+
+
+        }
+    ));
+
 };

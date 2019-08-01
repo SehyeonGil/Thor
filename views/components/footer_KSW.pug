@@ -1,74 +1,48 @@
 //
    Created by SW on 2018-06-08.
-
 //
   ============================
   =            Footer            =
   =============================
-footer.footer.section.section-sm.w3-col.m12.l12(style='position: relative; z-index: 2')
+footer.footer.section-sm.w3-col.m12.l12(style='position: relative; z-index: 2;')
     // Container Start
     .container-fluid
         .row
-            .col-lg-3.col-md-7.offset-md-1.offset-lg-0
+            .col-lg-10.offset-lg-1.col-md-10.offset-md-1.col-sm-12
                 // About
-                .block.about
-                    // footer logo
-                    a(href='#')
-                        img(src='../img/home/thorLogo.png', alt='Logo')
-                    // description
-                    p.alt-color
-                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                .block
                     // terms list
                     ul.terms-list.list-inline
-                        li.list-inline-item
-                            a(href='#') About
-                        li.list-inline-item
-                            a(href='#') Terms of Use
-                        li.list-inline-item
-                            a(href='#') Privacy Policy
-            // Link list
-            .col-lg-2.offset-lg-1.col-md-3
+                        li.list-inline-item(style='margin-right: 100px;')
+                            a(href='#')
+                                img(src='../img/home/logo.png', alt='Logo')
+                        li.list-inline-item(style='margin: 20px 10px;')
+                            a(href='#') 회사 소개
+                        | |
+                        li.list-inline-item(style='margin: 20px 10px;')
+                            a(href='#') 이용 방법
+                        | |
+                        li.list-inline-item(style='margin: 20px 10px;')
+                            a(href='#') 개인정보 처리방침
                 .block
-                    h4 Site Pages
-                    ul
-                        li
-                            a(href='#') Boston
-                        li
-                            a(href='#') How It works
-                        li
-                            a(href='#') Deals & Coupons
-                        li
-                            a(href='#') Articls & Tips
-                        li
-                            a(href='#') Terms of Services
-            // Link list
-            .col-lg-2.col-md-3.offset-md-1.offset-lg-0
+                    ul.row.nav.justify-content-start.top-menu.col-12(style='margin:0;')
+                        li.col-lg-2.col-md-6.col-sm-12.nav-item
+                            a.nav-content · Ezcoook
+                        li#representation.col-lg-2.col-md-6.col-sm-12.nav-item
+                            a.nav-content · 대표자 : 길세현 대표
+                        li.col-lg-3.col-md-6.col-sm-12.nav-item
+                            a.nav-content · 연락처 : 010-1234-5678
+                        li.col-lg-3.col-md-6.col-sm-12.nav-item
+                            a.nav-content · 개인정보관리책임자 : 권순우
                 .block
-                    h4 Admin Pages
-                    ul
-                        li
-                            a(href='#') Boston
-                        li
-                            a(href='#') How It works
-                        li
-                            a(href='#') Deals & Coupons
-                        li
-                            a(href='#') Articls & Tips
-                        li
-                            a(href='#') Terms of Services
-            // Promotion
-            .col-lg-4.col-md-7
-                // App promotion
-                .block-2.app-promotion
-                    a(href='#')
-                        // Icon
-                        img(src='../img/footer/phone-icon.png', alt='mobile-icon')
-                    p Get the Dealsy Mobile App and Save more
-                // Dsicount Coupon
-                .block-2.discount-coupon
-                    p
-                        a(href='#') Join Thor
-                        |  and Submit your Coupon with
-                        a(href='#') 124563 user
-                        |  daily
-    // Container End
+                    ul.row.nav.justify-content-start.top-menu(style='margin:0;')
+                        li.col-lg-12.col-md-12.col-sm-12.nav-item
+                            a.nav-content 충북 청주시 서원구 충대로 1 충북대학교 E8-1  
+                        // <li class="col-lg-4 col-md-12 col-sm-12 nav-item">
+                        // <a class="nav-content">개인정보관리책임자 : 김영수</a>
+                        // </li>
+                        // Copylight
+                        .block(style='margin-bottom:15px;')
+                            ul.row.nav.justify-content-start.top-menu(style='margin:0;')
+                                li.col-lg-12.col-md-12.col-sm-12.nav-item
+                                    a.nav-content COPYRIGHTⓒ2018 Ezcoook ALL RIGHT RESERVED.

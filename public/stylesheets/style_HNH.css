@@ -546,6 +546,19 @@ button {
   font-weight: bold;
   border-radius: 3px;
 }
+.select-btn{
+  font-size: 15px;
+  height: 30px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 15px 30px;
+  vertical-align: middle;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 3px;
+  line-height: 7px;
+}
 .btn-start{
     width: 200px;
     height: 200px;
@@ -820,6 +833,13 @@ input {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+.bg-9 {
+  background: url(../img/register_member/member.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 700px;
 }
 .border-bottom {
   border-bottom: 1px solid #ebe9e9;
@@ -3111,7 +3131,7 @@ article.single-post p {
 }
 
 .footer {
-  padding-top: 120px;
+  padding: 50px 0 30px 0;
   background: #3C3E40;
 }
 
@@ -3229,6 +3249,11 @@ article.single-post p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.footer .block ul .nav-content:hover {
+  color: #c7c7c7;
+  text-decoration: none;
 }
 
 .footer-bottom .top-to a {
